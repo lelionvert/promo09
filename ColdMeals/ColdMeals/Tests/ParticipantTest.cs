@@ -1,6 +1,8 @@
 using System;
 using NUnit.Framework;
 using FluentAssertions;
+using ColdMeals.Core;
+
 namespace Tests
 {
     public class ParticipantTest
@@ -25,7 +27,7 @@ namespace Tests
         {
             Participant participant = new Participant("Florian", new DateTime(2019, 11, 18, 17, 00, 00));
 
-            bool result = participant.IsArrivingBefore21h();
+            bool result = participant.IsArrivingBeforeOrAt21h();
 
             result.Should().BeTrue();
         }
@@ -35,7 +37,7 @@ namespace Tests
         {
             Participant participant = new Participant("Florian", new DateTime(2019, 11, 18, 21, 00, 00));
 
-            bool result = participant.IsArrivingBefore21h();
+            bool result = participant.IsArrivingBeforeOrAt21h();
 
             result.Should().BeTrue();
         }

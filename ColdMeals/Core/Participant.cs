@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace Tests
+namespace ColdMeals.Core
 {
-    internal class Participant
+    public class Participant
     {
         private string _name;
         private DateTime _arrivedDate;
@@ -13,12 +13,12 @@ namespace Tests
             this._arrivedDate = arrivedDate;
         }
 
-        internal bool IsArrivingTheStartDay()
+        public bool IsArrivingTheStartDay()
         {
             return this._arrivedDate < new DateTime(2019, 11, 19);
         }
 
-        internal bool IsArrivingBefore21h()
+        public bool IsArrivingBeforeOrAt21h()
         {
             return _arrivedDate <= new DateTime(2019,11,18,21,00,00);
         }
