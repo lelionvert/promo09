@@ -5,11 +5,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class ColdMealsTest {
     @Test
     public void zero_participant_return_zero_cold_meal() {
+        int result = SocratesOrga.countColdMeals();
 
-        SocratesOrga socratesOrga = new SocratesOrga();
-        int result = socratesOrga.countColdMeals();
         assertThat(result).isEqualTo(0);
     }
-
-
 }

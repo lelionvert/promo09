@@ -1,5 +1,5 @@
-public class SocratesOrga {
-    public int countColdMeals() {
+class SocratesOrga {
+    static int countColdMeals() {
         return 0;
     }
 }
