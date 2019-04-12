@@ -17,7 +17,7 @@ namespace SocratesFranceTest
         }
 
         [TestMethod]
-        public void OneDateThursday()
+        public void OneDateThursdayAtTwenty()
         {
             int participantNumber = ColdMeals.GetParticipantNumber(DayOfWeek.Thursday, 20);
 
