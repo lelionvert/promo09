@@ -2,9 +2,9 @@
 
 namespace SocratesFranceTest
 {
-    internal class ColdMeals
+    public class ColdMeals
     {
-        internal static int GetParticipantNumber()
+        public static int GetParticipantNumber()
         {
             return 0;
         }
