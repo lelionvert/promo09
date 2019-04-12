@@ -12,11 +12,15 @@ namespace ColdMeals.Core
             Participants = new List<Participant>();
         }
 
-        public void AddParticipant(string name, DateTime arrivedDate)
+        public void AddParticipant(string name, DateTime? arrivedDate)
         {
             Participant participant = Participant.CreateParticipant(name, arrivedDate);
-            //Participant participant = new Participant(name, arrivedDate);
             Participants.Add(participant);
+        }
+
+        public int CountNumberOfColdMeats()
+        {
+            return 0;
         }
     }
 }
