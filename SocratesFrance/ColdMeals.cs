@@ -9,17 +9,12 @@ namespace SocratesFrance
             return 0;
         }
 
-        public static int GetParticipantNumber(DayOfWeek thursday, int hour)
+        public static int GetParticipantNumber(DayOfWeek day, int hour)
         {
-            if(hour >= 21)
+            if (day == DayOfWeek.Thursday && hour >= 21)
             {
                 return 1;
             }
-            return GetParticipantNumber();
-        }
-
-        public static int GetParticipantNumber(DayOfWeek friday)
-        {
             return GetParticipantNumber();
         }
     }

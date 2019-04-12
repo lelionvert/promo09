@@ -47,7 +47,7 @@ namespace SocratesFranceTest
         [TestMethod]
         public void OneDateFriday()
         {
-            int participantNumber = ColdMeals.GetParticipantNumber(DayOfWeek.Friday);
+            int participantNumber = ColdMeals.GetParticipantNumber(DayOfWeek.Friday,0);
 
             int expected = 0;
             participantNumber.Should().Be(expected);
@@ -55,7 +55,7 @@ namespace SocratesFranceTest
         [TestMethod]
         public void OneDateSaturday()
         {
-            int participantNumber = ColdMeals.GetParticipantNumber(DayOfWeek.Saturday);
+            int participantNumber = ColdMeals.GetParticipantNumber(DayOfWeek.Saturday,0);
 
             int expected = 0;
             participantNumber.Should().Be(expected);
