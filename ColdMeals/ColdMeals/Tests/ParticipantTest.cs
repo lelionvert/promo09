@@ -18,13 +18,13 @@ namespace Tests
         }
 
         [Test]
-        public void Participant_who_arrive_before_twenty_one_hour_return_true()
+        public void Participant_who_arrive_before_twenty_one_hour_return_false()
         {
             Participant participant = Participant.CreateParticipant("Florian", new DateTime(2019, 11, 18, 17, 00, 00));
 
-            bool result = participant.IsArrivingBeforeOrAt21h();
+            bool result = participant.IsArrivingAfter21hTheStartDay();
 
-            result.Should().BeTrue();
+            result.Should().BeFalse();
         }
 
         [Test]
@@ -52,7 +52,7 @@ namespace Tests
         {
             Participant participant = Participant.CreateParticipant("Florian", new DateTime(2019, 11, 18, 21, 00, 00));
 
-            bool result = participant.IsArrivingBeforeOrAt21h();
+            bool result = participant.IsArrivingAfter21hTheStartDay();
 
             result.Should().BeTrue();
         }
