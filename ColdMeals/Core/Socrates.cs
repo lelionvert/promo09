@@ -4,10 +4,13 @@ namespace ColdMeals.Core
 {
     public class Socrates
     {
-        public List<Participant> Participants { get; set; }
+        public readonly List<Participant> Participants;
+
         public Socrates()
         {
             Participants = new List<Participant>();
         }
+
+
     }
 }

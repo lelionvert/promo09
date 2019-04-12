@@ -16,7 +16,6 @@ namespace Tests
         public void Participant_list_is_not_null()
         {
             Socrates socrates = new Socrates();
-
             socrates.Participants.Should().NotBeNull();
         }
 
