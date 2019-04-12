@@ -7,10 +7,6 @@ namespace Tests
 {
     public class SocratesTest
     {
-        //[SetUp]
-        //public void Setup()
-        //{
-        //}
 
         [Test]
         public void Participant_list_is_not_null()
@@ -20,16 +16,12 @@ namespace Tests
         }
 
         [Test]
-        public void Add_participant_to_the_participantlist_return_not_null_or_empty_list()
+        public void Add_participant_to_the_participant_list_return_not_null_or_empty_list()
         {
             Socrates socrates = new Socrates();
 
             socrates.AddParticipant("Sandy", new DateTime(2019, 11, 18, 18, 00, 00));
             socrates.Participants.Should().NotBeNullOrEmpty();
         }
-
-
-
-
     }
 }

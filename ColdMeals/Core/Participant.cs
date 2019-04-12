@@ -7,7 +7,12 @@ namespace ColdMeals.Core
         private string _name;
         private DateTime _arrivedDate;
 
-        public Participant(string name, DateTime arrivedDate)
+        public static Participant CreateParticipant(string name, DateTime arrivedDate)
+        {
+            return new Participant(name, arrivedDate);
+        }
+
+        private Participant(string name, DateTime arrivedDate)
         {
             this._name = name;
             this._arrivedDate = arrivedDate;
