@@ -20,7 +20,7 @@ namespace Tests
 
         internal bool IsArrivingBefore21h()
         {
-            return true;
+            return _arrivedDate <= new DateTime(2019,11,18,21,00,00);
         }
     }
 }
