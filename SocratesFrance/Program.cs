@@ -6,7 +6,8 @@ namespace SocratesFrance
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("Cas aucune date : " + ColdMeals.GetParticipantNumber() + " participant" );
+            Console.ReadKey();
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SocratesFranceTest
+namespace SocratesFrance
 {
     public class ColdMeals
     {
