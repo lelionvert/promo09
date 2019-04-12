@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace ColdMeals.Core
 {
@@ -11,6 +12,10 @@ namespace ColdMeals.Core
             Participants = new List<Participant>();
         }
 
-
+        public void AddParticipant(string v, DateTime dateTime)
+        {
+            Participant participant = new Participant(v, dateTime);
+            Participants.Add(participant);
+        }
     }
 }
