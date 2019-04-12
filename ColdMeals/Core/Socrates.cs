@@ -18,7 +18,7 @@ namespace ColdMeals.Core
             Participants.Add(participant);
         }
 
-        public int CountNumberOfColdMeats()
+        public int CountNumberOfColdMeals()
         {
             int count = 0;
             foreach (Participant participant in Participants)
