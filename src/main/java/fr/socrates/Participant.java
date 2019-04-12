@@ -1,13 +1,16 @@
 package fr.socrates;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 class Participant {
 
-    private final LocalDate checkInDate;
+    private final LocalDateTime checkInDate;
 
-    public Participant(LocalDate checkInDate) {
+    Participant(LocalDateTime checkInDate) {
         this.checkInDate = checkInDate;
     }
 
+    public LocalDateTime getCheckInDate() {
+        return checkInDate;
+    }
 }
