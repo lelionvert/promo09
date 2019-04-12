@@ -35,14 +35,11 @@ namespace SocratesFrance
 
         public static int GetParticipantNumber(CheckIn checkIn1, CheckIn checkIn2)
         {
-            if(checkIn1.Day == DayOfWeek.Friday)
-            {
-                return GetParticipantNumber();
-            }
-            if(checkIn1.Hour >= 21)
+            if(checkIn1.Day == DayOfWeek.Thursday && checkIn1.Hour >= 21)
             {
                 return 1;
             }
+
             if (checkIn2.Day == DayOfWeek.Thursday && checkIn2.Hour >= 21)
             {
                 return 1;
