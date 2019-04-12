@@ -8,5 +8,10 @@ namespace SocratesFranceTest
         {
             return 0;
         }
+
+        internal static int GetParticipantNumber(DayOfWeek thursday, int v)
+        {
+            return 0;
+        }
     }
 }

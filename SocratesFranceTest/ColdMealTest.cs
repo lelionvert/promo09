@@ -15,5 +15,15 @@ namespace SocratesFranceTest
             int expected = 0;
             participantNumber.Should().Be(expected);
         }
+
+        [TestMethod]
+        public void OneDateThursday()
+        {
+            int participantNumber = ColdMeals.GetParticipantNumber(DayOfWeek.Thursday, 20);
+
+            int expected = 0;
+            participantNumber.Should().Be(expected);
+        }
     }
+
 }
