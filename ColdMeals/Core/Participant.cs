@@ -27,5 +27,11 @@ namespace ColdMeals.Core
         {
             return _arrivedDate <= new DateTime(2019,11,18,21,00,00);
         }
+
+        public bool IsArrivingAfter21hTheStartDay()
+        {
+            return _arrivedDate >= new DateTime(2019, 11, 18, 21, 00, 00) && IsArrivingTheStartDay();
+        }
     }
+
 }

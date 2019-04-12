@@ -20,7 +20,12 @@ namespace ColdMeals.Core
 
         public int CountNumberOfColdMeats()
         {
-            return 0;
+            int count = 0;
+            foreach (Participant participant in Participants)
+            {
+                if (participant.IsArrivingAfter21hTheStartDay()) count++;
+            }
+            return count;
         }
     }
 }
