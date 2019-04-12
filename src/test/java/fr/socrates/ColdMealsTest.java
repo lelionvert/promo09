@@ -40,7 +40,6 @@ public class ColdMealsTest {
         Participant participant = new Participant(date);
         participants.add(participant);
 
-
         int result = countColdMeals(participants);
 
         assertThat(result).isEqualTo(1);
