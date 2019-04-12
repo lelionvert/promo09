@@ -9,13 +9,13 @@ namespace SocratesFranceTest
             return 0;
         }
 
-        public static int GetParticipantNumber(DayOfWeek thursday, int v)
+        public static int GetParticipantNumber(DayOfWeek thursday, int hour)
         {
-            if(v == 21)
+            if(hour == 21)
             {
                 return 1;
             }
-            return 0;
+            return GetParticipantNumber();
         }
     }
 }

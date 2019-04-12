@@ -32,7 +32,6 @@ namespace SocratesFranceTest
 
             int expected = 1;
             participantNumber.Should().Be(expected);
-
         }
     }
 
