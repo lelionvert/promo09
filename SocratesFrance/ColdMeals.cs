@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace SocratesFrance
 {
@@ -19,37 +20,17 @@ namespace SocratesFrance
             public int Hour { get => hour; private set => hour = value; }
         }
 
-        public static int GetParticipantNumber()
+        public static int GetParticipantNumber(List<CheckIn> checkIns)
         {
-            return 0;
-        }
-
-        public static int GetParticipantNumber(CheckIn checkIn)
-        {
-            if (checkIn.Day == DayOfWeek.Thursday && checkIn.Hour >= 21)
+            int participants = 0;
+            foreach (CheckIn checkIn in checkIns)
             {
-                return 1;
+                if (checkIn.Day == DayOfWeek.Thursday && checkIn.Hour >= 21)
+                {
+                    participants += 1;
+                }
             }
-            return GetParticipantNumber();
-        }
-
-        public static int GetParticipantNumber(CheckIn checkIn1, CheckIn checkIn2)
-        {
-            if(checkIn1.Day == DayOfWeek.Thursday && checkIn1.Hour == 21 && 
-                checkIn2.Day == DayOfWeek.Thursday && checkIn2.Hour == 21)
-            {
-                return 2;
-            }
-            if(checkIn1.Day == DayOfWeek.Thursday && checkIn1.Hour >= 21)
-            {
-                return 1;
-            }
-
-            if (checkIn2.Day == DayOfWeek.Thursday && checkIn2.Hour >= 21)
-            {
-                return 1;
-            }
-            return GetParticipantNumber();
+            return participants;
         }
     }
 }
