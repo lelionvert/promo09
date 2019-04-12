@@ -17,5 +17,10 @@ namespace SocratesFrance
             }
             return GetParticipantNumber();
         }
+
+        public static int GetParticipantNumber(DayOfWeek friday)
+        {
+            return GetParticipantNumber();
+        }
     }
 }
