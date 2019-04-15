@@ -11,10 +11,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class ColdMealsTest {
     private static final LocalDateTime COLD_MEALS_START = LocalDateTime.of(2019, 4, 18, 21, 0);
+    private static final LocalDateTime COLD_MEALS_END = LocalDateTime.of(2019, 4, 19, 0, 0);
 
     @Test
     public void zero_participant_return_zero_cold_meal() {
-        SocratesOrganization socrates = new SocratesOrganization(COLD_MEALS_START);
+        SocratesOrganization socrates = new SocratesOrganization(COLD_MEALS_START, COLD_MEALS_END);
         List<Participant> participants = Collections.emptyList();
 
         long result = socrates.countColdMeals(participants);
@@ -24,7 +25,7 @@ public class ColdMealsTest {
 
     @Test
     public void one_participant_without_checkIn_date_return_zero() {
-        SocratesOrganization socrates = new SocratesOrganization(COLD_MEALS_START);
+        SocratesOrganization socrates = new SocratesOrganization(COLD_MEALS_START, COLD_MEALS_END);
         List<Participant> participants = new ArrayList<>();
         Participant participant = new Participant();
 
@@ -37,7 +38,7 @@ public class ColdMealsTest {
 
     @Test
     public void one_participant_after_cold_meals_start_time_return_one() {
-        SocratesOrganization socrates = new SocratesOrganization(COLD_MEALS_START);
+        SocratesOrganization socrates = new SocratesOrganization(COLD_MEALS_START, COLD_MEALS_END);
         List<Participant> participants = new ArrayList<>();
         LocalDateTime date = LocalDateTime.of(2019, 4, 18, 22, 9);
         Participant participant = new Participant(date);
@@ -50,7 +51,7 @@ public class ColdMealsTest {
 
     @Test
     public void two_participant_after_cold_meals_start_time_return_two() {
-        SocratesOrganization socrates = new SocratesOrganization(COLD_MEALS_START);
+        SocratesOrganization socrates = new SocratesOrganization(COLD_MEALS_START, COLD_MEALS_END);
         List<Participant> participants = new ArrayList<>();
         LocalDateTime date1 = LocalDateTime.of(2019, 4, 18, 22, 9);
         LocalDateTime date2 = LocalDateTime.of(2019, 4, 18, 23, 9);
@@ -66,7 +67,7 @@ public class ColdMealsTest {
 
     @Test
     public void one_participant_before_cold_meals_start_time_return_zero() {
-        SocratesOrganization socrates = new SocratesOrganization(COLD_MEALS_START);
+        SocratesOrganization socrates = new SocratesOrganization(COLD_MEALS_START, COLD_MEALS_END);
         List<Participant> participants = new ArrayList<>();
         LocalDateTime date = LocalDateTime.of(2019, 4, 18, 18, 9);
         Participant participant = new Participant(date);
@@ -79,8 +80,7 @@ public class ColdMealsTest {
 
     @Test
     public void one_participant_after_the_cold_meals_end_day_return_0() {
-        LocalDateTime coldMealsEnd = LocalDateTime.of(2019, 4, 19, 0, 0);
-        SocratesOrganization socrates = new SocratesOrganization(COLD_MEALS_START, coldMealsEnd);
+        SocratesOrganization socrates = new SocratesOrganization(COLD_MEALS_START, COLD_MEALS_END);
         List<Participant> participants = new ArrayList<>();
         LocalDateTime date = LocalDateTime.of(2019, 4, 19, 22, 9);
         Participant participant = new Participant(date);

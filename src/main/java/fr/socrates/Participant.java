@@ -18,4 +18,11 @@ class Participant {
     Optional<LocalDateTime> getCheckInDate() {
         return checkInDate;
     }
+
+    @Override
+    public String toString() {
+        return "Participant{" +
+                "checkInDate=" + checkInDate +
+                '}';
+    }
 }
