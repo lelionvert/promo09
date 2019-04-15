@@ -12,7 +12,7 @@ namespace Tests
         {
             Participant participant = Participant.CreateParticipant("Florian", new DateTime(2019,11,18,17,00,00));
 
-            bool result = participant.IsArrivingTheStartDay();
+            bool result = participant.IsArrivingTheStartDay(new DateTime(2019, 11, 18, 21, 00, 00));
 
             result.Should().BeTrue();
         }

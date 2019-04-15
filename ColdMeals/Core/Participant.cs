@@ -18,14 +18,14 @@ namespace ColdMeals.Core
             this._arrivedDate = arrivedDate;
         }
 
-        public bool IsArrivingTheStartDay()
+        public bool IsArrivingTheStartDay(DateTime startedDate)
         {
-            return this._arrivedDate < new DateTime(2019, 11, 19);
+            return this._arrivedDate < startedDate.Date.AddDays(1);
         }
 
         public bool IsArrivingAfter21hTheStartDay(DateTime startedDate)
         {
-            return _arrivedDate >= startedDate && IsArrivingTheStartDay();
+            return _arrivedDate >= startedDate && IsArrivingTheStartDay(startedDate);
         }
     }
 
