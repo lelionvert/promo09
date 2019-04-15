@@ -12,9 +12,7 @@ namespace SocratesFrance
 
         public bool HasCheckin()
         {
-            if (checkIn != null)
-                return true;
-            return false;
+            return checkIn != null;
         }
     }
 }
