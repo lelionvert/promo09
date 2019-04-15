@@ -64,4 +64,17 @@ public class ColdMealsTest {
 
         assertThat(result).isEqualTo(2);
     }
+
+    @Test
+    public void one_participant_before_cold_meals_start_time_return_zero() {
+        SocratesOrganization socrates = new SocratesOrganization(COLD_MEALS_START);
+        List<Participant> participants = new ArrayList<>();
+        LocalDateTime date = LocalDateTime.of(2019, 4, 18, 18, 9);
+        Participant participant = new Participant(date);
+        participants.add(participant);
+
+        long result = socrates.countColdMeals(participants);
+
+        assertThat(result).isEqualTo(0);
+    }
 }
