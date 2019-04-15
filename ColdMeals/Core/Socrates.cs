@@ -16,8 +16,8 @@ namespace ColdMeals.Core
 
         public void AddCheckin(DateTime? arrivedDate)
         {
-            Checkin participant = Checkin.CreateCheckin( arrivedDate);
-            Checkins.Add(participant);
+            Checkin checkin = Checkin.CreateCheckin(arrivedDate);
+            Checkins.Add(checkin);
         }
 
         public int CountNumberOfColdMeals()

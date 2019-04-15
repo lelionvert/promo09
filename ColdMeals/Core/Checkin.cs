@@ -13,7 +13,7 @@ namespace ColdMeals.Core
 
         private Checkin(DateTime? arrivedDate)
         {
-            this._arrivedDate = arrivedDate;
+            _arrivedDate = arrivedDate;
         }
 
         public bool IsArrivingTheStartDay(DateTime startedDate)
