@@ -40,8 +40,7 @@ public class ColdMealsTest {
     public void one_participant_after_cold_meals_start_time_return_one() {
         SocratesOrganization socrates = new SocratesOrganization(COLD_MEALS_START, COLD_MEALS_END);
         List<Participant> participants = new ArrayList<>();
-        LocalDateTime date = LocalDateTime.of(2019, 4, 18, 22, 9);
-        Participant participant = new Participant(date);
+        Participant participant = new Participant(COLD_MEALS_START.plusHours(1));
         participants.add(participant);
 
         long result = socrates.countColdMeals(participants);
@@ -53,10 +52,8 @@ public class ColdMealsTest {
     public void two_participant_after_cold_meals_start_time_return_two() {
         SocratesOrganization socrates = new SocratesOrganization(COLD_MEALS_START, COLD_MEALS_END);
         List<Participant> participants = new ArrayList<>();
-        LocalDateTime date1 = LocalDateTime.of(2019, 4, 18, 22, 9);
-        LocalDateTime date2 = LocalDateTime.of(2019, 4, 18, 23, 9);
-        Participant participant1 = new Participant(date1);
-        Participant participant2 = new Participant(date2);
+        Participant participant1 = new Participant(COLD_MEALS_START.plusHours(1));
+        Participant participant2 = new Participant(COLD_MEALS_START.plusHours(2));
         participants.add(participant1);
         participants.add(participant2);
 
@@ -69,8 +66,7 @@ public class ColdMealsTest {
     public void one_participant_before_cold_meals_start_time_return_zero() {
         SocratesOrganization socrates = new SocratesOrganization(COLD_MEALS_START, COLD_MEALS_END);
         List<Participant> participants = new ArrayList<>();
-        LocalDateTime date = LocalDateTime.of(2019, 4, 18, 18, 9);
-        Participant participant = new Participant(date);
+        Participant participant = new Participant(COLD_MEALS_START.minusHours(3));
         participants.add(participant);
 
         long result = socrates.countColdMeals(participants);
@@ -82,8 +78,7 @@ public class ColdMealsTest {
     public void one_participant_after_the_cold_meals_end_day_return_0() {
         SocratesOrganization socrates = new SocratesOrganization(COLD_MEALS_START, COLD_MEALS_END);
         List<Participant> participants = new ArrayList<>();
-        LocalDateTime date = LocalDateTime.of(2019, 4, 19, 22, 9);
-        Participant participant = new Participant(date);
+        Participant participant = new Participant(COLD_MEALS_START.plusDays(1).plusHours(1));
         participants.add(participant);
 
         long result = socrates.countColdMeals(participants);
