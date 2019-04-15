@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CheckIn.cs" />
+    <Compile Include="CheckIns.cs" />
     <Compile Include="ColdMeals.cs" />
     <Compile Include="Participant.cs" />
     <Compile Include="Program.cs" />

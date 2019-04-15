@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace SocratesFrance
 {
@@ -8,22 +6,18 @@ namespace SocratesFrance
     {
         DayOfWeek startingDay;
         int startingHour;
+        CheckIns checkIns;
 
-        public ColdMeals(DayOfWeek startingDay, int startingHour)
+        public ColdMeals(DayOfWeek startingDay, int startingHour, CheckIns checkIns)
         {
             this.startingDay = startingDay;
             this.startingHour = startingHour;
+            this.checkIns = checkIns;
         }
 
-        public int GetNumber(List<CheckIn> checkIns)
+        public int Count()
         {
-            return GetElligibleCheckIns(checkIns).Count();
-        }
-
-        private IEnumerable<CheckIn> GetElligibleCheckIns(List<CheckIn> checkIns)
-        {
-            return checkIns.Where(checkIn => 
-            checkIn.IsLaterTheSameDay(startingDay, startingHour));
+            return checkIns.CountSameDayAfter(startingDay,startingHour);
         }
     }
 }

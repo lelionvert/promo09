@@ -24,7 +24,5 @@ namespace SocratesFranceTest
 
             participant.HasCheckin().Should().BeTrue();
         }
-
-
     }
 }

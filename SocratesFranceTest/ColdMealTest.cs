@@ -12,10 +12,10 @@ namespace SocratesFranceTest
         [TestMethod]
         public void ZeroDateReturnZeroParticipant()
         {
-            List<CheckIn> checkIns = new List<CheckIn>();
+            CheckIns checkIns = new CheckIns();
 
-            ColdMeals coldMeals = new ColdMeals(DayOfWeek.Thursday,21);
-            int participantNumber = coldMeals.GetNumber(checkIns);
+            ColdMeals coldMeals = new ColdMeals(DayOfWeek.Thursday,21,checkIns);
+            int participantNumber = coldMeals.Count();
 
             int expected = 0;
             participantNumber.Should().Be(expected);
@@ -25,11 +25,11 @@ namespace SocratesFranceTest
         public void OneDateThursdayAtTwenty()
         {
             CheckIn checkIn = new CheckIn(DayOfWeek.Thursday, 20);
-            List<CheckIn> checkIns = new List<CheckIn>();
+            CheckIns checkIns = new CheckIns();
             checkIns.Add(checkIn);
 
-            ColdMeals coldMeals = new ColdMeals(DayOfWeek.Thursday,21);
-            int participantNumber = coldMeals.GetNumber(checkIns);
+            ColdMeals coldMeals = new ColdMeals(DayOfWeek.Thursday,21,checkIns);
+            int participantNumber = coldMeals.Count();
 
             int expected = 0;
             participantNumber.Should().Be(expected);
@@ -39,11 +39,11 @@ namespace SocratesFranceTest
         public void OneDateThursdayAtTwentyOne()
         {
             CheckIn checkIn = new CheckIn(DayOfWeek.Thursday, 21);
-            List<CheckIn> checkIns = new List<CheckIn>();
+            CheckIns checkIns = new CheckIns();
             checkIns.Add(checkIn);
 
-            ColdMeals coldMeals = new ColdMeals(DayOfWeek.Thursday,21);
-            int participantNumber = coldMeals.GetNumber(checkIns);
+            ColdMeals coldMeals = new ColdMeals(DayOfWeek.Thursday,21,checkIns);
+            int participantNumber = coldMeals.Count();
 
             int expected = 1;
             participantNumber.Should().Be(expected);
@@ -53,11 +53,11 @@ namespace SocratesFranceTest
         public void OneDateThursdayAtTwentyTwo()
         {
             CheckIn checkIn = new CheckIn(DayOfWeek.Thursday, 22);
-            List<CheckIn> checkIns = new List<CheckIn>();
+            CheckIns checkIns = new CheckIns();
             checkIns.Add(checkIn);
 
-            ColdMeals coldMeals = new ColdMeals(DayOfWeek.Thursday,21);
-            int participantNumber = coldMeals.GetNumber(checkIns);
+            ColdMeals coldMeals = new ColdMeals(DayOfWeek.Thursday,21,checkIns);
+            int participantNumber = coldMeals.Count();
 
             int expected = 1;
             participantNumber.Should().Be(expected);
@@ -67,11 +67,11 @@ namespace SocratesFranceTest
         public void OneDateFriday()
         {
             CheckIn checkIn = new CheckIn(DayOfWeek.Friday, 0);
-            List<CheckIn> checkIns = new List<CheckIn>();
+            CheckIns checkIns = new CheckIns();
             checkIns.Add(checkIn);
 
-            ColdMeals coldMeals = new ColdMeals(DayOfWeek.Thursday,21);
-            int participantNumber = coldMeals.GetNumber(checkIns);
+            ColdMeals coldMeals = new ColdMeals(DayOfWeek.Thursday,21,checkIns);
+            int participantNumber = coldMeals.Count();
 
             int expected = 0;
             participantNumber.Should().Be(expected);
@@ -81,11 +81,11 @@ namespace SocratesFranceTest
         public void OneDateSaturday()
         {
             CheckIn checkIn = new CheckIn(DayOfWeek.Saturday, 0);
-            List<CheckIn> checkIns = new List<CheckIn>();
+            CheckIns checkIns = new CheckIns();
             checkIns.Add(checkIn);
 
-            ColdMeals coldMeals = new ColdMeals(DayOfWeek.Thursday,21);
-            int participantNumber = coldMeals.GetNumber(checkIns);
+            ColdMeals coldMeals = new ColdMeals(DayOfWeek.Thursday,21,checkIns);
+            int participantNumber = coldMeals.Count();
 
             int expected = 0;
             participantNumber.Should().Be(expected);
@@ -96,12 +96,12 @@ namespace SocratesFranceTest
         {
             CheckIn checkIn1 = new CheckIn(DayOfWeek.Thursday, 20);
             CheckIn checkIn2 = new CheckIn(DayOfWeek.Thursday, 20);
-            List<CheckIn> checkIns = new List<CheckIn>();
+            CheckIns checkIns = new CheckIns();
             checkIns.Add(checkIn1);
             checkIns.Add(checkIn2);
 
-            ColdMeals coldMeals = new ColdMeals(DayOfWeek.Thursday,21);
-            int participantNumber = coldMeals.GetNumber(checkIns);
+            ColdMeals coldMeals = new ColdMeals(DayOfWeek.Thursday,21,checkIns);
+            int participantNumber = coldMeals.Count();
 
             int expected = 0;
             participantNumber.Should().Be(expected);
@@ -112,12 +112,12 @@ namespace SocratesFranceTest
         {
             CheckIn checkIn1 = new CheckIn(DayOfWeek.Thursday, 20);
             CheckIn checkIn2 = new CheckIn(DayOfWeek.Thursday, 21);
-            List<CheckIn> checkIns = new List<CheckIn>();
+            CheckIns checkIns = new CheckIns();
             checkIns.Add(checkIn1);
             checkIns.Add(checkIn2);
 
-            ColdMeals coldMeals = new ColdMeals(DayOfWeek.Thursday,21);
-            int participantNumber = coldMeals.GetNumber(checkIns);
+            ColdMeals coldMeals = new ColdMeals(DayOfWeek.Thursday,21,checkIns);
+            int participantNumber = coldMeals.Count();
 
             int expected = 1;
             participantNumber.Should().Be(expected);
@@ -128,12 +128,12 @@ namespace SocratesFranceTest
         {
             CheckIn checkIn1 = new CheckIn(DayOfWeek.Thursday, 20);
             CheckIn checkIn2 = new CheckIn(DayOfWeek.Thursday, 22);
-            List<CheckIn> checkIns = new List<CheckIn>();
+            CheckIns checkIns = new CheckIns();
             checkIns.Add(checkIn1);
             checkIns.Add(checkIn2);
 
-            ColdMeals coldMeals = new ColdMeals(DayOfWeek.Thursday,21);
-            int participantNumber = coldMeals.GetNumber(checkIns);
+            ColdMeals coldMeals = new ColdMeals(DayOfWeek.Thursday,21,checkIns);
+            int participantNumber = coldMeals.Count();
 
             int expected = 1;
             participantNumber.Should().Be(expected);
@@ -144,12 +144,12 @@ namespace SocratesFranceTest
         {
             CheckIn checkIn1 = new CheckIn(DayOfWeek.Thursday, 20);
             CheckIn checkIn2 = new CheckIn(DayOfWeek.Friday, 22);
-            List<CheckIn> checkIns = new List<CheckIn>();
+            CheckIns checkIns = new CheckIns();
             checkIns.Add(checkIn1);
             checkIns.Add(checkIn2);
 
-            ColdMeals coldMeals = new ColdMeals(DayOfWeek.Thursday,21);
-            int participantNumber = coldMeals.GetNumber(checkIns);
+            ColdMeals coldMeals = new ColdMeals(DayOfWeek.Thursday,21,checkIns);
+            int participantNumber = coldMeals.Count();
 
             int expected = 0;
             participantNumber.Should().Be(expected);
@@ -160,12 +160,12 @@ namespace SocratesFranceTest
         {
             CheckIn checkIn1 = new CheckIn(DayOfWeek.Thursday, 21);
             CheckIn checkIn2 = new CheckIn(DayOfWeek.Thursday, 20);
-            List<CheckIn> checkIns = new List<CheckIn>();
+            CheckIns checkIns = new CheckIns();
             checkIns.Add(checkIn1);
             checkIns.Add(checkIn2);
 
-            ColdMeals coldMeals = new ColdMeals(DayOfWeek.Thursday,21);
-            int participantNumber = coldMeals.GetNumber(checkIns);
+            ColdMeals coldMeals = new ColdMeals(DayOfWeek.Thursday,21,checkIns);
+            int participantNumber = coldMeals.Count();
 
             int expected = 1;
             participantNumber.Should().Be(expected);
@@ -176,12 +176,12 @@ namespace SocratesFranceTest
         {
             CheckIn checkIn1 = new CheckIn(DayOfWeek.Friday, 22);
             CheckIn checkIn2 = new CheckIn(DayOfWeek.Thursday, 20);
-            List<CheckIn> checkIns = new List<CheckIn>();
+            CheckIns checkIns = new CheckIns();
             checkIns.Add(checkIn1);
             checkIns.Add(checkIn2);
 
-            ColdMeals coldMeals = new ColdMeals(DayOfWeek.Thursday,21);
-            int participantNumber = coldMeals.GetNumber(checkIns);
+            ColdMeals coldMeals = new ColdMeals(DayOfWeek.Thursday,21,checkIns);
+            int participantNumber = coldMeals.Count();
 
             int expected = 0;
             participantNumber.Should().Be(expected);
@@ -192,12 +192,12 @@ namespace SocratesFranceTest
         {
             CheckIn checkIn1 = new CheckIn(DayOfWeek.Thursday, 21);
             CheckIn checkIn2 = new CheckIn(DayOfWeek.Thursday, 21);
-            List<CheckIn> checkIns = new List<CheckIn>();
+            CheckIns checkIns = new CheckIns();
             checkIns.Add(checkIn1);
             checkIns.Add(checkIn2);
 
-            ColdMeals coldMeals = new ColdMeals(DayOfWeek.Thursday,21);
-            int participantNumber = coldMeals.GetNumber(checkIns);
+            ColdMeals coldMeals = new ColdMeals(DayOfWeek.Thursday,21,checkIns);
+            int participantNumber = coldMeals.Count();
 
             int expected = 2;
             participantNumber.Should().Be(expected);
@@ -210,13 +210,13 @@ namespace SocratesFranceTest
             CheckIn checkIn2 = new CheckIn(DayOfWeek.Thursday, 21);
             CheckIn checkIn3 = new CheckIn(DayOfWeek.Thursday, 21);
 
-            List<CheckIn> checkIns = new List<CheckIn>();
+            CheckIns checkIns = new CheckIns();
             checkIns.Add(checkIn1);
             checkIns.Add(checkIn2);
             checkIns.Add(checkIn3);
 
-            ColdMeals coldMeals = new ColdMeals(DayOfWeek.Thursday,21);
-            int participantNumber = coldMeals.GetNumber(checkIns);
+            ColdMeals coldMeals = new ColdMeals(DayOfWeek.Thursday,21,checkIns);
+            int participantNumber = coldMeals.Count();
 
             int expected = 3;
             participantNumber.Should().Be(expected);
