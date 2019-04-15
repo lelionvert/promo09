@@ -24,7 +24,6 @@ namespace ColdMeals.Core
             }
             bool isStartedDay = _arrivedDate.Value.Date == startedDate.Date ;
             return isStartedDay;
-            //return this._arrivedDate < startedDate.Date.AddDays(1);
         }
 
         public bool IsArrivingAfter21hTheStartDay(DateTime startedDate)
