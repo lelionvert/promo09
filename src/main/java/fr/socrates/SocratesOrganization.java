@@ -1,7 +1,7 @@
 package fr.socrates;
 
 import java.time.LocalDateTime;
-import java.util.List;
+import java.util.Arrays;
 import java.util.Optional;
 
 class SocratesOrganization {
@@ -14,8 +14,8 @@ class SocratesOrganization {
         this.coldMealsEndDateTime = coldMealsEnd;
     }
 
-    long countColdMeals(List<Participant> participants) {
-        return participants.stream()
+    long countColdMeals(Participant... participants) {
+        return Arrays.stream(participants)
                 .map(Participant::getCheckInDate)
                 .filter(Optional::isPresent)
                 .map(Optional::get)
