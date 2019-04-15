@@ -71,6 +71,7 @@ namespace SocratesFranceTest
             int expected = 0;
             participantNumber.Should().Be(expected);
         }
+
         [TestMethod]
         public void OneDateSaturday()
         {
@@ -144,7 +145,6 @@ namespace SocratesFranceTest
             participantNumber.Should().Be(expected);
         }
 
-
         [TestMethod]
         public void TwoDatesThursdayAtTwentyOneAndTwenty()
         {
@@ -174,9 +174,7 @@ namespace SocratesFranceTest
             int expected = 0;
             participantNumber.Should().Be(expected);
         }
-
-
-
+        
         [TestMethod]
         public void TwoDatesThursdayAtTwentyOneAndThursdayAtTwenty()
         {
@@ -189,6 +187,24 @@ namespace SocratesFranceTest
             int participantNumber = ColdMeals.GetParticipantNumber(checkIns);
 
             int expected = 2;
+            participantNumber.Should().Be(expected);
+        }
+
+        [TestMethod]
+        public void ThreeDatesThursdayAtTwentyOne()
+        {
+            ColdMeals.CheckIn checkIn1 = new ColdMeals.CheckIn(DayOfWeek.Thursday, 21);
+            ColdMeals.CheckIn checkIn2 = new ColdMeals.CheckIn(DayOfWeek.Thursday, 21);
+            ColdMeals.CheckIn checkIn3 = new ColdMeals.CheckIn(DayOfWeek.Thursday, 21);
+
+            List<ColdMeals.CheckIn> checkIns = new List<ColdMeals.CheckIn>();
+            checkIns.Add(checkIn1);
+            checkIns.Add(checkIn2);
+            checkIns.Add(checkIn3);
+
+            int participantNumber = ColdMeals.GetParticipantNumber(checkIns);
+
+            int expected = 3;
             participantNumber.Should().Be(expected);
         }
     }
