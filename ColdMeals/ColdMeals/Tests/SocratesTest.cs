@@ -11,14 +11,14 @@ namespace Tests
         [Test]
         public void Participant_list_is_not_null()
         {
-            Socrates socrates = new Socrates();
+            Socrates socrates = new Socrates(new DateTime(2019, 11, 18, 21, 00, 00));
             socrates.Participants.Should().NotBeNull();
         }
 
         [Test]
         public void Add_participant_to_the_participant_list_return_not_null_or_empty_list()
         {
-            Socrates socrates = new Socrates();
+            Socrates socrates = new Socrates(new DateTime(2019, 11, 18, 21, 00, 00));
 
             socrates.AddParticipant("Sandy", new DateTime(2019, 11, 18, 18, 00, 00));
 
@@ -28,7 +28,7 @@ namespace Tests
         [Test]
         public void Count_participants_number_who_arrived_after_or_at_21_returns_0()
         {
-            Socrates socrates = new Socrates();
+            Socrates socrates = new Socrates(new DateTime(2019, 11, 18, 21, 00, 00));
             socrates.AddParticipant("Sandy", null);
             socrates.AddParticipant("Erwan", new DateTime(2019, 11, 18, 20, 00, 00));
             socrates.AddParticipant("Florian", new DateTime(2019, 11, 19, 22, 00, 00));
@@ -40,7 +40,7 @@ namespace Tests
         [Test]
         public void Count_participants_number_who_arrived_after_or_at_21_returns_1()
         {
-            Socrates socrates = new Socrates();
+            Socrates socrates = new Socrates(new DateTime(2019, 11, 18, 21, 00, 00));
             socrates.AddParticipant("Sandy", new DateTime(2019, 11, 19, 00, 00, 00));
             socrates.AddParticipant("Erwan", new DateTime(2019, 11, 18, 20, 00, 00));
             socrates.AddParticipant("Florian", new DateTime(2019, 11, 18, 22, 00, 00));
@@ -53,7 +53,7 @@ namespace Tests
         [Test]
         public void Count_participants_number_who_arrived_after_or_at_21_returns_2()
         {
-            Socrates socrates = new Socrates();
+            Socrates socrates = new Socrates(new DateTime(2019, 11, 18, 21, 00, 00));
             socrates.AddParticipant("Sandy", new DateTime(2019, 11, 18, 23, 00, 00));
             socrates.AddParticipant("Erwan", new DateTime(2019, 11, 18, 23, 59, 00));
             socrates.AddParticipant("Florian", new DateTime(2019, 11, 18, 10, 00, 00));

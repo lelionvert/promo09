@@ -22,7 +22,7 @@ namespace Tests
         {
             Participant participant = Participant.CreateParticipant("Florian", new DateTime(2019, 11, 18, 17, 00, 00));
 
-            bool result = participant.IsArrivingAfter21hTheStartDay();
+            bool result = participant.IsArrivingAfter21hTheStartDay(new DateTime(2019, 11, 18, 21, 00, 00));
 
             result.Should().BeFalse();
         }
@@ -32,7 +32,7 @@ namespace Tests
         {
             Participant participant = Participant.CreateParticipant("Florian", null);
 
-            bool result = participant.IsArrivingAfter21hTheStartDay();
+            bool result = participant.IsArrivingAfter21hTheStartDay(new DateTime(2019, 11, 18, 21, 00, 00));
 
             result.Should().BeFalse();
         }
@@ -42,7 +42,7 @@ namespace Tests
         {
             Participant participant = Participant.CreateParticipant("Florian", new DateTime(2019, 11, 18, 21, 00, 00));
 
-            bool result = participant.IsArrivingAfter21hTheStartDay();
+            bool result = participant.IsArrivingAfter21hTheStartDay(new DateTime(2019, 11, 18, 21, 00, 00));
 
             result.Should().BeTrue();
         }
@@ -52,7 +52,7 @@ namespace Tests
         {
             Participant participant = Participant.CreateParticipant("Florian", new DateTime(2019, 11, 18, 21, 00, 00));
 
-            bool result = participant.IsArrivingAfter21hTheStartDay();
+            bool result = participant.IsArrivingAfter21hTheStartDay(new DateTime(2019, 11, 18, 21, 00, 00));
 
             result.Should().BeTrue();
         }

@@ -6,10 +6,12 @@ namespace ColdMeals.Core
     public class Socrates
     {
         public readonly List<Participant> Participants;
+        private readonly DateTime _startDate;
 
-        public Socrates()
+        public Socrates(DateTime startedDate)
         {
             Participants = new List<Participant>();
+            _startDate = startedDate;
         }
 
         public void AddParticipant(string name, DateTime? arrivedDate)
@@ -23,7 +25,7 @@ namespace ColdMeals.Core
             int count = 0;
             foreach (Participant participant in Participants)
             {
-                if (participant.IsArrivingAfter21hTheStartDay()) count++;
+                if (participant.IsArrivingAfter21hTheStartDay(_startDate)) count++;
             }
             return count;
         }
