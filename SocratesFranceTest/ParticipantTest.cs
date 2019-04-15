@@ -8,11 +8,12 @@ namespace SocratesFranceTest
     [TestClass]
     public class ParticipantTest
     {
-            [TestMethod]
-            public void ParticipantShouldHaveACheckIn()
-            {
-                Participant participant = new Participant();
-                participant.HasCheckin().Should().BeTrue();
-            }
+        [TestMethod]
+        public void ParticipantShouldHaveACheckIn()
+        {
+            Participant participant = new Participant();
+
+            participant.HasCheckin().Should().BeTrue();
+        }
     }
 }
