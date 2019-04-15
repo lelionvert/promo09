@@ -20,7 +20,7 @@ namespace SocratesFrance
             public int Hour { get => hour; private set => hour = value; }
         }
 
-        public static int GetParticipantNumber(List<CheckIn> checkIns)
+        public int GetNumber(List<CheckIn> checkIns)
         {
             int participants = 0;
             foreach (CheckIn checkIn in checkIns)

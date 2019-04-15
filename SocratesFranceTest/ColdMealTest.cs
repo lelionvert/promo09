@@ -14,7 +14,8 @@ namespace SocratesFranceTest
         {
             List<ColdMeals.CheckIn> checkIns = new List<ColdMeals.CheckIn>();
 
-            int participantNumber = ColdMeals.GetParticipantNumber(checkIns);
+            ColdMeals coldMeals = new ColdMeals();
+            int participantNumber = coldMeals.GetNumber(checkIns);
 
             int expected = 0;
             participantNumber.Should().Be(expected);
@@ -27,7 +28,8 @@ namespace SocratesFranceTest
             List<ColdMeals.CheckIn> checkIns = new List<ColdMeals.CheckIn>();
             checkIns.Add(checkIn);
 
-            int participantNumber = ColdMeals.GetParticipantNumber(checkIns);
+            ColdMeals coldMeals = new ColdMeals();
+            int participantNumber = coldMeals.GetNumber(checkIns);
 
             int expected = 0;
             participantNumber.Should().Be(expected);
@@ -40,7 +42,8 @@ namespace SocratesFranceTest
             List<ColdMeals.CheckIn> checkIns = new List<ColdMeals.CheckIn>();
             checkIns.Add(checkIn);
 
-            int participantNumber = ColdMeals.GetParticipantNumber(checkIns);
+            ColdMeals coldMeals = new ColdMeals();
+            int participantNumber = coldMeals.GetNumber(checkIns);
 
             int expected = 1;
             participantNumber.Should().Be(expected);
@@ -53,7 +56,8 @@ namespace SocratesFranceTest
             List<ColdMeals.CheckIn> checkIns = new List<ColdMeals.CheckIn>();
             checkIns.Add(checkIn);
 
-            int participantNumber = ColdMeals.GetParticipantNumber(checkIns);
+            ColdMeals coldMeals = new ColdMeals();
+            int participantNumber = coldMeals.GetNumber(checkIns);
 
             int expected = 1;
             participantNumber.Should().Be(expected);
@@ -66,7 +70,8 @@ namespace SocratesFranceTest
             List<ColdMeals.CheckIn> checkIns = new List<ColdMeals.CheckIn>();
             checkIns.Add(checkIn);
 
-            int participantNumber = ColdMeals.GetParticipantNumber(checkIns);
+            ColdMeals coldMeals = new ColdMeals();
+            int participantNumber = coldMeals.GetNumber(checkIns);
 
             int expected = 0;
             participantNumber.Should().Be(expected);
@@ -79,7 +84,8 @@ namespace SocratesFranceTest
             List<ColdMeals.CheckIn> checkIns = new List<ColdMeals.CheckIn>();
             checkIns.Add(checkIn);
 
-            int participantNumber = ColdMeals.GetParticipantNumber(checkIns);
+            ColdMeals coldMeals = new ColdMeals();
+            int participantNumber = coldMeals.GetNumber(checkIns);
 
             int expected = 0;
             participantNumber.Should().Be(expected);
@@ -94,7 +100,8 @@ namespace SocratesFranceTest
             checkIns.Add(checkIn1);
             checkIns.Add(checkIn2);
 
-            int participantNumber = ColdMeals.GetParticipantNumber(checkIns);
+            ColdMeals coldMeals = new ColdMeals();
+            int participantNumber = coldMeals.GetNumber(checkIns);
 
             int expected = 0;
             participantNumber.Should().Be(expected);
@@ -109,7 +116,8 @@ namespace SocratesFranceTest
             checkIns.Add(checkIn1);
             checkIns.Add(checkIn2);
 
-            int participantNumber = ColdMeals.GetParticipantNumber(checkIns);
+            ColdMeals coldMeals = new ColdMeals();
+            int participantNumber = coldMeals.GetNumber(checkIns);
 
             int expected = 1;
             participantNumber.Should().Be(expected);
@@ -124,7 +132,8 @@ namespace SocratesFranceTest
             checkIns.Add(checkIn1);
             checkIns.Add(checkIn2);
 
-            int participantNumber = ColdMeals.GetParticipantNumber(checkIns);
+            ColdMeals coldMeals = new ColdMeals();
+            int participantNumber = coldMeals.GetNumber(checkIns);
 
             int expected = 1;
             participantNumber.Should().Be(expected);
@@ -139,7 +148,8 @@ namespace SocratesFranceTest
             checkIns.Add(checkIn1);
             checkIns.Add(checkIn2);
 
-            int participantNumber = ColdMeals.GetParticipantNumber(checkIns);
+            ColdMeals coldMeals = new ColdMeals();
+            int participantNumber = coldMeals.GetNumber(checkIns);
 
             int expected = 0;
             participantNumber.Should().Be(expected);
@@ -154,7 +164,8 @@ namespace SocratesFranceTest
             checkIns.Add(checkIn1);
             checkIns.Add(checkIn2);
 
-            int participantNumber = ColdMeals.GetParticipantNumber(checkIns);
+            ColdMeals coldMeals = new ColdMeals();
+            int participantNumber = coldMeals.GetNumber(checkIns);
 
             int expected = 1;
             participantNumber.Should().Be(expected);
@@ -169,7 +180,8 @@ namespace SocratesFranceTest
             checkIns.Add(checkIn1);
             checkIns.Add(checkIn2);
 
-            int participantNumber = ColdMeals.GetParticipantNumber(checkIns);
+            ColdMeals coldMeals = new ColdMeals();
+            int participantNumber = coldMeals.GetNumber(checkIns);
 
             int expected = 0;
             participantNumber.Should().Be(expected);
@@ -184,7 +196,8 @@ namespace SocratesFranceTest
             checkIns.Add(checkIn1);
             checkIns.Add(checkIn2);
 
-            int participantNumber = ColdMeals.GetParticipantNumber(checkIns);
+            ColdMeals coldMeals = new ColdMeals();
+            int participantNumber = coldMeals.GetNumber(checkIns);
 
             int expected = 2;
             participantNumber.Should().Be(expected);
@@ -202,7 +215,8 @@ namespace SocratesFranceTest
             checkIns.Add(checkIn2);
             checkIns.Add(checkIn3);
 
-            int participantNumber = ColdMeals.GetParticipantNumber(checkIns);
+            ColdMeals coldMeals = new ColdMeals();
+            int participantNumber = coldMeals.GetNumber(checkIns);
 
             int expected = 3;
             participantNumber.Should().Be(expected);
