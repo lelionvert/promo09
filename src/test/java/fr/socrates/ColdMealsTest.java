@@ -54,7 +54,6 @@ public class ColdMealsTest {
         List<Participant> participants = new ArrayList<>();
         LocalDateTime date1 = LocalDateTime.of(2019, 4, 18, 22, 9);
         LocalDateTime date2 = LocalDateTime.of(2019, 4, 18, 23, 9);
-
         Participant participant1 = new Participant(date1);
         Participant participant2 = new Participant(date2);
         participants.add(participant1);
@@ -70,6 +69,20 @@ public class ColdMealsTest {
         SocratesOrganization socrates = new SocratesOrganization(COLD_MEALS_START);
         List<Participant> participants = new ArrayList<>();
         LocalDateTime date = LocalDateTime.of(2019, 4, 18, 18, 9);
+        Participant participant = new Participant(date);
+        participants.add(participant);
+
+        long result = socrates.countColdMeals(participants);
+
+        assertThat(result).isEqualTo(0);
+    }
+
+    @Test
+    public void one_participant_after_the_cold_meals_end_day_return_0() {
+        LocalDateTime coldMealsEnd = LocalDateTime.of(2019, 4, 19, 0, 0);
+        SocratesOrganization socrates = new SocratesOrganization(COLD_MEALS_START, coldMealsEnd);
+        List<Participant> participants = new ArrayList<>();
+        LocalDateTime date = LocalDateTime.of(2019, 4, 19, 22, 9);
         Participant participant = new Participant(date);
         participants.add(participant);
 

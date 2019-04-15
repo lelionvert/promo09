@@ -11,7 +11,7 @@ class Participant {
         this.checkInDate = Optional.of(checkInDate);
     }
 
-    public Participant() {
+    Participant() {
         this.checkInDate = Optional.empty();
     }
 
