@@ -222,5 +222,4 @@ namespace SocratesFranceTest
             participantNumber.Should().Be(expected);
         }
     }
-
 }

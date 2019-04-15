@@ -64,8 +64,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SocratesFrance\SocratesFrance.csproj">
-      <Project>{a899129c-68c8-4529-904e-18659176a8bc}</Project>
+    <ProjectReference Include="..\TestProject\SocratesFrance.csproj">
+      <Project>{725c70f2-d716-4d26-955d-f4307e08b4ae}</Project>
       <Name>SocratesFrance</Name>
     </ProjectReference>
   </ItemGroup>

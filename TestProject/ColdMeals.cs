@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace SocratesFrance
 {
@@ -16,15 +17,13 @@ namespace SocratesFrance
 
         public int GetNumber(List<CheckIn> checkIns)
         {
-            int count = 0;
-            foreach (CheckIn checkIn in checkIns)
-            {
-                if (checkIn.IsLaterTheSameDay(startingDay,startingHour))
-                {
-                    count ++;
-                }
-            }
-            return count;
+            return GetElligibleCheckIns(checkIns).Count();
+        }
+
+        private IEnumerable<CheckIn> GetElligibleCheckIns(List<CheckIn> checkIns)
+        {
+            return checkIns.Where(checkIn => 
+            checkIn.IsLaterTheSameDay(startingDay, startingHour));
         }
     }
 }
