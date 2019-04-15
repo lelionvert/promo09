@@ -5,27 +5,27 @@ namespace ColdMeals.Core
 {
     public class Socrates
     {
-        public readonly List<Participant> Participants;
+        public readonly List<Checkin> Checkins;
         private readonly DateTime _startDate;
 
         public Socrates(DateTime startedDate)
         {
-            Participants = new List<Participant>();
+            Checkins = new List<Checkin>();
             _startDate = startedDate;
         }
 
-        public void AddParticipant(string name, DateTime? arrivedDate)
+        public void AddCheckin(DateTime? arrivedDate)
         {
-            Participant participant = Participant.CreateParticipant(name, arrivedDate);
-            Participants.Add(participant);
+            Checkin participant = Checkin.CreateCheckin( arrivedDate);
+            Checkins.Add(participant);
         }
 
         public int CountNumberOfColdMeals()
         {
             int count = 0;
-            foreach (Participant participant in Participants)
+            foreach (Checkin checkin in Checkins)
             {
-                if (participant.IsArrivingAfter21hTheStartDay(_startDate)) count++;
+                if (checkin.IsArrivingAfter21hTheStartDay(_startDate)) count++;
             }
             return count;
         }

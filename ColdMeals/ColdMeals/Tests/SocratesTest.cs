@@ -12,7 +12,7 @@ namespace Tests
         public void Participant_list_is_not_null()
         {
             Socrates socrates = new Socrates(new DateTime(2019, 11, 18, 21, 00, 00));
-            socrates.Participants.Should().NotBeNull();
+            socrates.Checkins.Should().NotBeNull();
         }
 
         [Test]
@@ -20,18 +20,18 @@ namespace Tests
         {
             Socrates socrates = new Socrates(new DateTime(2019, 11, 18, 21, 00, 00));
 
-            socrates.AddParticipant("Sandy", new DateTime(2019, 11, 18, 18, 00, 00));
+            socrates.AddCheckin(new DateTime(2019, 11, 18, 18, 00, 00));
 
-            socrates.Participants.Should().NotBeNullOrEmpty();
+            socrates.Checkins.Should().NotBeNullOrEmpty();
         }
 
         [Test]
         public void Count_participants_number_who_arrived_after_or_at_21_returns_0()
         {
             Socrates socrates = new Socrates(new DateTime(2019, 11, 18, 21, 00, 00));
-            socrates.AddParticipant("Sandy", null);
-            socrates.AddParticipant("Erwan", new DateTime(2019, 11, 18, 20, 00, 00));
-            socrates.AddParticipant("Florian", new DateTime(2019, 11, 19, 22, 00, 00));
+            socrates.AddCheckin(null);
+            socrates.AddCheckin(new DateTime(2019, 11, 18, 20, 00, 00));
+            socrates.AddCheckin(new DateTime(2019, 11, 19, 22, 00, 00));
 
             int result = socrates.CountNumberOfColdMeals();
 
@@ -41,9 +41,9 @@ namespace Tests
         public void Count_participants_number_who_arrived_after_or_at_21_returns_1()
         {
             Socrates socrates = new Socrates(new DateTime(2019, 11, 18, 21, 00, 00));
-            socrates.AddParticipant("Sandy", new DateTime(2019, 11, 19, 00, 00, 00));
-            socrates.AddParticipant("Erwan", new DateTime(2019, 11, 18, 20, 00, 00));
-            socrates.AddParticipant("Florian", new DateTime(2019, 11, 18, 22, 00, 00));
+            socrates.AddCheckin(new DateTime(2019, 11, 19, 00, 00, 00));
+            socrates.AddCheckin(new DateTime(2019, 11, 18, 20, 00, 00));
+            socrates.AddCheckin(new DateTime(2019, 11, 18, 22, 00, 00));
 
             int result = socrates.CountNumberOfColdMeals();
 
@@ -54,9 +54,9 @@ namespace Tests
         public void Count_participants_number_who_arrived_after_or_at_21_returns_2()
         {
             Socrates socrates = new Socrates(new DateTime(2019, 11, 18, 21, 00, 00));
-            socrates.AddParticipant("Sandy", new DateTime(2019, 11, 18, 23, 00, 00));
-            socrates.AddParticipant("Erwan", new DateTime(2019, 11, 18, 23, 59, 00));
-            socrates.AddParticipant("Florian", new DateTime(2019, 11, 18, 10, 00, 00));
+            socrates.AddCheckin(new DateTime(2019, 11, 18, 23, 00, 00));
+            socrates.AddCheckin(new DateTime(2019, 11, 18, 23, 59, 00));
+            socrates.AddCheckin(new DateTime(2019, 11, 18, 10, 00, 00));
 
             int result = socrates.CountNumberOfColdMeals();
 

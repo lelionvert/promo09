@@ -2,25 +2,25 @@
 
 namespace ColdMeals.Core
 {
-    public class Participant
+    public class Checkin
     {
-        private string _name;
         private DateTime? _arrivedDate;
 
-        public static Participant CreateParticipant(string name, DateTime? arrivedDate)
+        public static Checkin CreateCheckin(DateTime? arrivedDate)
         {
-            return new Participant(name, arrivedDate);
+            return new Checkin(arrivedDate);
         }
 
-        private Participant(string name, DateTime? arrivedDate)
+        private Checkin(DateTime? arrivedDate)
         {
-            this._name = name;
             this._arrivedDate = arrivedDate;
         }
 
         public bool IsArrivingTheStartDay(DateTime startedDate)
         {
-            return this._arrivedDate < startedDate.Date.AddDays(1);
+            bool isStartedDay = _arrivedDate >= startedDate.Date && _arrivedDate < startedDate.Date.AddDays(1);
+            return isStartedDay;
+            //return this._arrivedDate < startedDate.Date.AddDays(1);
         }
 
         public bool IsArrivingAfter21hTheStartDay(DateTime startedDate)
