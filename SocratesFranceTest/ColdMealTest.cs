@@ -12,9 +12,9 @@ namespace SocratesFranceTest
         [TestMethod]
         public void ZeroDateReturnZeroParticipant()
         {
-            List<ColdMeals.CheckIn> checkIns = new List<ColdMeals.CheckIn>();
+            List<CheckIn> checkIns = new List<CheckIn>();
 
-            ColdMeals coldMeals = new ColdMeals();
+            ColdMeals coldMeals = new ColdMeals(DayOfWeek.Thursday,21);
             int participantNumber = coldMeals.GetNumber(checkIns);
 
             int expected = 0;
@@ -24,11 +24,11 @@ namespace SocratesFranceTest
         [TestMethod]
         public void OneDateThursdayAtTwenty()
         {
-            ColdMeals.CheckIn checkIn = new ColdMeals.CheckIn(DayOfWeek.Thursday, 20);
-            List<ColdMeals.CheckIn> checkIns = new List<ColdMeals.CheckIn>();
+            CheckIn checkIn = new CheckIn(DayOfWeek.Thursday, 20);
+            List<CheckIn> checkIns = new List<CheckIn>();
             checkIns.Add(checkIn);
 
-            ColdMeals coldMeals = new ColdMeals();
+            ColdMeals coldMeals = new ColdMeals(DayOfWeek.Thursday,21);
             int participantNumber = coldMeals.GetNumber(checkIns);
 
             int expected = 0;
@@ -38,11 +38,11 @@ namespace SocratesFranceTest
         [TestMethod]
         public void OneDateThursdayAtTwentyOne()
         {
-            ColdMeals.CheckIn checkIn = new ColdMeals.CheckIn(DayOfWeek.Thursday, 21);
-            List<ColdMeals.CheckIn> checkIns = new List<ColdMeals.CheckIn>();
+            CheckIn checkIn = new CheckIn(DayOfWeek.Thursday, 21);
+            List<CheckIn> checkIns = new List<CheckIn>();
             checkIns.Add(checkIn);
 
-            ColdMeals coldMeals = new ColdMeals();
+            ColdMeals coldMeals = new ColdMeals(DayOfWeek.Thursday,21);
             int participantNumber = coldMeals.GetNumber(checkIns);
 
             int expected = 1;
@@ -52,11 +52,11 @@ namespace SocratesFranceTest
         [TestMethod]
         public void OneDateThursdayAtTwentyTwo()
         {
-            ColdMeals.CheckIn checkIn = new ColdMeals.CheckIn(DayOfWeek.Thursday, 22);
-            List<ColdMeals.CheckIn> checkIns = new List<ColdMeals.CheckIn>();
+            CheckIn checkIn = new CheckIn(DayOfWeek.Thursday, 22);
+            List<CheckIn> checkIns = new List<CheckIn>();
             checkIns.Add(checkIn);
 
-            ColdMeals coldMeals = new ColdMeals();
+            ColdMeals coldMeals = new ColdMeals(DayOfWeek.Thursday,21);
             int participantNumber = coldMeals.GetNumber(checkIns);
 
             int expected = 1;
@@ -66,11 +66,11 @@ namespace SocratesFranceTest
         [TestMethod]
         public void OneDateFriday()
         {
-            ColdMeals.CheckIn checkIn = new ColdMeals.CheckIn(DayOfWeek.Friday, 0);
-            List<ColdMeals.CheckIn> checkIns = new List<ColdMeals.CheckIn>();
+            CheckIn checkIn = new CheckIn(DayOfWeek.Friday, 0);
+            List<CheckIn> checkIns = new List<CheckIn>();
             checkIns.Add(checkIn);
 
-            ColdMeals coldMeals = new ColdMeals();
+            ColdMeals coldMeals = new ColdMeals(DayOfWeek.Thursday,21);
             int participantNumber = coldMeals.GetNumber(checkIns);
 
             int expected = 0;
@@ -80,11 +80,11 @@ namespace SocratesFranceTest
         [TestMethod]
         public void OneDateSaturday()
         {
-            ColdMeals.CheckIn checkIn = new ColdMeals.CheckIn(DayOfWeek.Saturday, 0);
-            List<ColdMeals.CheckIn> checkIns = new List<ColdMeals.CheckIn>();
+            CheckIn checkIn = new CheckIn(DayOfWeek.Saturday, 0);
+            List<CheckIn> checkIns = new List<CheckIn>();
             checkIns.Add(checkIn);
 
-            ColdMeals coldMeals = new ColdMeals();
+            ColdMeals coldMeals = new ColdMeals(DayOfWeek.Thursday,21);
             int participantNumber = coldMeals.GetNumber(checkIns);
 
             int expected = 0;
@@ -94,13 +94,13 @@ namespace SocratesFranceTest
         [TestMethod]
         public void TwoDatesThursdayAtTwenty()
         {
-            ColdMeals.CheckIn checkIn1 = new ColdMeals.CheckIn(DayOfWeek.Thursday, 20);
-            ColdMeals.CheckIn checkIn2 = new ColdMeals.CheckIn(DayOfWeek.Thursday, 20);
-            List<ColdMeals.CheckIn> checkIns = new List<ColdMeals.CheckIn>();
+            CheckIn checkIn1 = new CheckIn(DayOfWeek.Thursday, 20);
+            CheckIn checkIn2 = new CheckIn(DayOfWeek.Thursday, 20);
+            List<CheckIn> checkIns = new List<CheckIn>();
             checkIns.Add(checkIn1);
             checkIns.Add(checkIn2);
 
-            ColdMeals coldMeals = new ColdMeals();
+            ColdMeals coldMeals = new ColdMeals(DayOfWeek.Thursday,21);
             int participantNumber = coldMeals.GetNumber(checkIns);
 
             int expected = 0;
@@ -110,13 +110,13 @@ namespace SocratesFranceTest
         [TestMethod]
         public void TwoDatesThursdayAtTwentyAndTwentyOne()
         {
-            ColdMeals.CheckIn checkIn1 = new ColdMeals.CheckIn(DayOfWeek.Thursday, 20);
-            ColdMeals.CheckIn checkIn2 = new ColdMeals.CheckIn(DayOfWeek.Thursday, 21);
-            List<ColdMeals.CheckIn> checkIns = new List<ColdMeals.CheckIn>();
+            CheckIn checkIn1 = new CheckIn(DayOfWeek.Thursday, 20);
+            CheckIn checkIn2 = new CheckIn(DayOfWeek.Thursday, 21);
+            List<CheckIn> checkIns = new List<CheckIn>();
             checkIns.Add(checkIn1);
             checkIns.Add(checkIn2);
 
-            ColdMeals coldMeals = new ColdMeals();
+            ColdMeals coldMeals = new ColdMeals(DayOfWeek.Thursday,21);
             int participantNumber = coldMeals.GetNumber(checkIns);
 
             int expected = 1;
@@ -126,13 +126,13 @@ namespace SocratesFranceTest
         [TestMethod]
         public void TwoDatesThursdayAtTwentyAndTwentyTwo()
         {
-            ColdMeals.CheckIn checkIn1 = new ColdMeals.CheckIn(DayOfWeek.Thursday, 20);
-            ColdMeals.CheckIn checkIn2 = new ColdMeals.CheckIn(DayOfWeek.Thursday, 22);
-            List<ColdMeals.CheckIn> checkIns = new List<ColdMeals.CheckIn>();
+            CheckIn checkIn1 = new CheckIn(DayOfWeek.Thursday, 20);
+            CheckIn checkIn2 = new CheckIn(DayOfWeek.Thursday, 22);
+            List<CheckIn> checkIns = new List<CheckIn>();
             checkIns.Add(checkIn1);
             checkIns.Add(checkIn2);
 
-            ColdMeals coldMeals = new ColdMeals();
+            ColdMeals coldMeals = new ColdMeals(DayOfWeek.Thursday,21);
             int participantNumber = coldMeals.GetNumber(checkIns);
 
             int expected = 1;
@@ -142,13 +142,13 @@ namespace SocratesFranceTest
         [TestMethod]
         public void TwoDatesThursdayAtTwentyAndFriday()
         {
-            ColdMeals.CheckIn checkIn1 = new ColdMeals.CheckIn(DayOfWeek.Thursday, 20);
-            ColdMeals.CheckIn checkIn2 = new ColdMeals.CheckIn(DayOfWeek.Friday, 22);
-            List<ColdMeals.CheckIn> checkIns = new List<ColdMeals.CheckIn>();
+            CheckIn checkIn1 = new CheckIn(DayOfWeek.Thursday, 20);
+            CheckIn checkIn2 = new CheckIn(DayOfWeek.Friday, 22);
+            List<CheckIn> checkIns = new List<CheckIn>();
             checkIns.Add(checkIn1);
             checkIns.Add(checkIn2);
 
-            ColdMeals coldMeals = new ColdMeals();
+            ColdMeals coldMeals = new ColdMeals(DayOfWeek.Thursday,21);
             int participantNumber = coldMeals.GetNumber(checkIns);
 
             int expected = 0;
@@ -158,13 +158,13 @@ namespace SocratesFranceTest
         [TestMethod]
         public void TwoDatesThursdayAtTwentyOneAndTwenty()
         {
-            ColdMeals.CheckIn checkIn1 = new ColdMeals.CheckIn(DayOfWeek.Thursday, 21);
-            ColdMeals.CheckIn checkIn2 = new ColdMeals.CheckIn(DayOfWeek.Thursday, 20);
-            List<ColdMeals.CheckIn> checkIns = new List<ColdMeals.CheckIn>();
+            CheckIn checkIn1 = new CheckIn(DayOfWeek.Thursday, 21);
+            CheckIn checkIn2 = new CheckIn(DayOfWeek.Thursday, 20);
+            List<CheckIn> checkIns = new List<CheckIn>();
             checkIns.Add(checkIn1);
             checkIns.Add(checkIn2);
 
-            ColdMeals coldMeals = new ColdMeals();
+            ColdMeals coldMeals = new ColdMeals(DayOfWeek.Thursday,21);
             int participantNumber = coldMeals.GetNumber(checkIns);
 
             int expected = 1;
@@ -174,13 +174,13 @@ namespace SocratesFranceTest
         [TestMethod]
         public void TwoDatesFridayAndThursday()
         {
-            ColdMeals.CheckIn checkIn1 = new ColdMeals.CheckIn(DayOfWeek.Friday, 22);
-            ColdMeals.CheckIn checkIn2 = new ColdMeals.CheckIn(DayOfWeek.Thursday, 20);
-            List<ColdMeals.CheckIn> checkIns = new List<ColdMeals.CheckIn>();
+            CheckIn checkIn1 = new CheckIn(DayOfWeek.Friday, 22);
+            CheckIn checkIn2 = new CheckIn(DayOfWeek.Thursday, 20);
+            List<CheckIn> checkIns = new List<CheckIn>();
             checkIns.Add(checkIn1);
             checkIns.Add(checkIn2);
 
-            ColdMeals coldMeals = new ColdMeals();
+            ColdMeals coldMeals = new ColdMeals(DayOfWeek.Thursday,21);
             int participantNumber = coldMeals.GetNumber(checkIns);
 
             int expected = 0;
@@ -190,13 +190,13 @@ namespace SocratesFranceTest
         [TestMethod]
         public void TwoDatesThursdayAtTwentyOneAndThursdayAtTwenty()
         {
-            ColdMeals.CheckIn checkIn1 = new ColdMeals.CheckIn(DayOfWeek.Thursday, 21);
-            ColdMeals.CheckIn checkIn2 = new ColdMeals.CheckIn(DayOfWeek.Thursday, 21);
-            List<ColdMeals.CheckIn> checkIns = new List<ColdMeals.CheckIn>();
+            CheckIn checkIn1 = new CheckIn(DayOfWeek.Thursday, 21);
+            CheckIn checkIn2 = new CheckIn(DayOfWeek.Thursday, 21);
+            List<CheckIn> checkIns = new List<CheckIn>();
             checkIns.Add(checkIn1);
             checkIns.Add(checkIn2);
 
-            ColdMeals coldMeals = new ColdMeals();
+            ColdMeals coldMeals = new ColdMeals(DayOfWeek.Thursday,21);
             int participantNumber = coldMeals.GetNumber(checkIns);
 
             int expected = 2;
@@ -206,16 +206,16 @@ namespace SocratesFranceTest
         [TestMethod]
         public void ThreeDatesThursdayAtTwentyOne()
         {
-            ColdMeals.CheckIn checkIn1 = new ColdMeals.CheckIn(DayOfWeek.Thursday, 21);
-            ColdMeals.CheckIn checkIn2 = new ColdMeals.CheckIn(DayOfWeek.Thursday, 21);
-            ColdMeals.CheckIn checkIn3 = new ColdMeals.CheckIn(DayOfWeek.Thursday, 21);
+            CheckIn checkIn1 = new CheckIn(DayOfWeek.Thursday, 21);
+            CheckIn checkIn2 = new CheckIn(DayOfWeek.Thursday, 21);
+            CheckIn checkIn3 = new CheckIn(DayOfWeek.Thursday, 21);
 
-            List<ColdMeals.CheckIn> checkIns = new List<ColdMeals.CheckIn>();
+            List<CheckIn> checkIns = new List<CheckIn>();
             checkIns.Add(checkIn1);
             checkIns.Add(checkIn2);
             checkIns.Add(checkIn3);
 
-            ColdMeals coldMeals = new ColdMeals();
+            ColdMeals coldMeals = new ColdMeals(DayOfWeek.Thursday,21);
             int participantNumber = coldMeals.GetNumber(checkIns);
 
             int expected = 3;

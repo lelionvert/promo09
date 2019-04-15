@@ -5,19 +5,13 @@ namespace SocratesFrance
 {
     public class ColdMeals
     {
-        public class CheckIn
+        DayOfWeek startingDay;
+        int startingHour;
+
+        public ColdMeals(DayOfWeek startingDay, int startingHour)
         {
-            DayOfWeek day;
-            int hour;
-
-            public CheckIn(DayOfWeek day, int hour)
-            {
-                this.Day = day;
-                this.Hour = hour;
-            }
-
-            public DayOfWeek Day { get => day; private set => day = value; }
-            public int Hour { get => hour; private set => hour = value; }
+            this.startingDay = startingDay;
+            this.startingHour = startingHour;
         }
 
         public int GetNumber(List<CheckIn> checkIns)
@@ -25,7 +19,7 @@ namespace SocratesFrance
             int participants = 0;
             foreach (CheckIn checkIn in checkIns)
             {
-                if (checkIn.Day == DayOfWeek.Thursday && checkIn.Hour >= 21)
+                if (checkIn.NeedColdMeal(startingDay,startingHour))
                 {
                     participants += 1;
                 }
