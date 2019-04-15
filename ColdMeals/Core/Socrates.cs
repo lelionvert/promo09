@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ColdMeals.Core
 {
@@ -30,12 +31,9 @@ namespace ColdMeals.Core
         }
         public int CountNumberOfColdMeals()
         {
-            int count = 0;
-            foreach (Checkin checkin in Checkins)
-            {
-                if (checkin.IsArrivingBetween(_coldMealStartDate, _startDate.Date.AddDays(1))) count++;
-            }
-            return count;
+            DateTime coldMealEndDate = _startDate.Date.AddDays(1);
+            return Checkins.Where(checkin => checkin.IsArrivingBetween(_coldMealStartDate, coldMealEndDate))
+                           .Count();
         }
     }
 }
