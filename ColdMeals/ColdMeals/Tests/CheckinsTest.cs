@@ -5,10 +5,10 @@ using ColdMeals.Core;
 
 namespace Tests
 {
-    public class SocratesTest
+    public class CheckinsTest
     {
         [Test]
-        public void Count_number_of_cold_meals_return_0()
+        public void Count_number_between_2_dates_return_0()
         {
             var startedDate = new DateTime(2019, 11, 18);
             var coldMealStartDate = new DateTime(2019, 11, 18, 21, 00, 00);
@@ -23,7 +23,7 @@ namespace Tests
             result.Should().Be(0);
         }
         [Test]
-        public void Count_number_of_cold_meals_return_1()
+        public void Count_number_between_2_dates_return_1()
         {
             var startedDate = new DateTime(2019, 11, 18);
             var coldMealStartDate = new DateTime(2019, 11, 18, 21, 00, 00);
@@ -38,7 +38,7 @@ namespace Tests
         }
 
         [Test]
-        public void Count_number_of_cold_meals_return_2()
+        public void Count_number_between_2_dates_return_2()
         {
             var startedDate = new DateTime(2019, 11, 18);
             var coldMealStartDate = new DateTime(2019, 11, 18, 21, 00, 00);

@@ -7,62 +7,13 @@ namespace Tests
 {
     public class CheckinTest
     {
-        [Test]
-        public void Checkin_who_arrive_to_the_good_date_should_return_true()
-        {
-            Checkin checkin = Checkin.CreateCheckin(new DateTime(2019, 11, 18, 17, 00, 00));
-
-            bool result = checkin.IsArrivingTheStartDay(new DateTime(2019, 11, 18, 21, 00, 00));
-
-            result.Should().BeTrue();
-        }
-
-        [Test]
-        public void Checkin_who_arrive_before_twenty_one_hour_return_false()
-        {
-            Checkin checkin = Checkin.CreateCheckin(new DateTime(2019, 11, 18, 17, 00, 00));
-
-            bool result = checkin.IsArrivingAfter21hTheStartDay(new DateTime(2019, 11, 18, 21, 00, 00));
-
-            result.Should().BeFalse();
-        }
-
-        [Test]
-        public void Checkin_who_not_arrived_return_false()
-        {
-            Checkin checkin = Checkin.CreateCheckin(null);
-
-            bool result = checkin.IsArrivingAfter21hTheStartDay(new DateTime(2019, 11, 18, 21, 00, 00));
-
-            result.Should().BeFalse();
-        }
-
-        [Test]
-        public void Checkin_who_arrive_between_twenty_one_hour_and_midnight_return_true()
-        {
-            Checkin checkin = Checkin.CreateCheckin(new DateTime(2019, 11, 18, 21, 00, 00));
-
-            bool result = checkin.IsArrivingAfter21hTheStartDay(new DateTime(2019, 11, 18, 21, 00, 00));
-
-            result.Should().BeTrue();
-        }
-
-        [Test]
-        public void Checkin_who_arrive_at_twenty_one_hour_return_true()
-        {
-            Checkin checkin = Checkin.CreateCheckin(new DateTime(2019, 11, 18, 21, 00, 00));
-
-            bool result = checkin.IsArrivingAfter21hTheStartDay(new DateTime(2019, 11, 18, 21, 00, 00));
-
-            result.Should().BeTrue();
-        }
 
         [Test]
         public void Checkin_is_between_two_differentes_dates()
         {
             Checkin checkin = Checkin.CreateCheckin(new DateTime(2019, 11, 18, 21, 00, 00));
 
-            bool result = checkin.IsArrivingBetween (new DateTime(2019, 11, 18), new DateTime(2019, 11, 19));
+            bool result = checkin.IsArrivingBetween(new DateTime(2019, 11, 18), new DateTime(2019, 11, 19));
 
             result.Should().BeTrue();
         }
@@ -76,7 +27,6 @@ namespace Tests
 
             result.Should().BeTrue();
         }
-
     }
 
 }
