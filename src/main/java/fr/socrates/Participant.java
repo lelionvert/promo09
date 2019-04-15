@@ -1,16 +1,21 @@
 package fr.socrates;
 
 import java.time.LocalDateTime;
+import java.util.Optional;
 
 class Participant {
 
-    private final LocalDateTime checkInDate;
+    private final Optional<LocalDateTime> checkInDate;
 
     Participant(LocalDateTime checkInDate) {
-        this.checkInDate = checkInDate;
+        this.checkInDate = Optional.of(checkInDate);
     }
 
-    public LocalDateTime getCheckInDate() {
+    public Participant() {
+        this.checkInDate = Optional.empty();
+    }
+
+    Optional<LocalDateTime> getCheckInDate() {
         return checkInDate;
     }
 }
