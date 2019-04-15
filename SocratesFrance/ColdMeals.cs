@@ -16,15 +16,15 @@ namespace SocratesFrance
 
         public int GetNumber(List<CheckIn> checkIns)
         {
-            int participants = 0;
+            int count = 0;
             foreach (CheckIn checkIn in checkIns)
             {
-                if (checkIn.NeedColdMeal(startingDay,startingHour))
+                if (checkIn.IsLaterTheSameDay(startingDay,startingHour))
                 {
-                    participants += 1;
+                    count ++;
                 }
             }
-            return participants;
+            return count;
         }
     }
 }

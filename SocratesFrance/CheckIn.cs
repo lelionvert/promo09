@@ -17,7 +17,7 @@ namespace SocratesFrance
             this.hour = hour;
         }
 
-        public bool NeedColdMeal(DayOfWeek startingDay, int startingHour)
+        public bool IsLaterTheSameDay(DayOfWeek startingDay, int startingHour)
         {
             return startingDay == day && startingHour <= hour;
         }
