@@ -18,7 +18,11 @@ namespace ColdMeals.Core
 
         public bool IsArrivingTheStartDay(DateTime startedDate)
         {
-            bool isStartedDay = _arrivedDate >= startedDate.Date && _arrivedDate < startedDate.Date.AddDays(1);
+            if (!_arrivedDate.HasValue)
+            {
+                return false;
+            }
+            bool isStartedDay = _arrivedDate.Value.Date == startedDate.Date ;
             return isStartedDay;
             //return this._arrivedDate < startedDate.Date.AddDays(1);
         }
@@ -27,6 +31,12 @@ namespace ColdMeals.Core
         {
             return _arrivedDate >= startedDate && IsArrivingTheStartDay(startedDate);
         }
+
+        public bool IsArrivingBetween(DateTime startDate, DateTime endDate)
+        {
+            return _arrivedDate >= startDate && _arrivedDate <= endDate;
+        }
     }
+
 
 }
