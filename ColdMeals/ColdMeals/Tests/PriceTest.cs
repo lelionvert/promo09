@@ -32,5 +32,18 @@ namespace Tests
 
             result.Should().Be(750);
         }
+
+        [Test]
+        public void Complete_price_arriving_thursday_before_21_leaving_sunday_after_14h_with_no_accomodation_cost_480()
+        {
+            var checkinDate = new DateTime(2019, 11, 18, 18, 00, 00);
+            var checkoutDate = new DateTime(2019, 11, 21, 14, 00, 00);
+
+            Participant participant = new Participant(checkinDate, checkoutDate, AccomodationChoice.NoAccomodation);
+
+            int result = participant.CalculatePrice();
+
+            result.Should().Be(480);
+        }
     }
 }
