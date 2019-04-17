@@ -17,6 +17,10 @@ namespace ColdMeals.Core
 
         public int CalculatePrice()
         {
+            if (_accomodationChoice == AccomodationChoice.Double)
+            {
+                return 750;
+            }
             return 850; 
         }
     }
