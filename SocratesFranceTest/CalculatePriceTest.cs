@@ -2,6 +2,7 @@
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SocratesFrance;
+using static SocratesFrance.Accommodation;
 
 namespace SocratesFranceTest
 {
@@ -13,7 +14,8 @@ namespace SocratesFranceTest
         {
             DayHour checkIn = new DayHour(DayOfWeek.Thursday, 20);
             DayHour checkOut = new DayHour(DayOfWeek.Sunday, 14);
-            Participant participant = new Participant(checkIn, checkOut, Accommodation.SINGLE);
+            Accommodation accommadation = new Accommodation(AccommodationEnum.SINGLE, 610);
+            Participant participant = new Participant(checkIn, checkOut, accommadation);
 
             int price = participant.ComputeTotalPrice();
 
@@ -26,7 +28,8 @@ namespace SocratesFranceTest
         {
             DayHour checkIn = new DayHour(DayOfWeek.Thursday, 20);
             DayHour checkOut = new DayHour(DayOfWeek.Sunday, 14);
-            Participant participant = new Participant(checkIn, checkOut,Accommodation.DOUBLE);
+            Accommodation accommodation = new Accommodation(AccommodationEnum.DOUBLE, 510);
+            Participant participant = new Participant(checkIn, checkOut,accommodation);
 
             int price = participant.ComputeTotalPrice();
 
@@ -39,7 +42,8 @@ namespace SocratesFranceTest
         {
             DayHour checkIn = new DayHour(DayOfWeek.Thursday, 20);
             DayHour checkOut = new DayHour(DayOfWeek.Sunday, 14);
-            Participant participant = new Participant(checkIn, checkOut, Accommodation.TRIPLE);
+            Accommodation accommodation = new Accommodation(AccommodationEnum.TRIPLE, 410);
+            Participant participant = new Participant(checkIn, checkOut, accommodation);
 
             int price = participant.ComputeTotalPrice();
 
@@ -52,7 +56,8 @@ namespace SocratesFranceTest
         {
             DayHour checkIn = new DayHour(DayOfWeek.Thursday, 20);
             DayHour checkOut = new DayHour(DayOfWeek.Sunday, 14);
-            Participant participant = new Participant(checkIn, checkOut, Accommodation.NO_ACCOMODATION);
+            Accommodation accommodation = new Accommodation(AccommodationEnum.NO_ACCOMODATION, 240);
+            Participant participant = new Participant(checkIn, checkOut, accommodation);
 
             int price = participant.ComputeTotalPrice();
 
