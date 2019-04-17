@@ -11,7 +11,6 @@
 
         public int ComputeTotalPrice(Participant participant)
         {
-            
             return participant.GetAccomodationPrice() + participant.ComputeMealCount() * meal.Price;
         }
     }

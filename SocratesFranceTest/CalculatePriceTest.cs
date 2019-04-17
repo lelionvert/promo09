@@ -8,14 +8,18 @@ namespace SocratesFranceTest
     [TestClass]
     public class CalculatePriceTest
     {
+        Priceable singleAccommodation = new Priceable(610);
+        Priceable doubleAccommodation = new Priceable(510);
+        Priceable tripleAccommodation = new Priceable(410);
+        Priceable noAccommodation = new Priceable(240);
+        Priceable meal = new Priceable(40);
+
         [TestMethod]
         public void CompletePriceSingleTest()
         {
             DayHour checkIn = new DayHour(new DateTime(2019,04,25,20,0,0));
             DayHour checkOut = new DayHour(new DateTime(2019, 04, 28, 14, 0, 0));
-            Priceable accommodation = new Priceable(610);
-            Priceable meal = new Priceable(40);
-            Participant participant = new Participant(checkIn, checkOut, accommodation);
+            Participant participant = new Participant(checkIn, checkOut, singleAccommodation);
             Pricing pricing = new Pricing(meal);
 
             int price = pricing.ComputeTotalPrice(participant);
@@ -29,9 +33,7 @@ namespace SocratesFranceTest
         {
             DayHour checkIn = new DayHour(new DateTime(2019, 04, 25, 20, 0, 0));
             DayHour checkOut = new DayHour(new DateTime(2019, 04, 28, 14, 0, 0));
-            Priceable accommodation = new Priceable(510);
-            Priceable meal = new Priceable(40);
-            Participant participant = new Participant(checkIn, checkOut, accommodation);
+            Participant participant = new Participant(checkIn, checkOut, doubleAccommodation);
             Pricing pricing = new Pricing(meal);
 
             int price = pricing.ComputeTotalPrice(participant);
@@ -45,9 +47,7 @@ namespace SocratesFranceTest
         {
             DayHour checkIn = new DayHour(new DateTime(2019, 04, 25, 20, 0, 0));
             DayHour checkOut = new DayHour(new DateTime(2019, 04, 28, 14, 0, 0));
-            Priceable accommodation = new Priceable(410);
-            Priceable meal = new Priceable(40);
-            Participant participant = new Participant(checkIn, checkOut, accommodation);
+            Participant participant = new Participant(checkIn, checkOut, tripleAccommodation);
             Pricing pricing = new Pricing(meal);
 
             int price = pricing.ComputeTotalPrice(participant);
@@ -61,9 +61,7 @@ namespace SocratesFranceTest
         {
             DayHour checkIn = new DayHour(new DateTime(2019, 04, 25, 20, 0, 0));
             DayHour checkOut = new DayHour(new DateTime(2019, 04, 28, 14, 0, 0));
-            Priceable accommodation = new Priceable(240);
-            Priceable meal = new Priceable(40);
-            Participant participant = new Participant(checkIn, checkOut, accommodation);
+            Participant participant = new Participant(checkIn, checkOut, noAccommodation);
             Pricing pricing = new Pricing(meal);
 
             int price = pricing.ComputeTotalPrice(participant);
@@ -77,9 +75,7 @@ namespace SocratesFranceTest
         {
             DayHour checkIn = new DayHour(new DateTime(2019, 04, 25, 21, 0, 0));
             DayHour checkOut = new DayHour(new DateTime(2019, 04, 28, 14, 0, 0));
-            Priceable accommodation = new Priceable(610);
-            Priceable meal = new Priceable(40);
-            Participant participant = new Participant(checkIn, checkOut, accommodation);
+            Participant participant = new Participant(checkIn, checkOut, singleAccommodation);
             Pricing pricing = new Pricing(meal);
 
             int price = pricing.ComputeTotalPrice(participant);
@@ -93,9 +89,7 @@ namespace SocratesFranceTest
         {
             DayHour checkIn = new DayHour(new DateTime(2019, 04, 25, 20, 0, 0));
             DayHour checkOut = new DayHour(new DateTime(2019, 04, 28, 11, 0, 0));
-            Priceable accommodation = new Priceable(610);
-            Priceable meal = new Priceable(40);
-            Participant participant = new Participant(checkIn, checkOut, accommodation);
+            Participant participant = new Participant(checkIn, checkOut, singleAccommodation);
             Pricing pricing = new Pricing(meal);
 
             int price = pricing.ComputeTotalPrice(participant);
@@ -109,9 +103,7 @@ namespace SocratesFranceTest
         {
             DayHour checkIn = new DayHour(new DateTime(2019, 04, 26, 12, 0, 0));
             DayHour checkOut = new DayHour(new DateTime(2019, 04, 27, 18, 0, 0));
-            Priceable accommodation = new Priceable(610);
-            Priceable meal = new Priceable(40);
-            Participant participant = new Participant(checkIn, checkOut, accommodation);
+            Participant participant = new Participant(checkIn, checkOut, singleAccommodation);
             Pricing pricing = new Pricing(meal);
 
             int price = pricing.ComputeTotalPrice(participant);
