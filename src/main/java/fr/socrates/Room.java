@@ -3,7 +3,8 @@ package fr.socrates;
 public enum Room {
     SINGLE(610),
     DOUBLE(510),
-    TRIPLE(410);
+    TRIPLE(410),
+    NONE(240);
 
     private int price;
 

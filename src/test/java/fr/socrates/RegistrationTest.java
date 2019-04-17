@@ -29,4 +29,13 @@ public class RegistrationTest {
         int result = registration.calculatePrice(Room.TRIPLE);
         assertThat(result).isEqualTo(650);
     }
+
+    @Test
+    public void no_room_with_all_meals() {
+        Registration registration = new Registration();
+
+        int result = registration.calculatePrice(Room.NONE);
+
+        assertThat(result).isEqualTo(480);
+    }
 }
