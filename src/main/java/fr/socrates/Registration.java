@@ -2,6 +2,6 @@ package fr.socrates;
 
 class Registration {
     int calculatePrice(Room room) {
-        return room.getPrice();
+        return room.getPriceWithAllMeals();
     }
 }

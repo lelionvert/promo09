@@ -2,7 +2,8 @@ package fr.socrates;
 
 public enum Room {
     SINGLE(850),
-    DOUBLE(750);
+    DOUBLE(750),
+    TRIPLE(650);
 
     private int price;
 
@@ -10,7 +11,7 @@ public enum Room {
         this.price = price;
     }
 
-    public int getPrice() {
+    public int getPriceWithAllMeals() {
         return price;
     }
 }
