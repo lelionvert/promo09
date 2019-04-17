@@ -32,7 +32,6 @@ namespace SocratesFranceTest
 
             int expected = 750;
             price.Should().Be(expected);
-
         }
     }
 }
