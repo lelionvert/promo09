@@ -1,12 +1,14 @@
 ﻿using System;
 
-namespace ColdMeals.Core
+namespace ColdMeals
 {
     public class Participant
     {
-        private DateTime _checkinDate;
-        private DateTime _checkoutDate;
-        private AccomodationChoice _accomodationChoice;
+        private readonly DateTime _checkinDate;
+        private readonly DateTime _checkoutDate;
+        private readonly AccomodationChoice _accomodationChoice;
+
+        internal AccomodationChoice AccomodationChoice { get => _accomodationChoice; }
 
         public Participant(DateTime checkinDate, DateTime checkoutDate, AccomodationChoice accomodationChoice)
         {

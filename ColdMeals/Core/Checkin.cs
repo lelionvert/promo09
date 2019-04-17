@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ColdMeals.Core
+namespace ColdMeals
 {
     public class Checkin
     {
