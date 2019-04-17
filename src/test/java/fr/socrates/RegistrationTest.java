@@ -8,8 +8,18 @@ public class RegistrationTest {
     @Test
     public void single_room_with_all_meals() {
         Registration registration = new Registration();
+
         int result = registration.calculatePrice(Room.SINGLE);
 
-        assertThat(result).isEqualTo(650);
+        assertThat(result).isEqualTo(850);
+    }
+
+    @Test
+    public void double_room_with_all_meals() {
+        Registration registration = new Registration();
+
+        int result = registration.calculatePrice(Room.DOUBLE);
+
+        assertThat(result).isEqualTo(750);
     }
 }
