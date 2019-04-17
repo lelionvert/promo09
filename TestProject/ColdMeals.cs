@@ -6,9 +6,9 @@ namespace SocratesFrance
     {
         DayOfWeek startingDay;
         int startingHour;
-        CheckIns checkIns;
+        DayHours checkIns;
 
-        public ColdMeals(DayOfWeek startingDay, int startingHour, CheckIns checkIns)
+        public ColdMeals(DayOfWeek startingDay, int startingHour, DayHours checkIns)
         {
             this.startingDay = startingDay;
             this.startingHour = startingHour;

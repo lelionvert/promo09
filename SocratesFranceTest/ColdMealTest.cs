@@ -12,7 +12,7 @@ namespace SocratesFranceTest
         [TestMethod]
         public void ZeroDateReturnZeroParticipant()
         {
-            CheckIns checkIns = new CheckIns();
+            DayHours checkIns = new DayHours();
 
             ColdMeals coldMeals = new ColdMeals(DayOfWeek.Thursday,21,checkIns);
             int participantNumber = coldMeals.Count();
@@ -25,7 +25,7 @@ namespace SocratesFranceTest
         public void OneDateThursdayAtTwenty()
         {
             DayHour checkIn = new DayHour(DayOfWeek.Thursday, 20);
-            CheckIns checkIns = new CheckIns();
+            DayHours checkIns = new DayHours();
             checkIns.Add(checkIn);
 
             ColdMeals coldMeals = new ColdMeals(DayOfWeek.Thursday,21,checkIns);
@@ -39,7 +39,7 @@ namespace SocratesFranceTest
         public void OneDateThursdayAtTwentyOne()
         {
             DayHour checkIn = new DayHour(DayOfWeek.Thursday, 21);
-            CheckIns checkIns = new CheckIns();
+            DayHours checkIns = new DayHours();
             checkIns.Add(checkIn);
 
             ColdMeals coldMeals = new ColdMeals(DayOfWeek.Thursday,21,checkIns);
@@ -53,7 +53,7 @@ namespace SocratesFranceTest
         public void OneDateThursdayAtTwentyTwo()
         {
             DayHour checkIn = new DayHour(DayOfWeek.Thursday, 22);
-            CheckIns checkIns = new CheckIns();
+            DayHours checkIns = new DayHours();
             checkIns.Add(checkIn);
 
             ColdMeals coldMeals = new ColdMeals(DayOfWeek.Thursday,21,checkIns);
@@ -67,7 +67,7 @@ namespace SocratesFranceTest
         public void OneDateFriday()
         {
             DayHour checkIn = new DayHour(DayOfWeek.Friday, 0);
-            CheckIns checkIns = new CheckIns();
+            DayHours checkIns = new DayHours();
             checkIns.Add(checkIn);
 
             ColdMeals coldMeals = new ColdMeals(DayOfWeek.Thursday,21,checkIns);
@@ -81,7 +81,7 @@ namespace SocratesFranceTest
         public void OneDateSaturday()
         {
             DayHour checkIn = new DayHour(DayOfWeek.Saturday, 0);
-            CheckIns checkIns = new CheckIns();
+            DayHours checkIns = new DayHours();
             checkIns.Add(checkIn);
 
             ColdMeals coldMeals = new ColdMeals(DayOfWeek.Thursday,21,checkIns);
@@ -96,7 +96,7 @@ namespace SocratesFranceTest
         {
             DayHour checkIn1 = new DayHour(DayOfWeek.Thursday, 20);
             DayHour checkIn2 = new DayHour(DayOfWeek.Thursday, 20);
-            CheckIns checkIns = new CheckIns();
+            DayHours checkIns = new DayHours();
             checkIns.Add(checkIn1);
             checkIns.Add(checkIn2);
 
@@ -112,7 +112,7 @@ namespace SocratesFranceTest
         {
             DayHour checkIn1 = new DayHour(DayOfWeek.Thursday, 20);
             DayHour checkIn2 = new DayHour(DayOfWeek.Thursday, 21);
-            CheckIns checkIns = new CheckIns();
+            DayHours checkIns = new DayHours();
             checkIns.Add(checkIn1);
             checkIns.Add(checkIn2);
 
@@ -128,7 +128,7 @@ namespace SocratesFranceTest
         {
             DayHour checkIn1 = new DayHour(DayOfWeek.Thursday, 20);
             DayHour checkIn2 = new DayHour(DayOfWeek.Thursday, 22);
-            CheckIns checkIns = new CheckIns();
+            DayHours checkIns = new DayHours();
             checkIns.Add(checkIn1);
             checkIns.Add(checkIn2);
 
@@ -144,7 +144,7 @@ namespace SocratesFranceTest
         {
             DayHour checkIn1 = new DayHour(DayOfWeek.Thursday, 20);
             DayHour checkIn2 = new DayHour(DayOfWeek.Friday, 22);
-            CheckIns checkIns = new CheckIns();
+            DayHours checkIns = new DayHours();
             checkIns.Add(checkIn1);
             checkIns.Add(checkIn2);
 
@@ -160,7 +160,7 @@ namespace SocratesFranceTest
         {
             DayHour checkIn1 = new DayHour(DayOfWeek.Thursday, 21);
             DayHour checkIn2 = new DayHour(DayOfWeek.Thursday, 20);
-            CheckIns checkIns = new CheckIns();
+            DayHours checkIns = new DayHours();
             checkIns.Add(checkIn1);
             checkIns.Add(checkIn2);
 
@@ -176,7 +176,7 @@ namespace SocratesFranceTest
         {
             DayHour checkIn1 = new DayHour(DayOfWeek.Friday, 22);
             DayHour checkIn2 = new DayHour(DayOfWeek.Thursday, 20);
-            CheckIns checkIns = new CheckIns();
+            DayHours checkIns = new DayHours();
             checkIns.Add(checkIn1);
             checkIns.Add(checkIn2);
 
@@ -192,7 +192,7 @@ namespace SocratesFranceTest
         {
             DayHour checkIn1 = new DayHour(DayOfWeek.Thursday, 21);
             DayHour checkIn2 = new DayHour(DayOfWeek.Thursday, 21);
-            CheckIns checkIns = new CheckIns();
+            DayHours checkIns = new DayHours();
             checkIns.Add(checkIn1);
             checkIns.Add(checkIn2);
 
@@ -210,7 +210,7 @@ namespace SocratesFranceTest
             DayHour checkIn2 = new DayHour(DayOfWeek.Thursday, 21);
             DayHour checkIn3 = new DayHour(DayOfWeek.Thursday, 21);
 
-            CheckIns checkIns = new CheckIns();
+            DayHours checkIns = new DayHours();
             checkIns.Add(checkIn1);
             checkIns.Add(checkIn2);
             checkIns.Add(checkIn3);

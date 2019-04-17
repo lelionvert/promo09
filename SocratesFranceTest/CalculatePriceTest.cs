@@ -2,7 +2,6 @@
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SocratesFrance;
-using static SocratesFrance.Accommodation;
 
 namespace SocratesFranceTest
 {
@@ -14,10 +13,12 @@ namespace SocratesFranceTest
         {
             DayHour checkIn = new DayHour(DayOfWeek.Thursday, 20);
             DayHour checkOut = new DayHour(DayOfWeek.Sunday, 14);
-            Accommodation accommadation = new Accommodation(AccommodationEnum.SINGLE, 610);
-            Participant participant = new Participant(checkIn, checkOut, accommadation);
+            Priceable accommodation = new Priceable(610);
+            Priceable meal = new Priceable(40);
+            Participant participant = new Participant(checkIn, checkOut, accommodation);
+            Pricing pricing = new Pricing(meal);
 
-            int price = participant.ComputeTotalPrice();
+            int price = pricing.ComputeTotalPrice(participant);
 
             int expected = 610 + 6 * 40;
             price.Should().Be(expected);
@@ -28,10 +29,12 @@ namespace SocratesFranceTest
         {
             DayHour checkIn = new DayHour(DayOfWeek.Thursday, 20);
             DayHour checkOut = new DayHour(DayOfWeek.Sunday, 14);
-            Accommodation accommodation = new Accommodation(AccommodationEnum.DOUBLE, 510);
-            Participant participant = new Participant(checkIn, checkOut,accommodation);
+            Priceable accommodation = new Priceable(510);
+            Priceable meal = new Priceable(40);
+            Participant participant = new Participant(checkIn, checkOut, accommodation);
+            Pricing pricing = new Pricing(meal);
 
-            int price = participant.ComputeTotalPrice();
+            int price = pricing.ComputeTotalPrice(participant);
 
             int expected = 750;
             price.Should().Be(expected);
@@ -42,10 +45,12 @@ namespace SocratesFranceTest
         {
             DayHour checkIn = new DayHour(DayOfWeek.Thursday, 20);
             DayHour checkOut = new DayHour(DayOfWeek.Sunday, 14);
-            Accommodation accommodation = new Accommodation(AccommodationEnum.TRIPLE, 410);
+            Priceable accommodation = new Priceable(410);
+            Priceable meal = new Priceable(40);
             Participant participant = new Participant(checkIn, checkOut, accommodation);
+            Pricing pricing = new Pricing(meal);
 
-            int price = participant.ComputeTotalPrice();
+            int price = pricing.ComputeTotalPrice(participant);
 
             int expected = 650;
             price.Should().Be(expected);
@@ -56,10 +61,12 @@ namespace SocratesFranceTest
         {
             DayHour checkIn = new DayHour(DayOfWeek.Thursday, 20);
             DayHour checkOut = new DayHour(DayOfWeek.Sunday, 14);
-            Accommodation accommodation = new Accommodation(AccommodationEnum.NO_ACCOMODATION, 240);
+            Priceable accommodation = new Priceable(240);
+            Priceable meal = new Priceable(40);
             Participant participant = new Participant(checkIn, checkOut, accommodation);
+            Pricing pricing = new Pricing(meal);
 
-            int price = participant.ComputeTotalPrice();
+            int price = pricing.ComputeTotalPrice(participant);
 
             int expected = 480;
             price.Should().Be(expected);
@@ -70,10 +77,12 @@ namespace SocratesFranceTest
         {
             DayHour checkIn = new DayHour(DayOfWeek.Thursday, 21);
             DayHour checkOut = new DayHour(DayOfWeek.Sunday, 14);
-            Accommodation accommodation = new Accommodation(AccommodationEnum.SINGLE, 610);
+            Priceable accommodation = new Priceable(610);
+            Priceable meal = new Priceable(40);
             Participant participant = new Participant(checkIn, checkOut, accommodation);
+            Pricing pricing = new Pricing(meal);
 
-            int price = participant.ComputeTotalPrice();
+            int price = pricing.ComputeTotalPrice(participant);
 
             int expected = 810;
             price.Should().Be(expected);
@@ -84,10 +93,12 @@ namespace SocratesFranceTest
         {
             DayHour checkIn = new DayHour(DayOfWeek.Thursday, 20);
             DayHour checkOut = new DayHour(DayOfWeek.Sunday, 11);
-            Accommodation accommodation = new Accommodation(AccommodationEnum.SINGLE, 610);
+            Priceable accommodation = new Priceable(610);
+            Priceable meal = new Priceable(40);
             Participant participant = new Participant(checkIn, checkOut, accommodation);
+            Pricing pricing = new Pricing(meal);
 
-            int price = participant.ComputeTotalPrice();
+            int price = pricing.ComputeTotalPrice(participant);
 
             int expected = 810;
             price.Should().Be(expected);

@@ -4,11 +4,11 @@ using System.Linq;
 
 namespace SocratesFrance
 {
-    public class CheckIns
+    public class DayHours
     {
         List<DayHour> checkIns;
 
-        public CheckIns()
+        public DayHours()
         {
             checkIns = new List<DayHour>();
         }

@@ -13,9 +13,14 @@ namespace SocratesFrance
             this.hour = hour;
         }
 
-        public bool IsLaterTheSameDay(DayOfWeek startingDay, int startingHour)
+        public bool IsLaterTheSameDay(DayOfWeek day, int hour)
         {
-            return startingDay == day && startingHour <= hour;
+            return day == this.day && this.hour >= hour;
+        }
+
+        public bool IsSoonerTheSameDay(DayOfWeek day,int hour)
+        {
+            return !IsLaterTheSameDay(day, hour);
         }
     }
 }

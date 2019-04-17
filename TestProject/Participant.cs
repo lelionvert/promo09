@@ -1,31 +1,14 @@
-﻿
-using System;
+﻿using System;
 
 namespace SocratesFrance
 {
-    public class Accommodation
-    {
-        public enum AccommodationEnum { SINGLE, DOUBLE, TRIPLE, NO_ACCOMODATION }
-
-        AccommodationEnum type;
-        int price;
-
-        public Accommodation(AccommodationEnum type, int price)
-        {
-            this.type = type;
-            this.price = price;
-        }
-
-        public int Price { get => price; private set => price = value; }
-    }
-
     public class Participant
     {
         private readonly DayHour checkIn;
         private readonly DayHour checkOut;
-        private readonly Accommodation accommodation;
+        private readonly Priceable accommodation;
         
-        public Participant(DayHour checkIn = null, DayHour checkOut = null, Accommodation accommodation = null)
+        public Participant(DayHour checkIn = null, DayHour checkOut = null, Priceable accommodation = null)
         {
             this.checkIn = checkIn;
             this.checkOut = checkOut;
@@ -37,19 +20,24 @@ namespace SocratesFrance
             return checkIn != null;
         }
 
-        public int ComputeTotalPrice()
+        public int GetAccomodationPrice()
+        {
+            return accommodation.Price;
+        }
+
+        public int ComputeMealCount()
         {
             int mealCount = 6;
 
-            if(!checkOut.IsLaterTheSameDay(DayOfWeek.Sunday,12))
+            if (checkOut.IsSoonerTheSameDay(DayOfWeek.Sunday, 12))
             {
                 mealCount--;
             }
-            if(checkIn.IsLaterTheSameDay(DayOfWeek.Thursday, 21))
+            if (checkIn.IsLaterTheSameDay(DayOfWeek.Thursday, 21))
             {
                 mealCount--;
             }
-            return accommodation.Price + mealCount * 40;
+            return mealCount;
         }
     }
 }
