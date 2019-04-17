@@ -71,5 +71,6 @@ namespace Tests
 
             result.Should().Be(480);
         }
+
     }
 }

@@ -17,18 +17,6 @@ namespace ColdMeals
             _accomodationChoice = accomodationChoice;
         }
 
-        public int CalculatePrice()
-        {
-            if (_accomodationChoice == AccomodationChoice.NoAccomodation)
-            {
-                return 480;
-            }
-            if (_accomodationChoice == AccomodationChoice.Double)
-            {
-                return 750;
-            }
-            return 850; 
-        }
     }
 
     public enum AccomodationChoice {
