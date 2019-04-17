@@ -11,8 +11,8 @@ namespace SocratesFranceTest
         [TestMethod]
         public void CompletePriceSingleTest()
         {
-            DayHour checkIn = new DayHour(DayOfWeek.Thursday, 20);
-            DayHour checkOut = new DayHour(DayOfWeek.Sunday, 14);
+            DayHour checkIn = new DayHour(new DateTime(2019,04,25,20,0,0));
+            DayHour checkOut = new DayHour(new DateTime(2019, 04, 28, 14, 0, 0));
             Priceable accommodation = new Priceable(610);
             Priceable meal = new Priceable(40);
             Participant participant = new Participant(checkIn, checkOut, accommodation);
@@ -27,8 +27,8 @@ namespace SocratesFranceTest
         [TestMethod]
         public void CompletePriceDoubleTest()
         {
-            DayHour checkIn = new DayHour(DayOfWeek.Thursday, 20);
-            DayHour checkOut = new DayHour(DayOfWeek.Sunday, 14);
+            DayHour checkIn = new DayHour(new DateTime(2019, 04, 25, 20, 0, 0));
+            DayHour checkOut = new DayHour(new DateTime(2019, 04, 28, 14, 0, 0));
             Priceable accommodation = new Priceable(510);
             Priceable meal = new Priceable(40);
             Participant participant = new Participant(checkIn, checkOut, accommodation);
@@ -43,8 +43,8 @@ namespace SocratesFranceTest
         [TestMethod]
         public void CompletePriceTripleTest()
         {
-            DayHour checkIn = new DayHour(DayOfWeek.Thursday, 20);
-            DayHour checkOut = new DayHour(DayOfWeek.Sunday, 14);
+            DayHour checkIn = new DayHour(new DateTime(2019, 04, 25, 20, 0, 0));
+            DayHour checkOut = new DayHour(new DateTime(2019, 04, 28, 14, 0, 0));
             Priceable accommodation = new Priceable(410);
             Priceable meal = new Priceable(40);
             Participant participant = new Participant(checkIn, checkOut, accommodation);
@@ -59,8 +59,8 @@ namespace SocratesFranceTest
         [TestMethod]
         public void CompletePriceNoAccomodationTest()
         {
-            DayHour checkIn = new DayHour(DayOfWeek.Thursday, 20);
-            DayHour checkOut = new DayHour(DayOfWeek.Sunday, 14);
+            DayHour checkIn = new DayHour(new DateTime(2019, 04, 25, 20, 0, 0));
+            DayHour checkOut = new DayHour(new DateTime(2019, 04, 28, 14, 0, 0));
             Priceable accommodation = new Priceable(240);
             Priceable meal = new Priceable(40);
             Participant participant = new Participant(checkIn, checkOut, accommodation);
@@ -75,8 +75,8 @@ namespace SocratesFranceTest
         [TestMethod]
         public void PriceWithoutOneMealChekcInFridaySingleTest()
         {
-            DayHour checkIn = new DayHour(DayOfWeek.Thursday, 21);
-            DayHour checkOut = new DayHour(DayOfWeek.Sunday, 14);
+            DayHour checkIn = new DayHour(new DateTime(2019, 04, 25, 21, 0, 0));
+            DayHour checkOut = new DayHour(new DateTime(2019, 04, 28, 14, 0, 0));
             Priceable accommodation = new Priceable(610);
             Priceable meal = new Priceable(40);
             Participant participant = new Participant(checkIn, checkOut, accommodation);
@@ -91,8 +91,8 @@ namespace SocratesFranceTest
         [TestMethod]
         public void PriceWithoutOneMealCheckOutBeforeSundayAtTwelveSingleTest()
         {
-            DayHour checkIn = new DayHour(DayOfWeek.Thursday, 20);
-            DayHour checkOut = new DayHour(DayOfWeek.Sunday, 11);
+            DayHour checkIn = new DayHour(new DateTime(2019, 04, 25, 20, 0, 0));
+            DayHour checkOut = new DayHour(new DateTime(2019, 04, 28, 11, 0, 0));
             Priceable accommodation = new Priceable(610);
             Priceable meal = new Priceable(40);
             Participant participant = new Participant(checkIn, checkOut, accommodation);
@@ -107,8 +107,8 @@ namespace SocratesFranceTest
         [TestMethod]
         public void PriceWithoutTwoMealsCheckOutBeforeSaturdayAtEigthteenSingleTest()
         {
-            DayHour checkIn = new DayHour(DayOfWeek.Friday, 12);
-            DayHour checkOut = new DayHour(DayOfWeek.Saturday, 18);
+            DayHour checkIn = new DayHour(new DateTime(2019, 04, 26, 12, 0, 0));
+            DayHour checkOut = new DayHour(new DateTime(2019, 04, 27, 18, 0, 0));
             Priceable accommodation = new Priceable(610);
             Priceable meal = new Priceable(40);
             Participant participant = new Participant(checkIn, checkOut, accommodation);

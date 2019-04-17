@@ -2,7 +2,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using FluentAssertions;
 using SocratesFrance;
-using System.Collections.Generic;
 
 namespace SocratesFranceTest
 {

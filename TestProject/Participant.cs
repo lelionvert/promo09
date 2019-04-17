@@ -25,15 +25,16 @@ namespace SocratesFrance
             return accommodation.Price;
         }
 
+        
         public int ComputeMealCount()
         {
             int mealCount = 6;
 
-            if (checkOut.IsSoonerTheSameDay(DayOfWeek.Sunday, 12)|| checkOut.IsAnotherDay(DayOfWeek.Sunday))
+            if (checkOut.IsSooner(new DateTime(2019,04,28,12,0,0)))
             {
                 mealCount--;
             }
-            if (checkIn.IsLaterTheSameDay(DayOfWeek.Thursday, 21)|| checkIn.IsAnotherDay(DayOfWeek.Thursday))
+            if (checkIn.IsLater(new DateTime(2019, 04, 25, 21, 0, 0)))
             {
                 mealCount--;
             }
