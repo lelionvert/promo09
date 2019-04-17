@@ -110,5 +110,19 @@ namespace Tests
 
             result.Should().Be(770);
         }
+
+
+        [Test]
+        public void Arriving_thursday_at_22_leaving_sunday_at_14h_with_no_accomodation_cost_440()
+        {
+            Organisation organisation = new Organisation(6, 40);
+            var checkinDate = new DateTime(2019, 11, 18, 22, 00, 00);
+            var checkoutDate = new DateTime(2019, 11, 21, 14, 00, 00);
+
+            Participant participant = new Participant(checkinDate, checkoutDate, AccomodationChoice.NoAccomodation);
+            int result = organisation.CalculatePrice(participant);
+
+            result.Should().Be(440);
+        }
     }
 }
