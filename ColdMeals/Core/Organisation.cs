@@ -19,7 +19,12 @@ namespace ColdMeals
 
         public int CalculatePrice(Participant participant)
         {
-            return (int)participant.AccomodationChoice + _nbMeals * _priceByMeal;
+            return (int)participant.AccomodationChoice + CalculatePriceMeals(participant);
+        }
+
+        private int CalculatePriceMeals(Participant participant)
+        {
+            return participant.GetNumberOfMeals(_nbMeals) * _priceByMeal;
         }
     }
 }

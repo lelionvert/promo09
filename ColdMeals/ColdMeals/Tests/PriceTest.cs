@@ -72,5 +72,18 @@ namespace Tests
             result.Should().Be(480);
         }
 
+        [Test]
+        public void Arriving_friday_leaving_sunday_after_14h_with_triple_room_cost_610()
+        {
+            Organisation organisation = new Organisation(6, 40);
+            var checkinDate = new DateTime(2019, 11, 19);
+            var checkoutDate = new DateTime(2019, 11, 21, 13, 00, 00);
+
+            Participant participant = new Participant(checkinDate, checkoutDate, AccomodationChoice.Triple);
+            int result = organisation.CalculatePrice(participant);
+
+            result.Should().Be(610);
+        }
+
     }
 }
