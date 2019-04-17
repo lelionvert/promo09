@@ -78,5 +78,19 @@ namespace SocratesFranceTest
             int expected = 810;
             price.Should().Be(expected);
         }
+        
+        [TestMethod]
+        public void PriceWithoutOneMealCheckOutBeforeSundayAtTwelveSingleTest()
+        {
+            DayHour checkIn = new DayHour(DayOfWeek.Thursday, 20);
+            DayHour checkOut = new DayHour(DayOfWeek.Sunday, 11);
+            Accommodation accommodation = new Accommodation(AccommodationEnum.SINGLE, 610);
+            Participant participant = new Participant(checkIn, checkOut, accommodation);
+
+            int price = participant.ComputeTotalPrice();
+
+            int expected = 810;
+            price.Should().Be(expected);
+        }
     }
 }

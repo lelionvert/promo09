@@ -41,6 +41,10 @@ namespace SocratesFrance
         {
             int mealCount = 6;
 
+            if(!checkOut.IsLaterTheSameDay(DayOfWeek.Sunday,12))
+            {
+                mealCount--;
+            }
             if(checkIn.IsLaterTheSameDay(DayOfWeek.Thursday, 21))
             {
                 mealCount--;
