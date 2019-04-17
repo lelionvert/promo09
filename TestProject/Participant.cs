@@ -39,9 +39,13 @@ namespace SocratesFrance
 
         public int ComputeTotalPrice()
         {
+            int mealCount = 6;
+
             if(checkIn.IsLaterTheSameDay(DayOfWeek.Thursday, 21))
-                return accommodation.Price + 5 * 40;
-            return accommodation.Price + 6 * 40;
+            {
+                mealCount--;
+            }
+            return accommodation.Price + mealCount * 40;
         }
     }
 }
