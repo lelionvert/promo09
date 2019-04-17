@@ -1,26 +1,31 @@
 package fr.socrates;
 
-import java.time.LocalDateTime;
-
 class Registration {
-    private static final int MEALS_PRICE = 40;
-    private static final int MAX_MEALS = 6;
-
+    private SocratesEvent socratesEvent;
     private CheckIn checkIn;
-    private LocalDateTime socratesDateStart;
+    private Room room;
 
-    Registration(CheckIn checkIn, LocalDateTime socratesDateStart) {
-        this.socratesDateStart = socratesDateStart;
+    Registration(Room room, CheckIn checkIn, SocratesEvent socratesEvent) {
+        this.room = room;
+        this.socratesEvent = socratesEvent;
         this.checkIn = checkIn;
     }
 
-    Registration() {
+    Registration(Room room, SocratesEvent socratesEvent) {
+        this.room = room;
+        this.socratesEvent = socratesEvent;
     }
 
-    int calculatePrice(Room room) {
-        if (checkIn != null && checkIn.isAfter(socratesDateStart)) {
-            return room.getPrice() + (MAX_MEALS - 1) * MEALS_PRICE;
+    int calculatePrice() {
+        return this.room.getPrice() + getMealsSum();
+    }
+
+    private int getMealsSum() {
+        int mealsNumber = this.socratesEvent.getMeal().getNumber();
+
+        if (checkIn != null && checkIn.isAfter(socratesEvent.getStartDateTime())) {
+            mealsNumber--;
         }
-        return room.getPrice() + MAX_MEALS * MEALS_PRICE;
+        return this.socratesEvent.getMeal().getTotalPrice(mealsNumber);
     }
 }

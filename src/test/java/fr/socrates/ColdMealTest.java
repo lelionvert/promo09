@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class ColdMealsTest {
+public class ColdMealTest {
     private static final LocalDateTime COLD_MEALS_START = LocalDateTime.of(2019, 4, 18, 21, 0);
 
     @Test
