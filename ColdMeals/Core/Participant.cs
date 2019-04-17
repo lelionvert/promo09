@@ -19,14 +19,11 @@ namespace ColdMeals
 
         internal int GetNumberOfMeals(int defaultNbOfMeals)
         {
-            if (_checkinDate == new DateTime(2019, 11, 18, 22, 00, 00))
+            if (_checkinDate >= new DateTime(2019, 11, 18, 21, 00, 00) || _checkoutDate <= new DateTime(2019, 11, 21, 12, 00, 00))
             {
                 return --defaultNbOfMeals;
             }
-            if (_checkoutDate.Date == new DateTime(2019, 11, 20) || _checkinDate == new DateTime(2019, 11, 19))
-            {
-                return --defaultNbOfMeals;
-            }
+            
             return defaultNbOfMeals;
         }
     }
