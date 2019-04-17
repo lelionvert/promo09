@@ -33,5 +33,19 @@ namespace SocratesFranceTest
             int expected = 750;
             price.Should().Be(expected);
         }
+
+        [TestMethod]
+        public void CompletePriceTripleTest()
+        {
+            DayHour checkIn = new DayHour(DayOfWeek.Thursday, 20);
+            DayHour checkOut = new DayHour(DayOfWeek.Sunday, 14);
+            Participant participant = new Participant(checkIn, checkOut, Accommodation.TRIPLE);
+
+            int price = participant.ComputeTotalPrice();
+
+            int expected = 650;
+            price.Should().Be(expected);
+        }
+
     }
 }

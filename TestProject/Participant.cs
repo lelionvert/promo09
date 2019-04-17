@@ -24,6 +24,8 @@ namespace SocratesFrance
 
         public int ComputeTotalPrice()
         {
+            if (accommodation == Accommodation.TRIPLE)
+                return 410 + 6 * 40;
             int accommodationPrice = 610;
             if (accommodation == Accommodation.DOUBLE)
                 accommodationPrice = 510;
