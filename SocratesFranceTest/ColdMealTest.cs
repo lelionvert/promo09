@@ -24,7 +24,7 @@ namespace SocratesFranceTest
         [TestMethod]
         public void OneDateThursdayAtTwenty()
         {
-            CheckIn checkIn = new CheckIn(DayOfWeek.Thursday, 20);
+            DayHour checkIn = new DayHour(DayOfWeek.Thursday, 20);
             CheckIns checkIns = new CheckIns();
             checkIns.Add(checkIn);
 
@@ -38,7 +38,7 @@ namespace SocratesFranceTest
         [TestMethod]
         public void OneDateThursdayAtTwentyOne()
         {
-            CheckIn checkIn = new CheckIn(DayOfWeek.Thursday, 21);
+            DayHour checkIn = new DayHour(DayOfWeek.Thursday, 21);
             CheckIns checkIns = new CheckIns();
             checkIns.Add(checkIn);
 
@@ -52,7 +52,7 @@ namespace SocratesFranceTest
         [TestMethod]
         public void OneDateThursdayAtTwentyTwo()
         {
-            CheckIn checkIn = new CheckIn(DayOfWeek.Thursday, 22);
+            DayHour checkIn = new DayHour(DayOfWeek.Thursday, 22);
             CheckIns checkIns = new CheckIns();
             checkIns.Add(checkIn);
 
@@ -66,7 +66,7 @@ namespace SocratesFranceTest
         [TestMethod]
         public void OneDateFriday()
         {
-            CheckIn checkIn = new CheckIn(DayOfWeek.Friday, 0);
+            DayHour checkIn = new DayHour(DayOfWeek.Friday, 0);
             CheckIns checkIns = new CheckIns();
             checkIns.Add(checkIn);
 
@@ -80,7 +80,7 @@ namespace SocratesFranceTest
         [TestMethod]
         public void OneDateSaturday()
         {
-            CheckIn checkIn = new CheckIn(DayOfWeek.Saturday, 0);
+            DayHour checkIn = new DayHour(DayOfWeek.Saturday, 0);
             CheckIns checkIns = new CheckIns();
             checkIns.Add(checkIn);
 
@@ -94,8 +94,8 @@ namespace SocratesFranceTest
         [TestMethod]
         public void TwoDatesThursdayAtTwenty()
         {
-            CheckIn checkIn1 = new CheckIn(DayOfWeek.Thursday, 20);
-            CheckIn checkIn2 = new CheckIn(DayOfWeek.Thursday, 20);
+            DayHour checkIn1 = new DayHour(DayOfWeek.Thursday, 20);
+            DayHour checkIn2 = new DayHour(DayOfWeek.Thursday, 20);
             CheckIns checkIns = new CheckIns();
             checkIns.Add(checkIn1);
             checkIns.Add(checkIn2);
@@ -110,8 +110,8 @@ namespace SocratesFranceTest
         [TestMethod]
         public void TwoDatesThursdayAtTwentyAndTwentyOne()
         {
-            CheckIn checkIn1 = new CheckIn(DayOfWeek.Thursday, 20);
-            CheckIn checkIn2 = new CheckIn(DayOfWeek.Thursday, 21);
+            DayHour checkIn1 = new DayHour(DayOfWeek.Thursday, 20);
+            DayHour checkIn2 = new DayHour(DayOfWeek.Thursday, 21);
             CheckIns checkIns = new CheckIns();
             checkIns.Add(checkIn1);
             checkIns.Add(checkIn2);
@@ -126,8 +126,8 @@ namespace SocratesFranceTest
         [TestMethod]
         public void TwoDatesThursdayAtTwentyAndTwentyTwo()
         {
-            CheckIn checkIn1 = new CheckIn(DayOfWeek.Thursday, 20);
-            CheckIn checkIn2 = new CheckIn(DayOfWeek.Thursday, 22);
+            DayHour checkIn1 = new DayHour(DayOfWeek.Thursday, 20);
+            DayHour checkIn2 = new DayHour(DayOfWeek.Thursday, 22);
             CheckIns checkIns = new CheckIns();
             checkIns.Add(checkIn1);
             checkIns.Add(checkIn2);
@@ -142,8 +142,8 @@ namespace SocratesFranceTest
         [TestMethod]
         public void TwoDatesThursdayAtTwentyAndFriday()
         {
-            CheckIn checkIn1 = new CheckIn(DayOfWeek.Thursday, 20);
-            CheckIn checkIn2 = new CheckIn(DayOfWeek.Friday, 22);
+            DayHour checkIn1 = new DayHour(DayOfWeek.Thursday, 20);
+            DayHour checkIn2 = new DayHour(DayOfWeek.Friday, 22);
             CheckIns checkIns = new CheckIns();
             checkIns.Add(checkIn1);
             checkIns.Add(checkIn2);
@@ -158,8 +158,8 @@ namespace SocratesFranceTest
         [TestMethod]
         public void TwoDatesThursdayAtTwentyOneAndTwenty()
         {
-            CheckIn checkIn1 = new CheckIn(DayOfWeek.Thursday, 21);
-            CheckIn checkIn2 = new CheckIn(DayOfWeek.Thursday, 20);
+            DayHour checkIn1 = new DayHour(DayOfWeek.Thursday, 21);
+            DayHour checkIn2 = new DayHour(DayOfWeek.Thursday, 20);
             CheckIns checkIns = new CheckIns();
             checkIns.Add(checkIn1);
             checkIns.Add(checkIn2);
@@ -174,8 +174,8 @@ namespace SocratesFranceTest
         [TestMethod]
         public void TwoDatesFridayAndThursday()
         {
-            CheckIn checkIn1 = new CheckIn(DayOfWeek.Friday, 22);
-            CheckIn checkIn2 = new CheckIn(DayOfWeek.Thursday, 20);
+            DayHour checkIn1 = new DayHour(DayOfWeek.Friday, 22);
+            DayHour checkIn2 = new DayHour(DayOfWeek.Thursday, 20);
             CheckIns checkIns = new CheckIns();
             checkIns.Add(checkIn1);
             checkIns.Add(checkIn2);
@@ -190,8 +190,8 @@ namespace SocratesFranceTest
         [TestMethod]
         public void TwoDatesThursdayAtTwentyOneAndThursdayAtTwenty()
         {
-            CheckIn checkIn1 = new CheckIn(DayOfWeek.Thursday, 21);
-            CheckIn checkIn2 = new CheckIn(DayOfWeek.Thursday, 21);
+            DayHour checkIn1 = new DayHour(DayOfWeek.Thursday, 21);
+            DayHour checkIn2 = new DayHour(DayOfWeek.Thursday, 21);
             CheckIns checkIns = new CheckIns();
             checkIns.Add(checkIn1);
             checkIns.Add(checkIn2);
@@ -206,9 +206,9 @@ namespace SocratesFranceTest
         [TestMethod]
         public void ThreeDatesThursdayAtTwentyOne()
         {
-            CheckIn checkIn1 = new CheckIn(DayOfWeek.Thursday, 21);
-            CheckIn checkIn2 = new CheckIn(DayOfWeek.Thursday, 21);
-            CheckIn checkIn3 = new CheckIn(DayOfWeek.Thursday, 21);
+            DayHour checkIn1 = new DayHour(DayOfWeek.Thursday, 21);
+            DayHour checkIn2 = new DayHour(DayOfWeek.Thursday, 21);
+            DayHour checkIn3 = new DayHour(DayOfWeek.Thursday, 21);
 
             CheckIns checkIns = new CheckIns();
             checkIns.Add(checkIn1);

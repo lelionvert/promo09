@@ -6,14 +6,14 @@ namespace SocratesFrance
 {
     public class CheckIns
     {
-        List<CheckIn> checkIns;
+        List<DayHour> checkIns;
 
         public CheckIns()
         {
-            checkIns = new List<CheckIn>();
+            checkIns = new List<DayHour>();
         }
 
-        public void Add(CheckIn checkIn)
+        public void Add(DayHour checkIn)
         {
             checkIns.Add(checkIn);
         }
@@ -23,7 +23,7 @@ namespace SocratesFrance
             return GetCheckInsSameDayAfter(day,hour).Count();
         }
 
-        private IEnumerable<CheckIn> GetCheckInsSameDayAfter(DayOfWeek day, int hour)
+        private IEnumerable<DayHour> GetCheckInsSameDayAfter(DayOfWeek day, int hour)
         {
             return checkIns.Where(checkIn =>
             checkIn.IsLaterTheSameDay(day, hour));

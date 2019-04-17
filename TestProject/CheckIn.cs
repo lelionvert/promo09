@@ -2,12 +2,12 @@
 
 namespace SocratesFrance
 {
-    public class CheckIn
+    public class DayHour
     {
         DayOfWeek day;
         int hour;
 
-        public CheckIn(DayOfWeek day, int hour)
+        public DayHour(DayOfWeek day, int hour)
         {
             this.day = day;
             this.hour = hour;

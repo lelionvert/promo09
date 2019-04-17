@@ -19,7 +19,7 @@ namespace SocratesFranceTest
         [TestMethod]
         public void ParticipantShouldHaveACheckIn()
         {
-            CheckIn checkIn = new CheckIn(DayOfWeek.Thursday,20);
+            DayHour checkIn = new DayHour(DayOfWeek.Thursday,20);
             Participant participant = new Participant(checkIn);
 
             participant.HasCheckin().Should().BeTrue();
