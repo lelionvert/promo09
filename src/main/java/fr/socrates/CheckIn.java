@@ -22,6 +22,11 @@ class CheckIn {
                 && actualCheckInDateTime.isAfter(latenessDeadLine);
     }
 
+    boolean isAfter(LocalDateTime date) {
+        LocalDateTime actualCheckInDateTime = checkInDateTime.orElse(LocalDateTime.MIN);
+        return actualCheckInDateTime.isAfter(date);
+    }
+
     @Override
     public String toString() {
         return "CheckIn{" +
