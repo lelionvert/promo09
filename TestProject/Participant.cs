@@ -3,23 +3,18 @@ using System;
 
 namespace SocratesFrance
 {
-    public enum Choice { SINGLE, DOUBLE}
+    public enum Accommodation { SINGLE, DOUBLE, TRIPLE, NO_ACCOMODATION}
     public class Participant
     {
-        private DayHour checkIn;
-        private DayHour checkOut;
-        private readonly Choice dOUBLE;
-
-        public Participant(DayHour checkIn = null)
-        {
-            this.checkIn = checkIn;
-        }
-
-        public Participant(DayHour checkIn, DayHour checkOut, Choice dOUBLE)
+        private readonly DayHour checkIn;
+        private readonly DayHour checkOut;
+        private readonly Accommodation accommodation;
+        
+        public Participant(DayHour checkIn = null, DayHour checkOut = null, Accommodation accomodation = Accommodation.NO_ACCOMODATION)
         {
             this.checkIn = checkIn;
             this.checkOut = checkOut;
-            this.dOUBLE = dOUBLE;
+            this.accommodation = accomodation;
         }
 
         public bool HasCheckin()
@@ -29,9 +24,10 @@ namespace SocratesFrance
 
         public int ComputeTotalPrice()
         {
-            if (dOUBLE == Choice.DOUBLE)
-                return 510 + 6 * 40;
-            return 610 + 6 * 40;
+            int accommodationPrice = 610;
+            if (accommodation == Accommodation.DOUBLE)
+                accommodationPrice = 510;
+            return accommodationPrice + 6 * 40;
         }
     }
 }

@@ -13,7 +13,7 @@ namespace SocratesFranceTest
         {
             DayHour checkIn = new DayHour(DayOfWeek.Thursday, 20);
             DayHour checkOut = new DayHour(DayOfWeek.Sunday, 14);
-            Participant participant = new Participant(checkIn, checkOut, Choice.SINGLE);
+            Participant participant = new Participant(checkIn, checkOut, Accommodation.SINGLE);
 
             int price = participant.ComputeTotalPrice();
 
@@ -26,7 +26,7 @@ namespace SocratesFranceTest
         {
             DayHour checkIn = new DayHour(DayOfWeek.Thursday, 20);
             DayHour checkOut = new DayHour(DayOfWeek.Sunday, 14);
-            Participant participant = new Participant(checkIn, checkOut,Choice.DOUBLE);
+            Participant participant = new Participant(checkIn, checkOut,Accommodation.DOUBLE);
 
             int price = participant.ComputeTotalPrice();
 
