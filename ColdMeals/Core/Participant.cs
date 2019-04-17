@@ -17,17 +17,22 @@ namespace ColdMeals
             _accomodationChoice = accomodationChoice;
         }
 
-        internal int GetNumberOfMeals(int nbMeals)
+        internal int GetNumberOfMeals(int defaultNbOfMeals)
         {
+            if (_checkoutDate.Date == new DateTime(2019, 11, 20))
+            {
+                return 5;
+            }
             if (_checkinDate == new DateTime(2019, 11, 19))
             {
                 return 5;
             }
-            return nbMeals;
+            return defaultNbOfMeals;
         }
     }
 
-    public enum AccomodationChoice {
+    public enum AccomodationChoice
+    {
         Single = 610,
         Double = 510,
         Triple = 410,

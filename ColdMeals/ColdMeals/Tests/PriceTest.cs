@@ -85,5 +85,18 @@ namespace Tests
             result.Should().Be(610);
         }
 
+        [Test]
+        public void Arriving_thursday_at_18_leaving_saturday_at_20h_with_single_room_cost_810()
+        {
+            Organisation organisation = new Organisation(6, 40);
+            var checkinDate = new DateTime(2019, 11, 18,18,00,00);
+            var checkoutDate = new DateTime(2019, 11, 20, 20, 00, 00);
+
+            Participant participant = new Participant(checkinDate, checkoutDate, AccomodationChoice.Single);
+            int result = organisation.CalculatePrice(participant);
+
+            result.Should().Be(810);
+        }
+
     }
 }
