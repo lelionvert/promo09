@@ -4,30 +4,27 @@ namespace ColdMeals.Core
 {
     public class Participant
     {
-        private DateTime checkinDate;
-        private DateTime checkoutDate;
-        private object simple;
+        private DateTime _checkinDate;
+        private DateTime _checkoutDate;
+        private AccomodationChoice _accomodationChoice;
 
-        public Participant(DateTime checkinDate, DateTime checkoutDate, object simple)
+        public Participant(DateTime checkinDate, DateTime checkoutDate, AccomodationChoice accomodationChoice)
         {
-            this.checkinDate = checkinDate;
-            this.checkoutDate = checkoutDate;
-            this.simple = simple;
+            _checkinDate = checkinDate;
+            _checkoutDate = checkoutDate;
+            _accomodationChoice = accomodationChoice;
         }
 
         public int CalculatePrice()
         {
             return 850; 
         }
-
     }
 
     public enum AccomodationChoice {
-
         Single = 610,
         Double = 510,
         Triple = 410,
         NoAccomodation = 240
-        
     }
 }

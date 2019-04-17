@@ -8,11 +8,10 @@ namespace Tests
     public class PriceTest
     {
         [Test]
-        public void Complete_price_arriving_thrursday_leaving_sunday_after_14h_cost_850()
+        public void Complete_price_arriving_thursday_before_21_leaving_sunday_after_14h_cost_850()
         {
             var checkinDate = new DateTime(2019, 11, 18, 18, 00, 00);
             var checkoutDate = new DateTime(2019, 11, 21, 14, 00, 00);
-
 
             Participant participant = new Participant(checkinDate, checkoutDate, AccomodationChoice.Single);
 
