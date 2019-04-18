@@ -14,14 +14,20 @@ namespace Socrates
         private readonly DateTime _lastMealLimit;
         private Dictionary<Room, int> _prices;
 
-        public Organisation(int nbMeals, int mealPrice, DateTime firstMealLimit, DateTime lastMealLimit,
-            Dictionary<Room, int> prices)
+        public Organisation(int mealPrice, DateTime firstMealLimit, DateTime lastMealLimit, Dictionary<Room, int> prices)
         {
-            _nbMeals = nbMeals;
             _mealPrice = mealPrice;
             _firstMealLimit = firstMealLimit;
             _lastMealLimit = lastMealLimit;
             _prices = prices;
+            _nbMeals = CountNbMeals();
+
+        }
+
+        private int CountNbMeals()
+        {
+            const int NbMealsByDay = 2;
+            return _lastMealLimit.Date.Subtract(_firstMealLimit.Date).Days * NbMealsByDay;
         }
 
         public int CalculatePrice(Registration registration)
