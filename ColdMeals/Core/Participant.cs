@@ -20,15 +20,15 @@ namespace ColdMeals
             _accomodationChoice = accomodationChoice;
         }
 
-        internal int GetNumberOfMeals(int defaultNbOfMeals)
+        internal int GetNumberOfMeals(int defaultNbOfMeals, DateTime firstMealLimit, DateTime lastMealLimit)
         {
             int nbOfMeals = defaultNbOfMeals;
-            if (_checkinDate >= new DateTime(2019, 11, 19, 00, 00, 00) )
+            if (_checkinDate >= firstMealLimit)
             {
                 nbOfMeals--;
             }
 
-            if ( _checkoutDate <= new DateTime(2019, 11, 21, 12, 00, 00))
+            if (_checkoutDate <= lastMealLimit)
             {
                 nbOfMeals--;
 

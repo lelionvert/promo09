@@ -10,13 +10,16 @@ namespace ColdMeals
     {
         private readonly int _nbMeals;
         private readonly int _priceByMeal;
+        private readonly DateTime _firstMealLimit;
+        private readonly DateTime _lastMealLimit;
         private Dictionary<AccomodationChoice, int> _accomodationPrice;
 
-
-        public Organisation(int nbMeals, int priceByMeal)
+        public Organisation(int nbMeals, int priceByMeal, DateTime firstMealLimit, DateTime lastMealLimit)
         {
             _nbMeals = nbMeals;
             _priceByMeal = priceByMeal;
+            _firstMealLimit = firstMealLimit;
+            _lastMealLimit = lastMealLimit;
             SetUpAccomodationPrices();
         }
 
@@ -38,7 +41,7 @@ namespace ColdMeals
 
         private int CalculatePriceMeals(Participant participant)
         {
-            return participant.GetNumberOfMeals(_nbMeals) * _priceByMeal;
+            return participant.GetNumberOfMeals(_nbMeals, _firstMealLimit, _lastMealLimit) * _priceByMeal;
         }
     }
 }
