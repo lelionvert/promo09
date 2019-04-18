@@ -21,11 +21,11 @@ class Registration {
     }
 
     private int calculateTotalMealsPrice() {
-        int mealsNumber = this.socratesEvent.getMeal().getNumber();
+        int mealsNumber = this.socratesEvent.getMealNumber();
 
         if (checkIn != null && checkIn.isAfter(socratesEvent.getStartDateTime())) {
             mealsNumber--;
         }
-        return this.socratesEvent.getMeal().calculateTotalPrice(mealsNumber);
+        return this.socratesEvent.calculateTotalPrice(mealsNumber);
     }
 }

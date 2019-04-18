@@ -10,10 +10,11 @@ public class RegistrationTest {
 
     private static final LocalDateTime socratesStart = LocalDateTime.of(2019, 1, 2, 21, 0);
     private SocratesEvent socratesEvent = new SocratesEvent(socratesStart, new Meal(40, 6));
+    private SocratesEvent socratesEvent2 = new SocratesEvent(socratesStart, 40, 6);
 
     @Test
     public void single_room_with_all_meals() {
-        Registration registration = new Registration(Room.SINGLE, socratesEvent);
+        Registration registration = new Registration(Room.SINGLE, socratesEvent2);
 
         int totalPrice = registration.calculatePrice();
 
