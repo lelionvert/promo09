@@ -124,10 +124,10 @@ namespace Tests
 
 
         [Test]
-        public void Arriving_thursday_at_22_leaving_sunday_at_14h_with_no_accomodation_cost_440()
+        public void Arriving_friday_at_2_leaving_sunday_at_14h_with_no_accomodation_cost_440()
         {
             Organisation organisation = new Organisation(6, 40);
-            var checkinDate = new DateTime(2019, 11, 18, 22, 00, 00);
+            var checkinDate = new DateTime(2019, 11, 19, 2, 00, 00);
             var checkoutDate = new DateTime(2019, 11, 21, 14, 00, 00);
 
             Participant participant = new Participant(checkinDate, checkoutDate, AccomodationChoice.NoAccomodation);
@@ -150,10 +150,10 @@ namespace Tests
         }
 
         [Test]
-        public void Arriving_thursday_at_22h_leaving_saturday_at_18h_with_double_room_return_670()
+        public void Arriving_friday_at_1h_leaving_saturday_at_18h_with_double_room_return_670()
         {
             Organisation organisation = new Organisation(6, 40);
-            var checkinDate = new DateTime(2019, 11, 18, 22, 00, 00);
+            var checkinDate = new DateTime(2019, 11, 19, 1, 00, 00);
             var checkoutDate = new DateTime(2019, 11, 20, 18, 00, 00);
 
             Participant participant = new Participant(checkinDate, checkoutDate, AccomodationChoice.Double);
