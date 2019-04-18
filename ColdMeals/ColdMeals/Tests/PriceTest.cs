@@ -10,7 +10,7 @@ namespace Tests
     public class PriceTest
     {
         private Dictionary<Room, Price> _prices;
-        private Period _mealsLimitPeriod = new Period(
+        private readonly Period _mealsLimitPeriod = new Period(
             new DateTime(2019, 11, 18, 23, 59, 59),
             new DateTime(2019, 11, 21, 12, 00, 00)
             );

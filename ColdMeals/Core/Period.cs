@@ -21,10 +21,6 @@ namespace Socrates
         {
             return _end < date;
         }
-        public Boolean Contains(DateTime date)
-        {
-            return _start < date && _end > date;
-        }
 
         public int CountNumberOfDays()
         {

@@ -19,12 +19,12 @@ namespace Socrates
             Period mealsLimitPeriod)
         {
             int nbOfMeals = defaultNbOfMeals;
-            if (!mealsLimitPeriod.IsAfter(_checkin))
+            if (!_checkin.IsAfter(mealsLimitPeriod))
             {
                 nbOfMeals--;
             }
 
-            if (!mealsLimitPeriod.IsBefore(_checkout))
+            if (!_checkout.IsBefore(mealsLimitPeriod))
             {
                 nbOfMeals--;
             }

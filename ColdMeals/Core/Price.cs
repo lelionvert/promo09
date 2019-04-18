@@ -16,14 +16,9 @@ namespace Socrates
             _value = value;
         }
 
-        public Price Add(Price price)
+        internal Price Add(Price price)
         {
             return Price.Of(_value + price._value);
-        }
-
-        internal Price Add(int price)
-        {
-            return Price.Of(_value + price);
         }
 
         internal Price Times(int nb)
