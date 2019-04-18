@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Checkin.cs" />
     <Compile Include="Period.cs" />
+    <Compile Include="Price.cs" />
     <Compile Include="Room.cs" />
     <Compile Include="Organisation.cs" />
     <Compile Include="Registration.cs" />
