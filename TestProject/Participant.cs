@@ -2,13 +2,13 @@
 
 namespace SocratesFrance
 {
-    public class Participant
+    public class Registration
     {
         private readonly DayHour checkIn;
         private readonly DayHour checkOut;
         private readonly Priceable accommodation;
         
-        public Participant(DayHour checkIn = null, DayHour checkOut = null, Priceable accommodation = null)
+        public Registration(DayHour checkIn = null, DayHour checkOut = null, Priceable accommodation = null)
         {
             this.checkIn = checkIn;
             this.checkOut = checkOut;
@@ -25,15 +25,15 @@ namespace SocratesFrance
             return accommodation.Price;
         }
         
-        public int ComputeMealCount()
+        public int ComputeMealCount(DateTime startDate, DateTime endDate)
         {
             int mealCount = 6;
 
-            if (checkOut.IsSooner(new DayHour(new DateTime(2019,04,28,12,0,0))))
+            if (checkOut.IsSooner(endDate))
             {
                 mealCount--;
             }
-            if (checkIn.IsLater(new DayHour(new DateTime(2019, 04, 25, 21, 0, 0))))
+            if (checkIn.IsLater(startDate))
             {
                 mealCount--;
             }

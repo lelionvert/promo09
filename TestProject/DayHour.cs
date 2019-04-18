@@ -16,14 +16,14 @@ namespace SocratesFrance
             return this.date.DayOfWeek == dayHour.date.DayOfWeek && this.date >= dayHour.date ;
         }
 
-        public bool IsLater(DayHour referenceDate)
+        public bool IsLater(DateTime referenceDate)
         {
-            return this.date >= referenceDate.date;
+            return this.date >= referenceDate;
         }
 
-        public bool IsSooner(DayHour referenceDate)
+        public bool IsSooner(DateTime referenceDate)
         {
-            return this.date < referenceDate.date;
+            return this.date < referenceDate;
         }
     }
 }

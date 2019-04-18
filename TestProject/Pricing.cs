@@ -1,4 +1,6 @@
-﻿namespace SocratesFrance
+﻿using System;
+
+namespace SocratesFrance
 {
     public class Pricing
     {
@@ -9,9 +11,10 @@
             this.meal = meal;
         }
 
-        public int ComputeTotalPrice(Participant participant)
+        public int ComputeTotalPrice(Registration registration, DateTime sessionStartTime, DateTime sessionEndTime)
         {
-            return participant.GetAccomodationPrice() + participant.ComputeMealCount() * meal.Price;
+            return registration.GetAccomodationPrice() + 
+                registration.ComputeMealCount(sessionStartTime, sessionEndTime) * meal.Price;
         }
     }
 }
