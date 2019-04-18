@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using NUnit.Framework;
 using FluentAssertions;
 using ColdMeals;
+using NUnit.Framework.Internal;
 
 namespace Tests
 {
     public class PriceTest
     {
         //private Dictionary<AccomodationChoice, int> _accomodationPrices = new Dictionary<AccomodationChoice, int>();
-        
+
 
         //public void Setup()
         //{
@@ -146,6 +147,21 @@ namespace Tests
             int result = organisation.CalculatePrice(participant);
 
             result.Should().Be(440);
+        }
+
+        [Test]
+        public void Arriving_thursday_at_22h_leaving_saturday_at_18h_with_double_room_return_670()
+        {
+            Organisation organisation = new Organisation(6, 40);
+            var checkinDate = new DateTime(2019, 11, 18, 22, 00, 00);
+            var checkoutDate = new DateTime(2019, 11, 20, 18, 00, 00);
+
+            Participant participant = new Participant(checkinDate, checkoutDate, AccomodationChoice.Double);
+            int result = organisation.CalculatePrice(participant);
+
+            result.Should().Be(670);
+
+
         }
     }
 }
