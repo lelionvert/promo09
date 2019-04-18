@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using NUnit.Framework;
 using FluentAssertions;
 using ColdMeals;
@@ -7,17 +8,26 @@ namespace Tests
 {
     public class PriceTest
     {
+        //private Dictionary<AccomodationChoice, int> _accomodationPrices = new Dictionary<AccomodationChoice, int>();
+        
+
+        //public void Setup()
+        //{
+        //    _accomodationPrices.Add()
+
+        //}
         [Test]
         public void Organisation_with_5_meals_at_40_with_no_accomodation_return_440()
         {
+            //_accomodationPrices.Add();
             Organisation organisation = new Organisation(5, 40);
             var checkinDate = new DateTime(2019, 11, 18, 18, 00, 00);
             var checkoutDate = new DateTime(2019, 11, 21, 14, 00, 00);
             Participant participant = new Participant(checkinDate, checkoutDate, AccomodationChoice.NoAccomodation);
 
-            int result = organisation.CalculatePrice(participant);
+            int priceForTheParticipant = organisation.CalculatePrice(participant);
 
-            result.Should().Be(440);
+            priceForTheParticipant.Should().Be(440);
 
         }
         [Test]
@@ -36,7 +46,7 @@ namespace Tests
         [Test]
         public void Complete_price_arriving_thursday_before_21_leaving_sunday_after_14h_with_single_room_cost_850()
         {
-            Organisation organisation = new Organisation(6,40);
+            Organisation organisation = new Organisation(6, 40);
             var checkinDate = new DateTime(2019, 11, 18, 18, 00, 00);
             var checkoutDate = new DateTime(2019, 11, 21, 14, 00, 00);
             Participant participant = new Participant(checkinDate, checkoutDate, AccomodationChoice.Single);
@@ -89,7 +99,7 @@ namespace Tests
         public void Arriving_thursday_at_18_leaving_saturday_at_20h_with_single_room_cost_810()
         {
             Organisation organisation = new Organisation(6, 40);
-            var checkinDate = new DateTime(2019, 11, 18,18,00,00);
+            var checkinDate = new DateTime(2019, 11, 18, 18, 00, 00);
             var checkoutDate = new DateTime(2019, 11, 20, 20, 00, 00);
 
             Participant participant = new Participant(checkinDate, checkoutDate, AccomodationChoice.Single);

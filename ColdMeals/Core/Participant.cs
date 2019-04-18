@@ -8,7 +8,10 @@ namespace ColdMeals
         private readonly DateTime _checkoutDate;
         private readonly AccomodationChoice _accomodationChoice;
 
-        internal AccomodationChoice AccomodationChoice { get => _accomodationChoice; }
+        internal AccomodationChoice AccomodationChoice
+        {
+            get => _accomodationChoice;
+        }
 
         public Participant(DateTime checkinDate, DateTime checkoutDate, AccomodationChoice accomodationChoice)
         {
@@ -30,9 +33,9 @@ namespace ColdMeals
 
     public enum AccomodationChoice
     {
-        Single = 610,
-        Double = 510,
-        Triple = 410,
-        NoAccomodation = 240
+        Single,
+        Double,
+        Triple,
+        NoAccomodation
     }
 }
