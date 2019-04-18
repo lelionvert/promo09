@@ -10,16 +10,15 @@ namespace Socrates
     {
         private readonly int _nbMeals;
         private readonly int _mealPrice;
-        private readonly DateTime _firstMealLimit;
-        private readonly DateTime _lastMealLimit;
         private Dictionary<Room, int> _prices;
+        private readonly Period _mealsLimitPeriod;
 
-        public Organisation(int mealPrice, DateTime firstMealLimit, DateTime lastMealLimit, Dictionary<Room, int> prices)
+        public Organisation(int mealPrice,
+            Dictionary<Room, int> prices, Period mealsLimitPeriod)
         {
             _mealPrice = mealPrice;
-            _firstMealLimit = firstMealLimit;
-            _lastMealLimit = lastMealLimit;
             _prices = prices;
+            _mealsLimitPeriod = mealsLimitPeriod;
             _nbMeals = CountNbMeals();
 
         }
@@ -27,7 +26,7 @@ namespace Socrates
         private int CountNbMeals()
         {
             const int NbMealsByDay = 2;
-            return _lastMealLimit.Date.Subtract(_firstMealLimit.Date).Days * NbMealsByDay;
+            return _mealsLimitPeriod.CountNumberOfDays() * NbMealsByDay;
         }
 
         public int CalculatePrice(Registration registration)
@@ -37,7 +36,7 @@ namespace Socrates
 
         private int CalculatePriceMeals(Registration registration)
         {
-            return registration.CountNumberOfMeals(_nbMeals, _firstMealLimit, _lastMealLimit) * _mealPrice;
+            return registration.CountNumberOfMeals(_nbMeals, _mealsLimitPeriod) * _mealPrice;
         }
     }
 }

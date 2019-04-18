@@ -15,15 +15,16 @@ namespace Socrates
             Room = room;
         }
 
-        internal int CountNumberOfMeals(int defaultNbOfMeals, DateTime firstMealLimit, DateTime lastMealLimit)
+        internal int CountNumberOfMeals(int defaultNbOfMeals,
+            Period mealsLimitPeriod)
         {
             int nbOfMeals = defaultNbOfMeals;
-            if (_checkin >= firstMealLimit)
+            if (!mealsLimitPeriod.IsAfter(_checkin))
             {
                 nbOfMeals--;
             }
 
-            if (_checkout <= lastMealLimit)
+            if (!mealsLimitPeriod.IsBefore(_checkout))
             {
                 nbOfMeals--;
             }
