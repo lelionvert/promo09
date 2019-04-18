@@ -17,15 +17,15 @@ class Registration {
     }
 
     int calculatePrice() {
-        return this.room.getPrice() + getMealsSum();
+        return room.price + calculateTotalMealsPrice();
     }
 
-    private int getMealsSum() {
+    private int calculateTotalMealsPrice() {
         int mealsNumber = this.socratesEvent.getMeal().getNumber();
 
         if (checkIn != null && checkIn.isAfter(socratesEvent.getStartDateTime())) {
             mealsNumber--;
         }
-        return this.socratesEvent.getMeal().getTotalPrice(mealsNumber);
+        return this.socratesEvent.getMeal().calculateTotalPrice(mealsNumber);
     }
 }

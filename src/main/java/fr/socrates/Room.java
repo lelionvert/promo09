@@ -6,13 +6,9 @@ public enum Room {
     TRIPLE(410),
     NONE(240);
 
-    private int price;
+    final int price;
 
     Room(int price) {
         this.price = price;
-    }
-
-    public int getPrice() {
-        return price;
     }
 }

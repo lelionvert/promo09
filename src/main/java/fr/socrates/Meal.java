@@ -9,7 +9,7 @@ class Meal {
         this.number = number;
     }
 
-    int getTotalPrice(int number) {
+    int calculateTotalPrice(int number) {
         return number * this.price;
     }
 

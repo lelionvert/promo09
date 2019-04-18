@@ -15,36 +15,36 @@ public class RegistrationTest {
     public void single_room_with_all_meals() {
         Registration registration = new Registration(Room.SINGLE, socratesEvent);
 
-        int result = registration.calculatePrice();
+        int totalPrice = registration.calculatePrice();
 
-        assertThat(result).isEqualTo(850);
+        assertThat(totalPrice).isEqualTo(Room.SINGLE.price + 40 * 6);
     }
 
     @Test
     public void double_room_with_all_meals() {
         Registration registration = new Registration(Room.DOUBLE, socratesEvent);
 
-        int result = registration.calculatePrice();
+        int totalPrice = registration.calculatePrice();
 
-        assertThat(result).isEqualTo(750);
+        assertThat(totalPrice).isEqualTo(Room.DOUBLE.price + 40 * 6);
     }
 
     @Test
     public void triple_room_with_all_meals() {
         Registration registration = new Registration(Room.TRIPLE, socratesEvent);
 
-        int result = registration.calculatePrice();
+        int totalPrice = registration.calculatePrice();
 
-        assertThat(result).isEqualTo(650);
+        assertThat(totalPrice).isEqualTo(Room.TRIPLE.price + 40 * 6);
     }
 
     @Test
     public void no_room_with_all_meals() {
         Registration registration = new Registration(Room.NONE, socratesEvent);
 
-        int result = registration.calculatePrice();
+        int totalPrice = registration.calculatePrice();
 
-        assertThat(result).isEqualTo(480);
+        assertThat(totalPrice).isEqualTo(Room.NONE.price + 40 * 6);
     }
 
     @Test
@@ -53,7 +53,7 @@ public class RegistrationTest {
 
         Registration registration = new Registration(Room.SINGLE, checkIn, socratesEvent);
 
-        int result = registration.calculatePrice();
-        assertThat(result).isEqualTo(810);
+        int totalPrice = registration.calculatePrice();
+        assertThat(totalPrice).isEqualTo(Room.SINGLE.price + (240 - 40 * 1));
     }
 }
