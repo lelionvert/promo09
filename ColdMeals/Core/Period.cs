@@ -15,11 +15,11 @@ namespace Socrates
 
         public Boolean IsAfter(DateTime date)
         {
-            return _start > date;
+            return date > _start;
         }
         public Boolean IsBefore(DateTime date)
         {
-            return _end < date;
+            return date < _end;
         }
 
         public int CountNumberOfDays()
