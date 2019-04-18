@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ColdMeals
+namespace Socrates
 {
     public class Checkin
     {

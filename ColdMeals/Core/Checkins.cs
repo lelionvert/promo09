@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ColdMeals
+namespace Socrates
 {
     public class Checkins
     {

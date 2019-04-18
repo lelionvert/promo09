@@ -4,44 +4,32 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ColdMeals
+namespace Socrates
 {
     public class Organisation
     {
         private readonly int _nbMeals;
-        private readonly int _priceByMeal;
         private readonly DateTime _firstMealLimit;
         private readonly DateTime _lastMealLimit;
-        private Dictionary<AccomodationChoice, int> _accomodationPrice;
+        private Dictionary<Good, int> _prices;
 
-        public Organisation(int nbMeals, int priceByMeal, DateTime firstMealLimit, DateTime lastMealLimit)
+        public Organisation(int nbMeals, DateTime firstMealLimit, DateTime lastMealLimit,
+            Dictionary<Good, int> prices)
         {
             _nbMeals = nbMeals;
-            _priceByMeal = priceByMeal;
             _firstMealLimit = firstMealLimit;
             _lastMealLimit = lastMealLimit;
-            SetUpAccomodationPrices();
+            _prices = prices;
         }
 
-        private void SetUpAccomodationPrices()
+        public int CalculatePrice(Registration registration)
         {
-            _accomodationPrice = new Dictionary<AccomodationChoice, int>
-            {
-                { AccomodationChoice.Single, 610 },
-                { AccomodationChoice.Double, 510 },
-                { AccomodationChoice.Triple, 410 },
-                { AccomodationChoice.NoAccomodation, 240 }
-            };
+            return _prices[registration.Good] + CalculatePriceMeals(registration);
         }
 
-        public int CalculatePrice(Participant participant)
+        private int CalculatePriceMeals(Registration registration)
         {
-            return _accomodationPrice[participant.AccomodationChoice] + CalculatePriceMeals(participant);
-        }
-
-        private int CalculatePriceMeals(Participant participant)
-        {
-            return participant.GetNumberOfMeals(_nbMeals, _firstMealLimit, _lastMealLimit) * _priceByMeal;
+            return registration.CountNumberOfMeals(_nbMeals, _firstMealLimit, _lastMealLimit) * _prices[Good.Meal];
         }
     }
 }

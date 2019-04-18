@@ -1,7 +1,7 @@
 using System;
 using NUnit.Framework;
 using FluentAssertions;
-using ColdMeals;
+using Socrates;
 
 namespace Tests
 {
