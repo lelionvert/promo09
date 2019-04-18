@@ -46,7 +46,7 @@
     <Compile Include="DayHour.cs" />
     <Compile Include="DayHours.cs" />
     <Compile Include="ColdMeals.cs" />
-    <Compile Include="Participant.cs" />
+    <Compile Include="Registration.cs" />
     <Compile Include="Priceable.cs" />
     <Compile Include="Pricing.cs" />
     <Compile Include="Program.cs" />
