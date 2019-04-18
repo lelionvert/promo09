@@ -13,10 +13,7 @@ public class RegistrationTest {
 
     @Test
     public void single_room_with_all_meals() {
-        CheckIn checkIn = new CheckIn(socratesStart);
-
-        Registration registration = new Registration(Room.SINGLE, checkIn, socratesEvent);
-
+        Registration registration = new Registration(Room.SINGLE, socratesStart, socratesEvent);
         int totalPrice = registration.calculatePrice();
 
         assertThat(totalPrice).isEqualTo(Room.SINGLE.price + 40 * 6);
@@ -24,9 +21,7 @@ public class RegistrationTest {
 
     @Test
     public void double_room_with_all_meals() {
-        CheckIn checkIn = new CheckIn(socratesStart);
-
-        Registration registration = new Registration(Room.DOUBLE, checkIn, socratesEvent);
+        Registration registration = new Registration(Room.DOUBLE, socratesStart, socratesEvent);
 
         int totalPrice = registration.calculatePrice();
 
@@ -35,9 +30,7 @@ public class RegistrationTest {
 
     @Test
     public void triple_room_with_all_meals() {
-        CheckIn checkIn = new CheckIn(socratesStart);
-
-        Registration registration = new Registration(Room.TRIPLE, checkIn, socratesEvent);
+        Registration registration = new Registration(Room.TRIPLE, socratesStart, socratesEvent);
 
         int totalPrice = registration.calculatePrice();
 
@@ -46,9 +39,7 @@ public class RegistrationTest {
 
     @Test
     public void no_room_with_all_meals() {
-        CheckIn checkIn = new CheckIn(socratesStart);
-
-        Registration registration = new Registration(Room.NONE, checkIn, socratesEvent);
+        Registration registration = new Registration(Room.NONE, socratesStart, socratesEvent);
 
         int totalPrice = registration.calculatePrice();
 
@@ -57,9 +48,7 @@ public class RegistrationTest {
 
     @Test
     public void single_room_without_first_meal() {
-        CheckIn checkIn = new CheckIn(socratesStart.plusDays(1));
-
-        Registration registration = new Registration(Room.SINGLE, checkIn, socratesEvent);
+        Registration registration = new Registration(Room.SINGLE, socratesStart.plusDays(1), socratesEvent);
 
         int totalPrice = registration.calculatePrice();
         assertThat(totalPrice).isEqualTo(Room.SINGLE.price + (240 - 40 * 1));

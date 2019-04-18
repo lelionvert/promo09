@@ -1,14 +1,16 @@
 package fr.socrates;
 
+import java.time.LocalDateTime;
+
 class Registration {
     private SocratesEvent socratesEvent;
-    private CheckIn checkIn;
     private Room room;
+    private LocalDateTime checkInDateTime;
 
-    Registration(Room room, CheckIn checkIn, SocratesEvent socratesEvent) {
+    Registration(Room room, LocalDateTime checkInDateTime, SocratesEvent socratesEvent) {
         this.room = room;
         this.socratesEvent = socratesEvent;
-        this.checkIn = checkIn;
+        this.checkInDateTime = checkInDateTime;
     }
 
     int calculatePrice() {
@@ -18,7 +20,7 @@ class Registration {
     private int calculateTotalMealsPrice() {
         int mealsNumber = socratesEvent.getMealNumber();
 
-        if (checkIn.isAfter(socratesEvent.getStartDateTime())) {
+        if (checkInDateTime.isAfter(socratesEvent.getStartDateTime())) {
             mealsNumber--;
         }
         return this.socratesEvent.calculateTotalPrice(mealsNumber);
