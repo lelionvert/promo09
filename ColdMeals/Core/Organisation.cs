@@ -18,7 +18,7 @@ namespace Socrates
             Dictionary<Room, int> prices)
         {
             _nbMeals = nbMeals;
-            this._mealPrice = mealPrice;
+            _mealPrice = mealPrice;
             _firstMealLimit = firstMealLimit;
             _lastMealLimit = lastMealLimit;
             _prices = prices;

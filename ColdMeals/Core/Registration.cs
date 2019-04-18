@@ -6,18 +6,13 @@ namespace Socrates
     {
         private readonly DateTime _checkin;
         private readonly DateTime _checkout;
-        private readonly Room _room;
-
-        internal Room Room
-        {
-            get => _room;
-        }
+        public Room Room { get; private set; }
 
         public Registration(DateTime checkin, DateTime checkout, Room room)
         {
             _checkin = checkin;
             _checkout = checkout;
-            _room = room;
+            Room = room;
         }
 
         internal int CountNumberOfMeals(int defaultNbOfMeals, DateTime firstMealLimit, DateTime lastMealLimit)
