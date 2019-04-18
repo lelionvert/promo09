@@ -11,19 +11,14 @@ class Registration {
         this.checkIn = checkIn;
     }
 
-    Registration(Room room, SocratesEvent socratesEvent) {
-        this.room = room;
-        this.socratesEvent = socratesEvent;
-    }
-
     int calculatePrice() {
         return room.price + calculateTotalMealsPrice();
     }
 
     private int calculateTotalMealsPrice() {
-        int mealsNumber = this.socratesEvent.getMealNumber();
+        int mealsNumber = socratesEvent.getMealNumber();
 
-        if (checkIn != null && checkIn.isAfter(socratesEvent.getStartDateTime())) {
+        if (checkIn.isAfter(socratesEvent.getStartDateTime())) {
             mealsNumber--;
         }
         return this.socratesEvent.calculateTotalPrice(mealsNumber);

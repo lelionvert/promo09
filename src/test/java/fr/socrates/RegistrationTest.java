@@ -13,7 +13,9 @@ public class RegistrationTest {
 
     @Test
     public void single_room_with_all_meals() {
-        Registration registration = new Registration(Room.SINGLE, socratesEvent);
+        CheckIn checkIn = new CheckIn(socratesStart);
+
+        Registration registration = new Registration(Room.SINGLE, checkIn, socratesEvent);
 
         int totalPrice = registration.calculatePrice();
 
@@ -22,7 +24,9 @@ public class RegistrationTest {
 
     @Test
     public void double_room_with_all_meals() {
-        Registration registration = new Registration(Room.DOUBLE, socratesEvent);
+        CheckIn checkIn = new CheckIn(socratesStart);
+
+        Registration registration = new Registration(Room.DOUBLE, checkIn, socratesEvent);
 
         int totalPrice = registration.calculatePrice();
 
@@ -31,7 +35,9 @@ public class RegistrationTest {
 
     @Test
     public void triple_room_with_all_meals() {
-        Registration registration = new Registration(Room.TRIPLE, socratesEvent);
+        CheckIn checkIn = new CheckIn(socratesStart);
+
+        Registration registration = new Registration(Room.TRIPLE, checkIn, socratesEvent);
 
         int totalPrice = registration.calculatePrice();
 
@@ -40,7 +46,9 @@ public class RegistrationTest {
 
     @Test
     public void no_room_with_all_meals() {
-        Registration registration = new Registration(Room.NONE, socratesEvent);
+        CheckIn checkIn = new CheckIn(socratesStart);
+
+        Registration registration = new Registration(Room.NONE, checkIn, socratesEvent);
 
         int totalPrice = registration.calculatePrice();
 
