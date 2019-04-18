@@ -8,217 +8,144 @@ namespace SocratesFranceTest
     [TestClass]
     public class ColdMealTest
     {
+        readonly DateTime COLD_MEAL_SERVING_TIME = new DateTime(2019, 4, 25, 21, 0, 0);
+        readonly DateTime KITCHEN_CLOSING_TIME = new DateTime(2019, 4, 26, 0, 0, 0);
+
         [TestMethod]
-        public void ZeroDateReturnZeroParticipant()
+        public void NoCheckInGivesNoColdMeal()
         {
             DayHours checkIns = new DayHours();
 
-            ColdMeals coldMeals = new ColdMeals(DayOfWeek.Thursday,21,checkIns);
-            int participantNumber = coldMeals.Count();
+            ColdMeals coldMeals = new ColdMeals(new DayHour(COLD_MEAL_SERVING_TIME),checkIns);
+            int coldMealsCount = coldMeals.Count();
 
-            int expected = 0;
-            participantNumber.Should().Be(expected);
+            coldMealsCount.Should().Be(0);
         }
 
         [TestMethod]
-        public void OneDateThursdayAtTwenty()
+        public void OneCheckInBeforeColdMealServingTimeGivesNoColdMeal()
         {
-            DayHour checkIn = new DayHour(DayOfWeek.Thursday, 20);
-            DayHours checkIns = new DayHours();
-            checkIns.Add(checkIn);
+            DayHours beforeColdMealServingTimeCheckIns = GenerateCheckInsBeforeColdMealServingTime(1);
 
-            ColdMeals coldMeals = new ColdMeals(DayOfWeek.Thursday,21,checkIns);
-            int participantNumber = coldMeals.Count();
+            ColdMeals coldMeals = new ColdMeals(new DayHour(COLD_MEAL_SERVING_TIME), beforeColdMealServingTimeCheckIns);
+            int coldMealsCount = coldMeals.Count();
 
-            int expected = 0;
-            participantNumber.Should().Be(expected);
+            coldMealsCount.Should().Be(0);
         }
 
         [TestMethod]
-        public void OneDateThursdayAtTwentyOne()
+        public void OneCheckInAtColdMealServingTimeGivesOneColdMeal()
         {
-            DayHour checkIn = new DayHour(DayOfWeek.Thursday, 21);
+            DayHour checkInAtColdMealServingTime = new DayHour(this.COLD_MEAL_SERVING_TIME);
             DayHours checkIns = new DayHours();
-            checkIns.Add(checkIn);
+            checkIns.Add(checkInAtColdMealServingTime);
 
-            ColdMeals coldMeals = new ColdMeals(DayOfWeek.Thursday,21,checkIns);
-            int participantNumber = coldMeals.Count();
+            ColdMeals coldMeals = new ColdMeals(new DayHour(this.COLD_MEAL_SERVING_TIME), checkIns);
+            int coldMealsCount = coldMeals.Count();
 
-            int expected = 1;
-            participantNumber.Should().Be(expected);
+            coldMealsCount.Should().Be(1);
         }
 
         [TestMethod]
-        public void OneDateThursdayAtTwentyTwo()
+        public void OneCheckInAfterColdMealServingTimeGivesOneColdMeal()
         {
-            DayHour checkIn = new DayHour(DayOfWeek.Thursday, 22);
-            DayHours checkIns = new DayHours();
-            checkIns.Add(checkIn);
+            DayHours checkIns = GenerateCheckInsAfterColdMealServingTime(1);
 
-            ColdMeals coldMeals = new ColdMeals(DayOfWeek.Thursday,21,checkIns);
-            int participantNumber = coldMeals.Count();
+            ColdMeals coldMeals = new ColdMeals(new DayHour(this.COLD_MEAL_SERVING_TIME), checkIns);
+            int coldMealsCount = coldMeals.Count();
 
-            int expected = 1;
-            participantNumber.Should().Be(expected);
+            coldMealsCount.Should().Be(checkIns.Count());
         }
 
         [TestMethod]
-        public void OneDateFriday()
+        public void OneCheckInAtKitchenClosingTimeGivesNoColdMeal()
         {
-            DayHour checkIn = new DayHour(DayOfWeek.Friday, 0);
+            DayHour checkInAtKitchenClosingTime = new DayHour(this.KITCHEN_CLOSING_TIME);
             DayHours checkIns = new DayHours();
-            checkIns.Add(checkIn);
+            checkIns.Add(checkInAtKitchenClosingTime);
 
-            ColdMeals coldMeals = new ColdMeals(DayOfWeek.Thursday,21,checkIns);
-            int participantNumber = coldMeals.Count();
+            ColdMeals coldMeals = new ColdMeals(new DayHour(this.COLD_MEAL_SERVING_TIME), checkIns);
+            int coldMealCount = coldMeals.Count();
 
-            int expected = 0;
-            participantNumber.Should().Be(expected);
+            coldMealCount.Should().Be(0);
         }
 
         [TestMethod]
-        public void OneDateSaturday()
+        public void OneCheckInAtColdMealServingTimeAndOneBeforeGivesOneColdMeal()
         {
-            DayHour checkIn = new DayHour(DayOfWeek.Saturday, 0);
-            DayHours checkIns = new DayHours();
-            checkIns.Add(checkIn);
+            DayHours checkIns = GenerateCheckInsBeforeColdMealServingTime(1);
+            DayHour checkInAtColdMealServingTime = new DayHour(this.COLD_MEAL_SERVING_TIME);
+            checkIns.Add(checkInAtColdMealServingTime);
 
-            ColdMeals coldMeals = new ColdMeals(DayOfWeek.Thursday,21,checkIns);
-            int participantNumber = coldMeals.Count();
+            ColdMeals coldMeals = new ColdMeals(new DayHour(this.COLD_MEAL_SERVING_TIME), checkIns);
+            int coldMealsCount = coldMeals.Count();
 
-            int expected = 0;
-            participantNumber.Should().Be(expected);
+            coldMealsCount.Should().Be(1);
         }
 
         [TestMethod]
-        public void TwoDatesThursdayAtTwenty()
+        public void OneCheckInBeforeColdMealServingTimeAndOneAfterGivesOneColdMeal()
         {
-            DayHour checkIn1 = new DayHour(DayOfWeek.Thursday, 20);
-            DayHour checkIn2 = new DayHour(DayOfWeek.Thursday, 20);
-            DayHours checkIns = new DayHours();
-            checkIns.Add(checkIn1);
-            checkIns.Add(checkIn2);
+            DayHours mixedTimeCheckIns = new DayHours();
+            DayHours afterColdMealServingTimeCheckIns = GenerateCheckInsAfterColdMealServingTime(1);
 
-            ColdMeals coldMeals = new ColdMeals(DayOfWeek.Thursday,21,checkIns);
-            int participantNumber = coldMeals.Count();
+            mixedTimeCheckIns.AddAll(GenerateCheckInsBeforeColdMealServingTime(1));
+            mixedTimeCheckIns.AddAll(afterColdMealServingTimeCheckIns);
+            
+            ColdMeals coldMeals = new ColdMeals(new DayHour(this.COLD_MEAL_SERVING_TIME), mixedTimeCheckIns);
+            int coldMealsCount = coldMeals.Count();
 
-            int expected = 0;
-            participantNumber.Should().Be(expected);
+            coldMealsCount.Should().Be(afterColdMealServingTimeCheckIns.Count());
         }
 
         [TestMethod]
-        public void TwoDatesThursdayAtTwentyAndTwentyOne()
+        public void OneCheckInBeforeColdMealServingTimeAndOneCheckInTheNextDayGivesNoColdMeal()
         {
-            DayHour checkIn1 = new DayHour(DayOfWeek.Thursday, 20);
-            DayHour checkIn2 = new DayHour(DayOfWeek.Thursday, 21);
-            DayHours checkIns = new DayHours();
-            checkIns.Add(checkIn1);
-            checkIns.Add(checkIn2);
-
-            ColdMeals coldMeals = new ColdMeals(DayOfWeek.Thursday,21,checkIns);
-            int participantNumber = coldMeals.Count();
-
-            int expected = 1;
-            participantNumber.Should().Be(expected);
+            DayHours mixedCheckIns = new DayHours(GenerateCheckInsBeforeColdMealServingTime(1), GenerateOneDayLateCheckIns(1));
+           
+            ColdMeals coldMeals = new ColdMeals(new DayHour(COLD_MEAL_SERVING_TIME), mixedCheckIns);
+            int coldMealsCount = coldMeals.Count();
+            
+            coldMealsCount.Should().Be(0);
         }
 
-        [TestMethod]
-        public void TwoDatesThursdayAtTwentyAndTwentyTwo()
+        private DayHours GenerateCheckInsBeforeColdMealServingTime(int number)
         {
-            DayHour checkIn1 = new DayHour(DayOfWeek.Thursday, 20);
-            DayHour checkIn2 = new DayHour(DayOfWeek.Thursday, 22);
             DayHours checkIns = new DayHours();
-            checkIns.Add(checkIn1);
-            checkIns.Add(checkIn2);
 
-            ColdMeals coldMeals = new ColdMeals(DayOfWeek.Thursday,21,checkIns);
-            int participantNumber = coldMeals.Count();
+            for (int i = 0; i < number; i++)
+            {
+                DayHour checkIn = new DayHour(this.COLD_MEAL_SERVING_TIME.AddHours(-1));
+                checkIns.Add(checkIn);
+            }
 
-            int expected = 1;
-            participantNumber.Should().Be(expected);
+            return checkIns;
         }
 
-        [TestMethod]
-        public void TwoDatesThursdayAtTwentyAndFriday()
+        private DayHours GenerateCheckInsAfterColdMealServingTime(int number)
         {
-            DayHour checkIn1 = new DayHour(DayOfWeek.Thursday, 20);
-            DayHour checkIn2 = new DayHour(DayOfWeek.Friday, 22);
             DayHours checkIns = new DayHours();
-            checkIns.Add(checkIn1);
-            checkIns.Add(checkIn2);
 
-            ColdMeals coldMeals = new ColdMeals(DayOfWeek.Thursday,21,checkIns);
-            int participantNumber = coldMeals.Count();
+            for (int i = 0; i < number; i++)
+            {
+                DayHour checkIn = new DayHour(this.COLD_MEAL_SERVING_TIME.AddHours(1));
+                checkIns.Add(checkIn);
+            }
 
-            int expected = 0;
-            participantNumber.Should().Be(expected);
+            return checkIns;
         }
 
-        [TestMethod]
-        public void TwoDatesThursdayAtTwentyOneAndTwenty()
+        private DayHours GenerateOneDayLateCheckIns(int number)
         {
-            DayHour checkIn1 = new DayHour(DayOfWeek.Thursday, 21);
-            DayHour checkIn2 = new DayHour(DayOfWeek.Thursday, 20);
             DayHours checkIns = new DayHours();
-            checkIns.Add(checkIn1);
-            checkIns.Add(checkIn2);
 
-            ColdMeals coldMeals = new ColdMeals(DayOfWeek.Thursday,21,checkIns);
-            int participantNumber = coldMeals.Count();
+            for (int i = 0; i < number; i++)
+            {
+                DayHour checkIn = new DayHour(this.COLD_MEAL_SERVING_TIME.AddDays(1));
+                checkIns.Add(checkIn);
+            }
 
-            int expected = 1;
-            participantNumber.Should().Be(expected);
-        }
-
-        [TestMethod]
-        public void TwoDatesFridayAndThursday()
-        {
-            DayHour checkIn1 = new DayHour(DayOfWeek.Friday, 22);
-            DayHour checkIn2 = new DayHour(DayOfWeek.Thursday, 20);
-            DayHours checkIns = new DayHours();
-            checkIns.Add(checkIn1);
-            checkIns.Add(checkIn2);
-
-            ColdMeals coldMeals = new ColdMeals(DayOfWeek.Thursday,21,checkIns);
-            int participantNumber = coldMeals.Count();
-
-            int expected = 0;
-            participantNumber.Should().Be(expected);
-        }
-        
-        [TestMethod]
-        public void TwoDatesThursdayAtTwentyOneAndThursdayAtTwenty()
-        {
-            DayHour checkIn1 = new DayHour(DayOfWeek.Thursday, 21);
-            DayHour checkIn2 = new DayHour(DayOfWeek.Thursday, 21);
-            DayHours checkIns = new DayHours();
-            checkIns.Add(checkIn1);
-            checkIns.Add(checkIn2);
-
-            ColdMeals coldMeals = new ColdMeals(DayOfWeek.Thursday,21,checkIns);
-            int participantNumber = coldMeals.Count();
-
-            int expected = 2;
-            participantNumber.Should().Be(expected);
-        }
-
-        [TestMethod]
-        public void ThreeDatesThursdayAtTwentyOne()
-        {
-            DayHour checkIn1 = new DayHour(DayOfWeek.Thursday, 21);
-            DayHour checkIn2 = new DayHour(DayOfWeek.Thursday, 21);
-            DayHour checkIn3 = new DayHour(DayOfWeek.Thursday, 21);
-
-            DayHours checkIns = new DayHours();
-            checkIns.Add(checkIn1);
-            checkIns.Add(checkIn2);
-            checkIns.Add(checkIn3);
-
-            ColdMeals coldMeals = new ColdMeals(DayOfWeek.Thursday,21,checkIns);
-            int participantNumber = coldMeals.Count();
-
-            int expected = 3;
-            participantNumber.Should().Be(expected);
+            return checkIns;
         }
     }
 }

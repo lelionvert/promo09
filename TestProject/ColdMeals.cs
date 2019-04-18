@@ -4,20 +4,18 @@ namespace SocratesFrance
 {
     public class ColdMeals
     {
-        DayOfWeek startingDay;
-        int startingHour;
         DayHours checkIns;
+        DayHour startingDate;
 
-        public ColdMeals(DayOfWeek startingDay, int startingHour, DayHours checkIns)
+        public ColdMeals(DayHour startingDate, DayHours checkIns)
         {
-            this.startingDay = startingDay;
-            this.startingHour = startingHour;
+            this.startingDate = startingDate;
             this.checkIns = checkIns;
         }
 
         public int Count()
         {
-            return checkIns.CountSameDayAfter(startingDay,startingHour);
+            return checkIns.CountSameDayAfter(startingDate);
         }
     }
 }

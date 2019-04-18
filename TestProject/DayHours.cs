@@ -12,21 +12,41 @@ namespace SocratesFrance
         {
             checkIns = new List<DayHour>();
         }
+        
+        public DayHours(params DayHours[] dayHours)
+        {
+            checkIns = new List<DayHour>();
+            
+            foreach(DayHours dh in dayHours)
+            {
+                checkIns.AddRange(dh.checkIns);
+            }
+        }
 
         public void Add(DayHour checkIn)
         {
             checkIns.Add(checkIn);
         }
-        
-        public int CountSameDayAfter(DayOfWeek day, int hour)
+
+        public void AddAll(DayHours dayHours)
         {
-            return GetCheckInsSameDayAfter(day,hour).Count();
+            this.checkIns.AddRange(dayHours.checkIns);
         }
 
-        private IEnumerable<DayHour> GetCheckInsSameDayAfter(DayOfWeek day, int hour)
+        public int CountSameDayAfter(DayHour dayHour)
+        {
+            return GetCheckInsSameDayAfter(dayHour).Count();
+        }
+
+        private IEnumerable<DayHour> GetCheckInsSameDayAfter(DayHour dayHour)
         {
             return checkIns.Where(checkIn =>
-            checkIn.IsLaterTheSameDay(day, hour));
+            checkIn.IsLaterTheSameDay(dayHour));
+        }
+
+        public int Count()
+        {
+            return this.checkIns.Count();
         }
     }
 }
