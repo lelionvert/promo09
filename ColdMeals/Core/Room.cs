@@ -1,11 +1,10 @@
 ﻿namespace Socrates
 {
-    public enum Good
+    public enum Room
     {
         SingleRoom,
         DoubleRoom,
         TripleRoom,
-        NoAccomodation,
-        Meal
+        NoAccomodation
     }
 }

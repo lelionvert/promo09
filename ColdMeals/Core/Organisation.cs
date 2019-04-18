@@ -9,14 +9,16 @@ namespace Socrates
     public class Organisation
     {
         private readonly int _nbMeals;
+        private readonly int _mealPrice;
         private readonly DateTime _firstMealLimit;
         private readonly DateTime _lastMealLimit;
-        private Dictionary<Good, int> _prices;
+        private Dictionary<Room, int> _prices;
 
-        public Organisation(int nbMeals, DateTime firstMealLimit, DateTime lastMealLimit,
-            Dictionary<Good, int> prices)
+        public Organisation(int nbMeals, int mealPrice, DateTime firstMealLimit, DateTime lastMealLimit,
+            Dictionary<Room, int> prices)
         {
             _nbMeals = nbMeals;
+            this._mealPrice = mealPrice;
             _firstMealLimit = firstMealLimit;
             _lastMealLimit = lastMealLimit;
             _prices = prices;
@@ -24,12 +26,12 @@ namespace Socrates
 
         public int CalculatePrice(Registration registration)
         {
-            return _prices[registration.Good] + CalculatePriceMeals(registration);
+            return _prices[registration.Room] + CalculatePriceMeals(registration);
         }
 
         private int CalculatePriceMeals(Registration registration)
         {
-            return registration.CountNumberOfMeals(_nbMeals, _firstMealLimit, _lastMealLimit) * _prices[Good.Meal];
+            return registration.CountNumberOfMeals(_nbMeals, _firstMealLimit, _lastMealLimit) * _mealPrice;
         }
     }
 }

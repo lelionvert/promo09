@@ -44,7 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Checkin.cs" />
-    <Compile Include="Good.cs" />
+    <Compile Include="Room.cs" />
     <Compile Include="Organisation.cs" />
     <Compile Include="Registration.cs" />
     <Compile Include="Program.cs" />
