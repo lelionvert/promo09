@@ -10,7 +10,7 @@ public class RegistrationTest {
 
     private static final LocalDateTime dateTimeLimitFirstMealService = LocalDateTime.of(2019, 4, 18, 21, 0);
     private static final LocalDateTime dateTimeStartLastMealService = LocalDateTime.of(2019, 4, 21, 12, 0);
-    private SocratesEvent socratesEvent = new SocratesEvent(dateTimeLimitFirstMealService, 40, 6);
+    private SocratesEvent socratesEvent = new SocratesEvent(dateTimeLimitFirstMealService, dateTimeStartLastMealService, 40, 6);
 
     @Test
     public void single_room_with_all_meals() {
@@ -52,6 +52,7 @@ public class RegistrationTest {
         Registration registration = new Registration(Room.SINGLE, dateTimeLimitFirstMealService.plusHours(1), socratesEvent);
 
         int totalPrice = registration.calculateRegistrationPrice();
+
         assertThat(totalPrice).isEqualTo(Room.SINGLE.price + (240 - socratesEvent.getMealPrice() * 1));
     }
 
@@ -61,6 +62,7 @@ public class RegistrationTest {
         Registration registration = new Registration(Room.SINGLE, dateTimeLimitFirstMealService.minusHours(2), dateTimeStartLastMealService.minusHours(1), socratesEvent);
 
         int totalPrice = registration.calculateRegistrationPrice();
+
         assertThat(totalPrice).isEqualTo(Room.SINGLE.price + (240 - socratesEvent.getMealPrice() * 1));
     }
 }

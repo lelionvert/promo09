@@ -28,7 +28,7 @@ class Registration {
     private int calculateTotalMealsPrice() {
         int mealsNumber = socratesEvent.getMealNumber();
 
-        if (checkOutDateTime != null && checkOutDateTime.isBefore(LocalDateTime.of(2019, 4, 21, 12, 0))) {
+        if (checkOutDateTime != null && checkOutDateTime.isBefore(socratesEvent.getDateTimeStartLastMealService())) {
             mealsNumber--;
         }
 

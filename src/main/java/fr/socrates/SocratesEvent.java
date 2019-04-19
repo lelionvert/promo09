@@ -4,14 +4,15 @@ import java.time.LocalDateTime;
 
 class SocratesEvent {
     private LocalDateTime dateTimeLimitFirstMealService;
-
+    private LocalDateTime dateTimeStartLastMealService;
     private int mealPrice;
-    private int mealsNumber;
+    private int defaultMealsNumber;
 
-    SocratesEvent(LocalDateTime dateTimeLimitFirstMealService, int mealPrice, int mealsNumber) {
+    SocratesEvent(LocalDateTime dateTimeLimitFirstMealService, LocalDateTime dateTimeStartLastMealService, int mealPrice, int defaultMealsNumber) {
+        this.dateTimeStartLastMealService = dateTimeStartLastMealService;
         this.dateTimeLimitFirstMealService = dateTimeLimitFirstMealService;
         this.mealPrice = mealPrice;
-        this.mealsNumber = mealsNumber;
+        this.defaultMealsNumber = defaultMealsNumber;
     }
 
     LocalDateTime getDateTimeLimitFirstMealService() {
@@ -19,7 +20,7 @@ class SocratesEvent {
     }
 
     int getMealNumber() {
-        return mealsNumber;
+        return defaultMealsNumber;
     }
 
     int getMealPrice() {
@@ -28,5 +29,9 @@ class SocratesEvent {
 
     int calculateTotalPrice(int mealsNumber) {
         return mealsNumber * mealPrice;
+    }
+
+    LocalDateTime getDateTimeStartLastMealService() {
+        return dateTimeStartLastMealService;
     }
 }
