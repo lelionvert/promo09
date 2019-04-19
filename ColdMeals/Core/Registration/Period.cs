@@ -24,6 +24,11 @@ namespace Socrates
 
         public int CountNumberOfDays()
         {
+            return CountNumberOfNights() + 1;
+        }
+
+        private int CountNumberOfNights()
+        {
             return _end.Date.Subtract(_start.Date).Days;
         }
 

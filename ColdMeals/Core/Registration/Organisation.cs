@@ -24,8 +24,11 @@ namespace Socrates
 
         private int CountMaxNumberOfMeals()
         {
-            const int NbMealsByDay = 2;
-            return _mealsLimitPeriod.CountNumberOfDays() * NbMealsByDay;
+            // TODO, create period.PartialDays and FullDays to refactoring
+            int numberMealsinFullDay = 2;
+            int numberOfExtremities = 2;
+            int numberMealsInExtremities = 1;
+            return _mealsLimitPeriod.CountNumberOfDays() * numberMealsinFullDay - (numberOfExtremities * numberMealsInExtremities);
         }
 
         public Price CalculatePrice(Registration registration)
