@@ -6,9 +6,9 @@ namespace SocratesFrance
     {
         private readonly DayHour checkIn;
         private readonly DayHour checkOut;
-        private readonly Priceable accommodation;
+        private readonly Room accommodation;
 
-        public Registration(DayHour checkIn = null, DayHour checkOut = null, Priceable accommodation = null)
+        public Registration(Room accommodation, DayHour checkIn = null, DayHour checkOut = null)
         {
             this.checkIn = checkIn;
             this.checkOut = checkOut;
@@ -31,15 +31,20 @@ namespace SocratesFrance
             }
         }
 
+
+        public Room Accommodation
+        {
+            get
+            {
+                return this.accommodation;
+            }
+        }
+
         public bool HasCheckin()
         {
             return checkIn != null;
         }
 
-        public int GetAccomodationPrice()
-        {
-            return accommodation.Price;
-        }
         
         public int ComputeMealCount(DateTime startDate, DateTime endDate)
         {

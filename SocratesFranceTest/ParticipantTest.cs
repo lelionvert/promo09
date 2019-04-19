@@ -11,7 +11,7 @@ namespace SocratesFranceTest
         [TestMethod]
         public void ParticipantDoesNotHaveACheckIn()
         {
-            Registration participant = new Registration();
+            Registration participant = new Registration(Room.NO_ACCOMMODATION);
 
             participant.HasCheckin().Should().BeFalse();
         }
@@ -20,7 +20,7 @@ namespace SocratesFranceTest
         public void ParticipantShouldHaveACheckIn()
         {
             DayHour checkIn = new DayHour(new DateTime(2019, 4, 25, 20, 0, 0));
-            Registration participant = new Registration(checkIn);
+            Registration participant = new Registration(Room.NO_ACCOMMODATION, checkIn: checkIn);
 
             participant.HasCheckin().Should().BeTrue();
         }

@@ -29,7 +29,7 @@ namespace SocratesFranceTest
         {
             DayHour checkIn = new DayHour(THURSDAY_EVENING);
             DayHour checkOut = new DayHour(SUNDAY_AFTERNOON);
-            Registration registration = new Registration(checkIn, checkOut, singleAccommodation);
+            Registration registration = new Registration(Room.SINGLE_ACCOMMODATION, checkIn, checkOut);
             Billing billing = new Billing(meal);
 
             int price = billing.ComputeTotalPriceForRegistration(registration, socratesOrganizer.ComputeMealCount(registration));
@@ -43,7 +43,7 @@ namespace SocratesFranceTest
         {
             DayHour checkIn = new DayHour(new DateTime(2019, 04, 25, 20, 0, 0));
             DayHour checkOut = new DayHour(new DateTime(2019, 04, 28, 14, 0, 0));
-            Registration registration = new Registration(checkIn, checkOut, doubleAccommodation);
+            Registration registration = new Registration(Room.DOUBLE_ACCOMMODATION, checkIn, checkOut);
             Billing billing = new Billing(meal);
 
             int price = billing.ComputeTotalPriceForRegistration(registration, socratesOrganizer.ComputeMealCount(registration));
@@ -57,7 +57,7 @@ namespace SocratesFranceTest
         {
             DayHour checkIn = new DayHour(new DateTime(2019, 04, 25, 20, 0, 0));
             DayHour checkOut = new DayHour(new DateTime(2019, 04, 28, 14, 0, 0));
-            Registration registration = new Registration(checkIn, checkOut, tripleAccommodation);
+            Registration registration = new Registration(Room.TRIPLE_ACCOMMODATION, checkIn, checkOut);
             Billing billing = new Billing(meal);
 
             int price = billing.ComputeTotalPriceForRegistration(registration, socratesOrganizer.ComputeMealCount(registration));
@@ -71,7 +71,7 @@ namespace SocratesFranceTest
         {
             DayHour checkIn = new DayHour(new DateTime(2019, 04, 25, 20, 0, 0));
             DayHour checkOut = new DayHour(new DateTime(2019, 04, 28, 14, 0, 0));
-            Registration registration = new Registration(checkIn, checkOut, noAccommodation);
+            Registration registration = new Registration(Room.NO_ACCOMMODATION, checkIn, checkOut);
             Billing billing = new Billing(meal);
 
             int price = billing.ComputeTotalPriceForRegistration(registration, socratesOrganizer.ComputeMealCount(registration));
@@ -85,7 +85,7 @@ namespace SocratesFranceTest
         {
             DayHour checkIn = new DayHour(new DateTime(2019, 04, 25, 21, 0, 0));
             DayHour checkOut = new DayHour(new DateTime(2019, 04, 28, 14, 0, 0));
-            Registration registration = new Registration(checkIn, checkOut, singleAccommodation);
+            Registration registration = new Registration(Room.SINGLE_ACCOMMODATION, checkIn, checkOut);
             Billing billing = new Billing(meal);
 
             int price = billing.ComputeTotalPriceForRegistration(registration, socratesOrganizer.ComputeMealCount(registration));
@@ -99,7 +99,7 @@ namespace SocratesFranceTest
         {
             DayHour checkIn = new DayHour(new DateTime(2019, 04, 25, 20, 0, 0));
             DayHour checkOut = new DayHour(new DateTime(2019, 04, 28, 11, 0, 0));
-            Registration registration = new Registration(checkIn, checkOut, singleAccommodation);
+            Registration registration = new Registration(Room.SINGLE_ACCOMMODATION, checkIn, checkOut);
             Billing billing = new Billing(meal);
 
             int price = billing.ComputeTotalPriceForRegistration(registration, socratesOrganizer.ComputeMealCount(registration));
@@ -113,7 +113,7 @@ namespace SocratesFranceTest
         {
             DayHour checkIn = new DayHour(new DateTime(2019, 04, 26, 12, 0, 0));
             DayHour checkOut = new DayHour(new DateTime(2019, 04, 27, 18, 0, 0));
-            Registration registration = new Registration(checkIn, checkOut, singleAccommodation);
+            Registration registration = new Registration(Room.SINGLE_ACCOMMODATION, checkIn, checkOut);
             Billing billing = new Billing(meal);
 
             int price = billing.ComputeTotalPriceForRegistration(registration, socratesOrganizer.ComputeMealCount(registration));
