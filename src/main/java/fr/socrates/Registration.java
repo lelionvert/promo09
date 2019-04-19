@@ -13,18 +13,18 @@ class Registration {
         this.checkInDateTime = checkInDateTime;
     }
 
-    int calculatePrice() {
+    int calculateRegistrationPrice() {
         return room.price + calculateTotalMealsPrice();
     }
 
     private int calculateTotalMealsPrice() {
         int mealsNumber = socratesEvent.getMealNumber();
 
-        if (checkInDateTime.isEqual(socratesEvent.getStartDateTime())) {
+        if (checkInDateTime.isEqual(socratesEvent.getDateTimeLimitFirstMealService())) {
             mealsNumber--;
         }
 
-        if (checkInDateTime.isAfter(socratesEvent.getStartDateTime())) {
+        if (checkInDateTime.isAfter(socratesEvent.getDateTimeLimitFirstMealService())) {
             mealsNumber--;
         }
         return this.socratesEvent.calculateTotalPrice(mealsNumber);
