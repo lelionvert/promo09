@@ -1,18 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace SocratesFrance
 {
     public class Billing
     {
-        Priceable meal;
         Dictionary<Product, int> catalog;
-
-        public Billing(Priceable meal)
-        {
-            this.meal = meal;
-            this.InitializeCatalog();
-        }
 
         public Billing()
         {
@@ -39,7 +31,14 @@ namespace SocratesFrance
 
         private int GetPriceFor(Product product)
         {
-            return catalog[product];
+            if (catalog.ContainsKey(product))
+            {
+                return catalog[product];
+            }
+            else
+            {
+                return 0;
+            }
         }
     }
 }
