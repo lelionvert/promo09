@@ -1,7 +1,4 @@
-﻿using System;
-using System.ComponentModel;
-
-namespace Socrates
+﻿namespace Socrates
 {
     public struct Price
     {
@@ -21,9 +18,9 @@ namespace Socrates
             return Price.Of(_value + price._value);
         }
 
-        internal Price Times(int nb)
+        internal Price Times(int number)
         {
-            return Price.Of(_value * nb);
+            return Price.Of(_value * number);
         }
     }
 }

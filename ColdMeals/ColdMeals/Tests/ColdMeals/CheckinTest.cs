@@ -7,7 +7,6 @@ namespace Tests
 {
     public class CheckinTest
     {
-
         [Test]
         public void Checkin_is_between_two_differentes_dates()
         {

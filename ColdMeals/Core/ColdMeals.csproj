@@ -43,16 +43,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Checkin.cs" />
-    <Compile Include="DateTimeExtensions.cs" />
-    <Compile Include="Period.cs" />
-    <Compile Include="Price.cs" />
-    <Compile Include="Room.cs" />
-    <Compile Include="Organisation.cs" />
-    <Compile Include="Registration.cs" />
+    <Compile Include="ColdMeals\Checkin.cs" />
+    <Compile Include="Registration\DateTimeExtensions.cs" />
+    <Compile Include="Registration\Period.cs" />
+    <Compile Include="Registration\Price.cs" />
+    <Compile Include="Registration\Room.cs" />
+    <Compile Include="Registration\Organisation.cs" />
+    <Compile Include="Registration\Registration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Checkins.cs" />
+    <Compile Include="ColdMeals\Checkins.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -8,8 +8,6 @@ namespace Socrates
 {
     static class DateTimeExtensions
     {
-
-
         public static Boolean IsAfterStart(this DateTime date, Period period)
         {
             return period.IsAfter(date);

@@ -15,20 +15,20 @@ namespace Socrates
             Room = room;
         }
 
-        internal int CountNumberOfMeals(int defaultNbOfMeals,
+        internal int CountNumberOfMeals(int defaultNumberOfMeals,
             Period mealsLimitPeriod)
         {
-            int nbOfMeals = defaultNbOfMeals;
+            int numberOfMeals = defaultNumberOfMeals;
             if (_checkin.IsAfterStart(mealsLimitPeriod))
             {
-                nbOfMeals--;
+                numberOfMeals--;
             }
 
             if (_checkout.IsBeforeEnd(mealsLimitPeriod))
             {
-                nbOfMeals--;
+                numberOfMeals--;
             }
-            return nbOfMeals;
+            return numberOfMeals;
         }
     }
 }
