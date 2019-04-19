@@ -33,7 +33,7 @@ namespace Tests
             Organisation organisation = new Organisation(Price.Of(40), _prices, _mealsLimitPeriod);
             var checkinDate = new DateTime(2019, 11, 18, 18, 00, 00);
             var checkoutDate = new DateTime(2019, 11, 21, 14, 00, 00);
-            Registration registration = new Registration(checkinDate, checkoutDate, Room.SingleRoom);
+            Registration registration = new Registration(new Period(checkinDate, checkoutDate), Room.SingleRoom);
 
             Price priceByRegistration = organisation.CalculatePrice(registration);
 
@@ -47,7 +47,7 @@ namespace Tests
             var checkinDate = new DateTime(2019, 11, 18, 18, 00, 00);
             var checkoutDate = new DateTime(2019, 11, 21, 14, 00, 00);
 
-            Registration registration = new Registration(checkinDate, checkoutDate, Room.DoubleRoom);
+            Registration registration = new Registration(new Period(checkinDate, checkoutDate), Room.DoubleRoom);
             Price priceByRegistration = organisation.CalculatePrice(registration);
 
             priceByRegistration.Should().Be(Price.Of(750));
@@ -60,7 +60,7 @@ namespace Tests
             var checkinDate = new DateTime(2019, 11, 18, 18, 00, 00);
             var checkoutDate = new DateTime(2019, 11, 21, 14, 00, 00);
 
-            Registration registration = new Registration(checkinDate, checkoutDate, Room.NoAccomodation);
+            Registration registration = new Registration(new Period(checkinDate, checkoutDate), Room.NoAccomodation);
             Price priceByRegistration = organisation.CalculatePrice(registration);
 
             priceByRegistration.Should().Be(Price.Of(480));
@@ -73,7 +73,7 @@ namespace Tests
             var checkinDate = new DateTime(2019, 11, 19);
             var checkoutDate = new DateTime(2019, 11, 21, 13, 00, 00);
 
-            Registration registration = new Registration(checkinDate, checkoutDate, Room.TripleRoom);
+            Registration registration = new Registration(new Period(checkinDate, checkoutDate), Room.TripleRoom);
             Price priceByRegistration = organisation.CalculatePrice(registration);
 
             priceByRegistration.Should().Be(Price.Of(610));
@@ -86,7 +86,7 @@ namespace Tests
             var checkinDate = new DateTime(2019, 11, 18, 18, 00, 00);
             var checkoutDate = new DateTime(2019, 11, 20, 20, 00, 00);
 
-            Registration registration = new Registration(checkinDate, checkoutDate, Room.SingleRoom);
+            Registration registration = new Registration(new Period(checkinDate, checkoutDate), Room.SingleRoom);
             Price priceByRegistration = organisation.CalculatePrice(registration);
 
             priceByRegistration.Should().Be(Price.Of(810));
@@ -100,7 +100,7 @@ namespace Tests
             var checkinDate = new DateTime(2019, 11, 19, 2, 00, 00);
             var checkoutDate = new DateTime(2019, 11, 21, 14, 00, 00);
 
-            Registration registration = new Registration(checkinDate, checkoutDate, Room.NoAccomodation);
+            Registration registration = new Registration(new Period(checkinDate, checkoutDate), Room.NoAccomodation);
             Price priceByRegistration = organisation.CalculatePrice(registration);
 
             priceByRegistration.Should().Be(Price.Of(440));
@@ -113,7 +113,7 @@ namespace Tests
             var checkinDate = new DateTime(2019, 11, 18, 20, 00, 00);
             var checkoutDate = new DateTime(2019, 11, 21, 10, 00, 00);
 
-            Registration registration = new Registration(checkinDate, checkoutDate, Room.NoAccomodation);
+            Registration registration = new Registration(new Period(checkinDate, checkoutDate), Room.NoAccomodation);
             Price priceByRegistration = organisation.CalculatePrice(registration);
 
             priceByRegistration.Should().Be(Price.Of(440));
@@ -126,7 +126,7 @@ namespace Tests
             var checkinDate = new DateTime(2019, 11, 19, 1, 00, 00);
             var checkoutDate = new DateTime(2019, 11, 20, 18, 00, 00);
 
-            Registration registration = new Registration(checkinDate, checkoutDate, Room.DoubleRoom);
+            Registration registration = new Registration(new Period(checkinDate, checkoutDate), Room.DoubleRoom);
             Price priceByRegistration = organisation.CalculatePrice(registration);
 
             priceByRegistration.Should().Be(Price.Of(670));

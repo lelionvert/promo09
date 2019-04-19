@@ -13,11 +13,11 @@ namespace Socrates
             _end = end;
         }
 
-        public Boolean IsAfter(DateTime date)
+        public bool IsAfter(DateTime date)
         {
             return date > _start;
         }
-        public Boolean IsBefore(DateTime date)
+        public bool IsBefore(DateTime date)
         {
             return date < _end;
         }
@@ -25,6 +25,20 @@ namespace Socrates
         public int CountNumberOfDays()
         {
             return _end.Date.Subtract(_start.Date).Days;
+        }
+
+        public bool IsOverlaping(Period periodToCompare)
+        {
+            return _start < periodToCompare._start && _end < periodToCompare._end;
+        }
+        public bool IsDuring(Period periodToCompare)
+        {
+            return _start > periodToCompare._start && _end < periodToCompare._end;
+        }
+
+        public bool IsInverseOverlaping(Period periodToCompare)
+        {
+            return _start > periodToCompare._start && _end > periodToCompare._end;
         }
     }
 }

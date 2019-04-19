@@ -4,27 +4,24 @@ namespace Socrates
 {
     public class Registration
     {
-        private readonly DateTime _checkin;
-        private readonly DateTime _checkout;
+        private readonly Period _period;
         public Room Room { get; private set; }
 
-        public Registration(DateTime checkin, DateTime checkout, Room room)
+        public Registration(Period period, Room room)
         {
-            _checkin = checkin;
-            _checkout = checkout;
             Room = room;
+            _period = period;
         }
 
-        internal int CountNumberOfMeals(int defaultNumberOfMeals,
-            Period mealsLimitPeriod)
+        internal int CountNumberOfMeals(int defaultNumberOfMeals, Period mealsLimitPeriod)
         {
             int numberOfMeals = defaultNumberOfMeals;
-            if (_checkin.IsAfterStart(mealsLimitPeriod))
+            if (_period.IsDuring(mealsLimitPeriod) || _period.IsInverseOverlaping(mealsLimitPeriod))
             {
                 numberOfMeals--;
             }
 
-            if (_checkout.IsBeforeEnd(mealsLimitPeriod))
+            if (_period.IsOverlaping(mealsLimitPeriod) || _period.IsDuring(mealsLimitPeriod))
             {
                 numberOfMeals--;
             }
