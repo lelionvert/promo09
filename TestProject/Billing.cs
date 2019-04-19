@@ -2,16 +2,16 @@
 
 namespace SocratesFrance
 {
-    public class Pricing
+    public class Billing
     {
         Priceable meal;
 
-        public Pricing(Priceable meal)
+        public Billing(Priceable meal)
         {
             this.meal = meal;
         }
 
-        public int ComputeTotalPrice(Registration registration, int mealCount)
+        public int ComputeTotalPriceForRegistration(Registration registration, int mealCount)
         {
             return registration.GetAccomodationPrice() + 
                 mealCount * meal.Price;

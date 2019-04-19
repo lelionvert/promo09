@@ -30,9 +30,9 @@ namespace SocratesFranceTest
             DayHour checkIn = new DayHour(THURSDAY_EVENING);
             DayHour checkOut = new DayHour(SUNDAY_AFTERNOON);
             Registration registration = new Registration(checkIn, checkOut, singleAccommodation);
-            Pricing pricing = new Pricing(meal);
+            Billing billing = new Billing(meal);
 
-            int price = pricing.ComputeTotalPrice(registration, socratesOrganizer.ComputeMealCount(registration));
+            int price = billing.ComputeTotalPriceForRegistration(registration, socratesOrganizer.ComputeMealCount(registration));
 
             int expected = 610 + 6 * 40;
             price.Should().Be(expected);
@@ -44,9 +44,9 @@ namespace SocratesFranceTest
             DayHour checkIn = new DayHour(new DateTime(2019, 04, 25, 20, 0, 0));
             DayHour checkOut = new DayHour(new DateTime(2019, 04, 28, 14, 0, 0));
             Registration registration = new Registration(checkIn, checkOut, doubleAccommodation);
-            Pricing pricing = new Pricing(meal);
+            Billing billing = new Billing(meal);
 
-            int price = pricing.ComputeTotalPrice(registration, socratesOrganizer.ComputeMealCount(registration));
+            int price = billing.ComputeTotalPriceForRegistration(registration, socratesOrganizer.ComputeMealCount(registration));
 
             int expected = 750;
             price.Should().Be(expected);
@@ -58,9 +58,9 @@ namespace SocratesFranceTest
             DayHour checkIn = new DayHour(new DateTime(2019, 04, 25, 20, 0, 0));
             DayHour checkOut = new DayHour(new DateTime(2019, 04, 28, 14, 0, 0));
             Registration registration = new Registration(checkIn, checkOut, tripleAccommodation);
-            Pricing pricing = new Pricing(meal);
+            Billing billing = new Billing(meal);
 
-            int price = pricing.ComputeTotalPrice(registration, socratesOrganizer.ComputeMealCount(registration));
+            int price = billing.ComputeTotalPriceForRegistration(registration, socratesOrganizer.ComputeMealCount(registration));
 
             int expected = 650;
             price.Should().Be(expected);
@@ -72,9 +72,9 @@ namespace SocratesFranceTest
             DayHour checkIn = new DayHour(new DateTime(2019, 04, 25, 20, 0, 0));
             DayHour checkOut = new DayHour(new DateTime(2019, 04, 28, 14, 0, 0));
             Registration registration = new Registration(checkIn, checkOut, noAccommodation);
-            Pricing pricing = new Pricing(meal);
+            Billing billing = new Billing(meal);
 
-            int price = pricing.ComputeTotalPrice(registration, socratesOrganizer.ComputeMealCount(registration));
+            int price = billing.ComputeTotalPriceForRegistration(registration, socratesOrganizer.ComputeMealCount(registration));
 
             int expected = 480;
             price.Should().Be(expected);
@@ -86,9 +86,9 @@ namespace SocratesFranceTest
             DayHour checkIn = new DayHour(new DateTime(2019, 04, 25, 21, 0, 0));
             DayHour checkOut = new DayHour(new DateTime(2019, 04, 28, 14, 0, 0));
             Registration registration = new Registration(checkIn, checkOut, singleAccommodation);
-            Pricing pricing = new Pricing(meal);
+            Billing billing = new Billing(meal);
 
-            int price = pricing.ComputeTotalPrice(registration, socratesOrganizer.ComputeMealCount(registration));
+            int price = billing.ComputeTotalPriceForRegistration(registration, socratesOrganizer.ComputeMealCount(registration));
 
             int expected = 810;
             price.Should().Be(expected);
@@ -100,9 +100,9 @@ namespace SocratesFranceTest
             DayHour checkIn = new DayHour(new DateTime(2019, 04, 25, 20, 0, 0));
             DayHour checkOut = new DayHour(new DateTime(2019, 04, 28, 11, 0, 0));
             Registration registration = new Registration(checkIn, checkOut, singleAccommodation);
-            Pricing pricing = new Pricing(meal);
+            Billing billing = new Billing(meal);
 
-            int price = pricing.ComputeTotalPrice(registration, socratesOrganizer.ComputeMealCount(registration));
+            int price = billing.ComputeTotalPriceForRegistration(registration, socratesOrganizer.ComputeMealCount(registration));
 
             int expected = 810;
             price.Should().Be(expected);
@@ -114,9 +114,9 @@ namespace SocratesFranceTest
             DayHour checkIn = new DayHour(new DateTime(2019, 04, 26, 12, 0, 0));
             DayHour checkOut = new DayHour(new DateTime(2019, 04, 27, 18, 0, 0));
             Registration registration = new Registration(checkIn, checkOut, singleAccommodation);
-            Pricing pricing = new Pricing(meal);
+            Billing billing = new Billing(meal);
 
-            int price = pricing.ComputeTotalPrice(registration, socratesOrganizer.ComputeMealCount(registration));
+            int price = billing.ComputeTotalPriceForRegistration(registration, socratesOrganizer.ComputeMealCount(registration));
 
             int expected = 770;
             price.Should().Be(expected);
