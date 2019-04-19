@@ -20,6 +20,10 @@ class Registration {
     private int calculateTotalMealsPrice() {
         int mealsNumber = socratesEvent.getMealNumber();
 
+        if (checkInDateTime.isEqual(socratesEvent.getStartDateTime())) {
+            mealsNumber--;
+        }
+
         if (checkInDateTime.isAfter(socratesEvent.getStartDateTime())) {
             mealsNumber--;
         }
