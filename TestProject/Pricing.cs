@@ -11,10 +11,10 @@ namespace SocratesFrance
             this.meal = meal;
         }
 
-        public int ComputeTotalPrice(Registration registration, DateTime sessionStartTime, DateTime sessionEndTime)
+        public int ComputeTotalPrice(Registration registration, int mealCount)
         {
             return registration.GetAccomodationPrice() + 
-                registration.ComputeMealCount(sessionStartTime, sessionEndTime) * meal.Price;
+                mealCount * meal.Price;
         }
     }
 }

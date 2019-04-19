@@ -7,12 +7,28 @@ namespace SocratesFrance
         private readonly DayHour checkIn;
         private readonly DayHour checkOut;
         private readonly Priceable accommodation;
-        
+
         public Registration(DayHour checkIn = null, DayHour checkOut = null, Priceable accommodation = null)
         {
             this.checkIn = checkIn;
             this.checkOut = checkOut;
             this.accommodation = accommodation;
+        }
+
+        public DayHour CheckOut
+        {
+            get
+            {
+                return this.checkOut;
+            }
+        }
+
+        public DayHour CheckIn
+        {
+            get
+            {
+                return this.checkIn;
+            }
         }
 
         public bool HasCheckin()
