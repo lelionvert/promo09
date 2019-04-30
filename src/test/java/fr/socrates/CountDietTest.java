@@ -53,4 +53,13 @@ public class CountDietTest {
         long vegetarianMealExpectedCount = 2;
         assertThat(vegetarianCoverCount).isEqualTo(vegetarianMealExpectedCount);
     }
+
+    @Test
+    public void one_pescatarian_in_one_meal_should_return_one() {
+        CoverCounter coverCounter = new CoverCounter();
+
+        long pesatarianCoverCount = coverCounter.countPescatarian();
+        long pesatarianCoverCountExpected = 1;
+        assertThat(pesatarianCoverCount).isEqualTo(pesatarianCoverCountExpected);
+    }
 }

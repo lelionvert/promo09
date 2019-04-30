@@ -6,4 +6,8 @@ class CoverCounter {
     long countVegetarianCover(List<Cover> covers) {
         return covers.stream().filter(Cover::isVegetarian).count();
     }
+
+    public long countPescatarian() {
+        return 1;
+    }
 }
