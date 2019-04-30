@@ -15,9 +15,10 @@ public class CountDietTest {
         Cover vegetarianCover = new Cover("vegetarian");
         List<Cover> covers = new ArrayList<>();
         covers.add(vegetarianCover);
-        long vegetarianCoverCount = coverCounter.countVegetarianCover(covers);
-        long vegetarianMealExpectedCount = 1;
 
+        long vegetarianCoverCount = coverCounter.countVegetarianCover(covers);
+
+        long vegetarianMealExpectedCount = 1;
         assertThat(vegetarianCoverCount).isEqualTo(vegetarianMealExpectedCount);
     }
 
@@ -31,8 +32,8 @@ public class CountDietTest {
         covers.add(pescatarianCover);
 
         long vegetarianCoverCount = coverCounter.countVegetarianCover(covers);
-        long vegetarianMealExpectedCount = 1;
 
+        long vegetarianMealExpectedCount = 1;
         assertThat(vegetarianCoverCount).isEqualTo(vegetarianMealExpectedCount);
     }
 
@@ -48,8 +49,8 @@ public class CountDietTest {
         covers.add(vegetarianCover2);
 
         long vegetarianCoverCount = coverCounter.countVegetarianCover(covers);
-        long vegetarianMealExpectedCount = 2;
 
+        long vegetarianMealExpectedCount = 2;
         assertThat(vegetarianCoverCount).isEqualTo(vegetarianMealExpectedCount);
     }
 }

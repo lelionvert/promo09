@@ -1,9 +1,13 @@
 package fr.socrates;
 
-public class Cover {
-    String type;
+class Cover {
+    private String type;
 
-    public Cover(String type) {
+    Cover(String type) {
         this.type = type;
+    }
+
+    boolean isVegetarian() {
+        return type.equals("vegetarian");
     }
 }
