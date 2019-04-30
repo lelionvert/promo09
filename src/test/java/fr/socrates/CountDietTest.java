@@ -16,11 +16,11 @@ public class CountDietTest {
 
     @Test
     public void one_vegetarian_in_one_meal_should_return_one_vegetarian() {
-        CoverCounter coverCounter = new CoverCounter();
         List<Cover> covers = new ArrayList<>();
         covers.add(vegetarian);
+        CoverCounter coverCounter = new CoverCounter(covers);
 
-        long vegetarianCoverCount = coverCounter.countForDiet(covers, DietType.VEGETARIAN);
+        long vegetarianCoverCount = coverCounter.countForDiet(DietType.VEGETARIAN);
 
         long vegetarianMealExpectedCount = 1;
         assertThat(vegetarianCoverCount).isEqualTo(vegetarianMealExpectedCount);
@@ -28,12 +28,12 @@ public class CountDietTest {
 
     @Test
     public void one_vegetarian_and_one_no_vegetarian_in_one_meal_should_return_one_vegetarian() {
-        CoverCounter coverCounter = new CoverCounter();
         List<Cover> covers = new ArrayList<>();
         covers.add(vegetarian);
         covers.add(pescatarian);
+        CoverCounter coverCounter = new CoverCounter(covers);
 
-        long vegetarianCoverCount = coverCounter.countForDiet(covers, DietType.VEGETARIAN);
+        long vegetarianCoverCount = coverCounter.countForDiet(DietType.VEGETARIAN);
 
         long vegetarianMealExpectedCount = 1;
         assertThat(vegetarianCoverCount).isEqualTo(vegetarianMealExpectedCount);
@@ -41,13 +41,13 @@ public class CountDietTest {
 
     @Test
     public void two_vegetarian_and_one_no_vegetarian_in_one_meal_should_return_2() {
-        CoverCounter coverCounter = new CoverCounter();
         List<Cover> covers = new ArrayList<>();
         covers.add(vegetarian);
         covers.add(vegetarian);
         covers.add(pescatarian);
+        CoverCounter coverCounter = new CoverCounter(covers);
 
-        long vegetarianCoverCount = coverCounter.countForDiet(covers, DietType.VEGETARIAN);
+        long vegetarianCoverCount = coverCounter.countForDiet(DietType.VEGETARIAN);
 
         long vegetarianMealExpectedCount = 2;
         assertThat(vegetarianCoverCount).isEqualTo(vegetarianMealExpectedCount);
@@ -55,10 +55,11 @@ public class CountDietTest {
 
     @Test
     public void one_pescatarian_in_one_meal_should_return_one() {
-        CoverCounter coverCounter = new CoverCounter();
         List<Cover> covers = new ArrayList<>();
         covers.add(pescatarian);
-        long pescatarianCoverCount = coverCounter.countForDiet(covers, DietType.PESCATARIAN);
+        CoverCounter coverCounter = new CoverCounter(covers);
+
+        long pescatarianCoverCount = coverCounter.countForDiet(DietType.PESCATARIAN);
 
         long pescatarianCoverCountExpected = 1;
         assertThat(pescatarianCoverCount).isEqualTo(pescatarianCoverCountExpected);
@@ -66,13 +67,13 @@ public class CountDietTest {
 
     @Test
     public void two_pescatarian_and_one_vegetarian_in_one_meal_should_return_2() {
-        CoverCounter coverCounter = new CoverCounter();
         List<Cover> covers = new ArrayList<>();
         covers.add(pescatarian);
         covers.add(pescatarian);
         covers.add(vegetarian);
+        CoverCounter coverCounter = new CoverCounter(covers);
 
-        long pescatarianCoverCount = coverCounter.countForDiet(covers, DietType.PESCATARIAN);
+        long pescatarianCoverCount = coverCounter.countForDiet(DietType.PESCATARIAN);
 
         long pescatarianCoverCountExpected = 2;
         assertThat(pescatarianCoverCount).isEqualTo(pescatarianCoverCountExpected);
@@ -80,11 +81,11 @@ public class CountDietTest {
 
     @Test
     public void one_vegan_in_one_meal_should_return_one() {
-        CoverCounter coverCounter = new CoverCounter();
         List<Cover> covers = new ArrayList<>();
         covers.add(vegan);
+        CoverCounter coverCounter = new CoverCounter(covers);
 
-        long veganCoverCount = coverCounter.countForDiet(covers, DietType.VEGAN);
+        long veganCoverCount = coverCounter.countForDiet(DietType.VEGAN);
 
         long veganCoverCountExpected = 1;
         assertThat(veganCoverCount).isEqualTo(veganCoverCountExpected);
@@ -92,14 +93,14 @@ public class CountDietTest {
 
     @Test
     public void two_vegan_and_2_pescatarian_in_one_meal_should_return_2() {
-        CoverCounter coverCounter = new CoverCounter();
         List<Cover> covers = new ArrayList<>();
         covers.add(vegan);
         covers.add(vegan);
         covers.add(pescatarian);
         covers.add(pescatarian);
+        CoverCounter coverCounter = new CoverCounter(covers);
 
-        long veganCoverCount = coverCounter.countForDiet(covers, DietType.VEGAN);
+        long veganCoverCount = coverCounter.countForDiet(DietType.VEGAN);
 
         long veganCoverCountExpected = 2;
         assertThat(veganCoverCount).isEqualTo(veganCoverCountExpected);
@@ -107,11 +108,11 @@ public class CountDietTest {
 
     @Test
     public void one_omnivorous_in_one_meal_should_return_1() {
-        CoverCounter coverCounter = new CoverCounter();
         List<Cover> covers = new ArrayList<>();
         covers.add(omnivorous);
+        CoverCounter coverCounter = new CoverCounter(covers);
 
-        long omnivorousCoverCount = coverCounter.countForDiet(covers, DietType.OMNIVOROUS);
+        long omnivorousCoverCount = coverCounter.countForDiet(DietType.OMNIVOROUS);
 
         long omnivorousCoverCountExpected = 1;
         assertThat(omnivorousCoverCount).isEqualTo(omnivorousCoverCountExpected);
@@ -119,14 +120,14 @@ public class CountDietTest {
 
     @Test
     public void three_omnivorous_and_one_vegan_in_one_meal_should_return_three() {
-        CoverCounter coverCounter = new CoverCounter();
         List<Cover> covers = new ArrayList<>();
         covers.add(omnivorous);
         covers.add(omnivorous);
         covers.add(omnivorous);
         covers.add(vegan);
+        CoverCounter coverCounter = new CoverCounter(covers);
 
-        long omnivorousCoverCount = coverCounter.countForDiet(covers, DietType.OMNIVOROUS);
+        long omnivorousCoverCount = coverCounter.countForDiet(DietType.OMNIVOROUS);
 
         long omnivorousCoverCountExpected = 3;
         assertThat(omnivorousCoverCount).isEqualTo(omnivorousCoverCountExpected);
