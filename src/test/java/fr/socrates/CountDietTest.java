@@ -88,4 +88,19 @@ public class CountDietTest {
         long veganCoverCountExpected = 1;
         assertThat(veganCoverCount).isEqualTo(veganCoverCountExpected);
     }
+
+    @Test
+    public void two_vegan_and_2_pescatarian_in_one_meal_should_return_2() {
+        CoverCounter coverCounter = new CoverCounter();
+        List<Cover> covers = new ArrayList<>();
+        covers.add(vegan);
+        covers.add(vegan);
+        covers.add(pescatarian);
+        covers.add(pescatarian);
+
+        long veganCoverCount = coverCounter.countForDiet(covers, DietType.VEGAN);
+
+        long veganCoverCountExpected = 2;
+        assertThat(veganCoverCount).isEqualTo(veganCoverCountExpected);
+    }
 }
