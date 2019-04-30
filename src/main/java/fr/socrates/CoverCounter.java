@@ -3,7 +3,7 @@ package fr.socrates;
 import java.util.List;
 
 class CoverCounter {
-    int countVegetarianCover(List<Cover> covers) {
-        return 1;
+    long countVegetarianCover(List<Cover> covers) {
+        return covers.stream().filter(cover -> cover.type.equals("vegetarian")).count();
     }
 }
