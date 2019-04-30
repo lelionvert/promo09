@@ -5,7 +5,6 @@ import org.junit.Test;
 import java.time.DayOfWeek;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -143,10 +142,10 @@ public class CountDietTest {
         Meal meal2 = new Meal(covers, DayOfWeek.FRIDAY, MealType.LUNCH);
         Meals meals = new Meals(meal1, meal2);
 
-        Map<Meal, Map<DietType, Long>> mealsChoices = meals.computeMealsChoices();
-        long vegetarianCoverCountInMeal1 = mealsChoices.get(meal1).get(DietType.VEGETARIAN);
-        long vegetarianCoverCountInMeal2 = mealsChoices.get(meal2).get(DietType.VEGETARIAN);
+        MealRepartitions repartitions = meals.computeMealsRepartitions();
+        long vegetarianCoverCountInMeal = repartitions.getTotalCoverForDiet(DietType.VEGETARIAN);
+
         long vegetarianMealCountExpected = 2;
-        assertThat(vegetarianCoverCountInMeal1 + vegetarianCoverCountInMeal2).isEqualTo(vegetarianMealCountExpected);
+        assertThat(vegetarianCoverCountInMeal).isEqualTo(vegetarianMealCountExpected);
     }
 }

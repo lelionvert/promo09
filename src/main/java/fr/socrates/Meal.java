@@ -5,12 +5,12 @@ import java.util.List;
 
 class Meal {
     private List<Cover> covers;
-    private final MealType dinner;
+    private final MealType mealType;
     private final DayOfWeek dayOfWeek;
 
     Meal(List<Cover> covers, DayOfWeek dayOfWeek, MealType mealType) {
         this.covers = covers;
-        this.dinner = mealType;
+        this.mealType = mealType;
         this.dayOfWeek = dayOfWeek;
     }
 
