@@ -8,9 +8,11 @@ public class CountDietTest {
 
     @Test
     public void one_vegetarian_in_one_meal_should_return_one_vegetarian() {
-        DietMeal dietMeal = new DietMeal();
-        int countVegiMeal = dietMeal.countDiet();
-        int countVegiMealExpectd = 1;
-        assertThat(countVegiMeal).isEqualTo(countVegiMealExpectd);
+        CoverCounter coverCounter = new CoverCounter();
+
+        int vegetarianCoverCount = coverCounter.countVegetarianCover();
+        int vegetarianMealExpectedCount = 1;
+
+        assertThat(vegetarianCoverCount).isEqualTo(vegetarianMealExpectedCount);
     }
 }
