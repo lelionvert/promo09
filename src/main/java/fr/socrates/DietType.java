@@ -1,5 +1,5 @@
 package fr.socrates;
 
 public enum DietType {
-    PESCATARIAN, VEGAN, VEGETARIAN
+    PESCATARIAN, VEGAN, OMNIVOROUS, VEGETARIAN
 }

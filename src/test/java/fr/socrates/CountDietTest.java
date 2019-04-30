@@ -12,6 +12,7 @@ public class CountDietTest {
     private Cover pescatarian = new Cover(DietType.PESCATARIAN);
     private Cover vegan = new Cover(DietType.VEGAN);
     private Cover vegetarian = new Cover(DietType.VEGETARIAN);
+    private Cover omnivorous = new Cover(DietType.OMNIVOROUS);
 
     @Test
     public void one_vegetarian_in_one_meal_should_return_one_vegetarian() {
@@ -102,5 +103,17 @@ public class CountDietTest {
 
         long veganCoverCountExpected = 2;
         assertThat(veganCoverCount).isEqualTo(veganCoverCountExpected);
+    }
+
+    @Test
+    public void one_omnivorous_in_one_meal_should_return_1() {
+        CoverCounter coverCounter = new CoverCounter();
+        List<Cover> covers = new ArrayList<>();
+        covers.add(omnivorous);
+
+        long omnivorousCoverCount = coverCounter.countForDiet(covers, DietType.OMNIVOROUS);
+
+        long omnivorousCoverCountExpected = 1;
+        assertThat(omnivorousCoverCount).isEqualTo(omnivorousCoverCountExpected);
     }
 }
