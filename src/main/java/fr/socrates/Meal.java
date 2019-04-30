@@ -1,13 +1,17 @@
 package fr.socrates;
 
+import java.time.DayOfWeek;
 import java.util.List;
 
-class CoverCounter {
-
+class Meal {
     private List<Cover> covers;
+    private final MealType dinner;
+    private final DayOfWeek dayOfWeek;
 
-    CoverCounter(List<Cover> covers) {
+    Meal(List<Cover> covers, DayOfWeek dayOfWeek, MealType mealType) {
         this.covers = covers;
+        this.dinner = mealType;
+        this.dayOfWeek = dayOfWeek;
     }
 
     long countForDiet(DietType dietType) {

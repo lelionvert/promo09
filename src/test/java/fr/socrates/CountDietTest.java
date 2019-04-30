@@ -2,8 +2,10 @@ package fr.socrates;
 
 import org.junit.Test;
 
+import java.time.DayOfWeek;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -18,9 +20,9 @@ public class CountDietTest {
     public void one_vegetarian_in_one_meal_should_return_one_vegetarian() {
         List<Cover> covers = new ArrayList<>();
         covers.add(vegetarian);
-        CoverCounter coverCounter = new CoverCounter(covers);
+        Meal meal = new Meal(covers, DayOfWeek.THURSDAY, MealType.DINNER);
 
-        long vegetarianCoverCount = coverCounter.countForDiet(DietType.VEGETARIAN);
+        long vegetarianCoverCount = meal.countForDiet(DietType.VEGETARIAN);
 
         long vegetarianMealExpectedCount = 1;
         assertThat(vegetarianCoverCount).isEqualTo(vegetarianMealExpectedCount);
@@ -31,9 +33,9 @@ public class CountDietTest {
         List<Cover> covers = new ArrayList<>();
         covers.add(vegetarian);
         covers.add(pescatarian);
-        CoverCounter coverCounter = new CoverCounter(covers);
+        Meal meal = new Meal(covers, DayOfWeek.THURSDAY, MealType.DINNER);
 
-        long vegetarianCoverCount = coverCounter.countForDiet(DietType.VEGETARIAN);
+        long vegetarianCoverCount = meal.countForDiet(DietType.VEGETARIAN);
 
         long vegetarianMealExpectedCount = 1;
         assertThat(vegetarianCoverCount).isEqualTo(vegetarianMealExpectedCount);
@@ -45,9 +47,9 @@ public class CountDietTest {
         covers.add(vegetarian);
         covers.add(vegetarian);
         covers.add(pescatarian);
-        CoverCounter coverCounter = new CoverCounter(covers);
+        Meal meal = new Meal(covers, DayOfWeek.THURSDAY, MealType.DINNER);
 
-        long vegetarianCoverCount = coverCounter.countForDiet(DietType.VEGETARIAN);
+        long vegetarianCoverCount = meal.countForDiet(DietType.VEGETARIAN);
 
         long vegetarianMealExpectedCount = 2;
         assertThat(vegetarianCoverCount).isEqualTo(vegetarianMealExpectedCount);
@@ -57,9 +59,9 @@ public class CountDietTest {
     public void one_pescatarian_in_one_meal_should_return_one() {
         List<Cover> covers = new ArrayList<>();
         covers.add(pescatarian);
-        CoverCounter coverCounter = new CoverCounter(covers);
+        Meal meal = new Meal(covers, DayOfWeek.THURSDAY, MealType.DINNER);
 
-        long pescatarianCoverCount = coverCounter.countForDiet(DietType.PESCATARIAN);
+        long pescatarianCoverCount = meal.countForDiet(DietType.PESCATARIAN);
 
         long pescatarianCoverCountExpected = 1;
         assertThat(pescatarianCoverCount).isEqualTo(pescatarianCoverCountExpected);
@@ -71,9 +73,9 @@ public class CountDietTest {
         covers.add(pescatarian);
         covers.add(pescatarian);
         covers.add(vegetarian);
-        CoverCounter coverCounter = new CoverCounter(covers);
+        Meal meal = new Meal(covers, DayOfWeek.THURSDAY, MealType.DINNER);
 
-        long pescatarianCoverCount = coverCounter.countForDiet(DietType.PESCATARIAN);
+        long pescatarianCoverCount = meal.countForDiet(DietType.PESCATARIAN);
 
         long pescatarianCoverCountExpected = 2;
         assertThat(pescatarianCoverCount).isEqualTo(pescatarianCoverCountExpected);
@@ -83,9 +85,9 @@ public class CountDietTest {
     public void one_vegan_in_one_meal_should_return_one() {
         List<Cover> covers = new ArrayList<>();
         covers.add(vegan);
-        CoverCounter coverCounter = new CoverCounter(covers);
+        Meal meal = new Meal(covers, DayOfWeek.THURSDAY, MealType.DINNER);
 
-        long veganCoverCount = coverCounter.countForDiet(DietType.VEGAN);
+        long veganCoverCount = meal.countForDiet(DietType.VEGAN);
 
         long veganCoverCountExpected = 1;
         assertThat(veganCoverCount).isEqualTo(veganCoverCountExpected);
@@ -98,9 +100,9 @@ public class CountDietTest {
         covers.add(vegan);
         covers.add(pescatarian);
         covers.add(pescatarian);
-        CoverCounter coverCounter = new CoverCounter(covers);
+        Meal meal = new Meal(covers, DayOfWeek.THURSDAY, MealType.DINNER);
 
-        long veganCoverCount = coverCounter.countForDiet(DietType.VEGAN);
+        long veganCoverCount = meal.countForDiet(DietType.VEGAN);
 
         long veganCoverCountExpected = 2;
         assertThat(veganCoverCount).isEqualTo(veganCoverCountExpected);
@@ -110,9 +112,9 @@ public class CountDietTest {
     public void one_omnivorous_in_one_meal_should_return_1() {
         List<Cover> covers = new ArrayList<>();
         covers.add(omnivorous);
-        CoverCounter coverCounter = new CoverCounter(covers);
+        Meal meal = new Meal(covers, DayOfWeek.THURSDAY, MealType.DINNER);
 
-        long omnivorousCoverCount = coverCounter.countForDiet(DietType.OMNIVOROUS);
+        long omnivorousCoverCount = meal.countForDiet(DietType.OMNIVOROUS);
 
         long omnivorousCoverCountExpected = 1;
         assertThat(omnivorousCoverCount).isEqualTo(omnivorousCoverCountExpected);
@@ -125,11 +127,26 @@ public class CountDietTest {
         covers.add(omnivorous);
         covers.add(omnivorous);
         covers.add(vegan);
-        CoverCounter coverCounter = new CoverCounter(covers);
+        Meal meal = new Meal(covers, DayOfWeek.THURSDAY, MealType.DINNER);
 
-        long omnivorousCoverCount = coverCounter.countForDiet(DietType.OMNIVOROUS);
+        long omnivorousCoverCount = meal.countForDiet(DietType.OMNIVOROUS);
 
         long omnivorousCoverCountExpected = 3;
         assertThat(omnivorousCoverCount).isEqualTo(omnivorousCoverCountExpected);
+    }
+
+    @Test
+    public void two_meals_with_one_vegetarian_in_each_should_return_two_vegetarian_meals_for_the_event() {
+        List<Cover> covers = new ArrayList<>();
+        covers.add(vegetarian);
+        Meal meal1 = new Meal(covers, DayOfWeek.THURSDAY, MealType.DINNER);
+        Meal meal2 = new Meal(covers, DayOfWeek.FRIDAY, MealType.LUNCH);
+        Meals meals = new Meals(meal1, meal2);
+
+        Map<Meal, Map<DietType, Long>> mealsChoices = meals.computeMealsChoices();
+        long vegetarianCoverCountInMeal1 = mealsChoices.get(meal1).get(DietType.VEGETARIAN);
+        long vegetarianCoverCountInMeal2 = mealsChoices.get(meal2).get(DietType.VEGETARIAN);
+        long vegetarianMealCountExpected = 2;
+        assertThat(vegetarianCoverCountInMeal1 + vegetarianCoverCountInMeal2).isEqualTo(vegetarianMealCountExpected);
     }
 }
