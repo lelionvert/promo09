@@ -7,11 +7,7 @@ class Cover {
         this.dietType = dietType;
     }
 
-    boolean isVegetarian() {
-        return this.dietType.equals(DietType.VEGETARIAN);
-    }
-
-    boolean isPescatarian() {
-        return this.dietType.equals(DietType.PESCATARIAN);
+    boolean hasDietType(DietType dietType) {
+        return this.dietType.equals(dietType);
     }
 }

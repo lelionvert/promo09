@@ -18,7 +18,7 @@ public class CountDietTest {
         List<Cover> covers = new ArrayList<>();
         covers.add(vegetarian);
 
-        long vegetarianCoverCount = coverCounter.countVegetarianCover(covers);
+        long vegetarianCoverCount = coverCounter.countForDiet(covers, DietType.VEGETARIAN);
 
         long vegetarianMealExpectedCount = 1;
         assertThat(vegetarianCoverCount).isEqualTo(vegetarianMealExpectedCount);
@@ -31,7 +31,7 @@ public class CountDietTest {
         covers.add(vegetarian);
         covers.add(pescatarian);
 
-        long vegetarianCoverCount = coverCounter.countVegetarianCover(covers);
+        long vegetarianCoverCount = coverCounter.countForDiet(covers, DietType.VEGETARIAN);
 
         long vegetarianMealExpectedCount = 1;
         assertThat(vegetarianCoverCount).isEqualTo(vegetarianMealExpectedCount);
@@ -45,7 +45,7 @@ public class CountDietTest {
         covers.add(vegetarian);
         covers.add(pescatarian);
 
-        long vegetarianCoverCount = coverCounter.countVegetarianCover(covers);
+        long vegetarianCoverCount = coverCounter.countForDiet(covers, DietType.VEGETARIAN);
 
         long vegetarianMealExpectedCount = 2;
         assertThat(vegetarianCoverCount).isEqualTo(vegetarianMealExpectedCount);
@@ -56,7 +56,7 @@ public class CountDietTest {
         CoverCounter coverCounter = new CoverCounter();
         List<Cover> covers = new ArrayList<>();
         covers.add(pescatarian);
-        long pescatarianCoverCount = coverCounter.countPescatarian(covers);
+        long pescatarianCoverCount = coverCounter.countForDiet(covers, DietType.PESCATARIAN);
 
         long pescatarianCoverCountExpected = 1;
         assertThat(pescatarianCoverCount).isEqualTo(pescatarianCoverCountExpected);
@@ -70,7 +70,8 @@ public class CountDietTest {
         covers.add(pescatarian);
         covers.add(vegetarian);
 
-        long pescatarianCoverCount = coverCounter.countPescatarian(covers);
+        long pescatarianCoverCount = coverCounter.countForDiet(covers, DietType.PESCATARIAN);
+
         long pescatarianCoverCountExpected = 2;
         assertThat(pescatarianCoverCount).isEqualTo(pescatarianCoverCountExpected);
     }
