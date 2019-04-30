@@ -116,4 +116,19 @@ public class CountDietTest {
         long omnivorousCoverCountExpected = 1;
         assertThat(omnivorousCoverCount).isEqualTo(omnivorousCoverCountExpected);
     }
+
+    @Test
+    public void three_omnivorous_and_one_vegan_in_one_meal_should_return_three() {
+        CoverCounter coverCounter = new CoverCounter();
+        List<Cover> covers = new ArrayList<>();
+        covers.add(omnivorous);
+        covers.add(omnivorous);
+        covers.add(omnivorous);
+        covers.add(vegan);
+
+        long omnivorousCoverCount = coverCounter.countForDiet(covers, DietType.OMNIVOROUS);
+
+        long omnivorousCoverCountExpected = 3;
+        assertThat(omnivorousCoverCount).isEqualTo(omnivorousCoverCountExpected);
+    }
 }
