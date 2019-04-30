@@ -10,8 +10,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class CountDietTest {
 
     private Cover pescatarian = new Cover(DietType.PESCATARIAN);
-    private Cover vegetarian = new Cover(DietType.VEGETARIAN);
     private Cover vegan = new Cover(DietType.VEGAN);
+    private Cover vegetarian = new Cover(DietType.VEGETARIAN);
 
     @Test
     public void one_vegetarian_in_one_meal_should_return_one_vegetarian() {
@@ -82,6 +82,7 @@ public class CountDietTest {
         CoverCounter coverCounter = new CoverCounter();
         List<Cover> covers = new ArrayList<>();
         covers.add(vegan);
+
         long veganCoverCount = coverCounter.countForDiet(covers, DietType.VEGAN);
 
         long veganCoverCountExpected = 1;
