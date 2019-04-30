@@ -1,17 +1,17 @@
 package fr.socrates;
 
 class Cover {
-    private String type;
+    private DietType dietType;
 
-    Cover(String type) {
-        this.type = type;
+    Cover(DietType dietType) {
+        this.dietType = dietType;
     }
 
     boolean isVegetarian() {
-        return type.equals("vegetarian");
+        return this.dietType.equals(DietType.VEGETARIAN);
     }
 
     boolean isPescatarian() {
-        return type.equals("pescatarian");
+        return this.dietType.equals(DietType.PESCATARIAN);
     }
 }
