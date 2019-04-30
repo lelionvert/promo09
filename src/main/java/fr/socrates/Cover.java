@@ -10,4 +10,8 @@ class Cover {
     boolean isVegetarian() {
         return type.equals("vegetarian");
     }
+
+    boolean isPescatarian() {
+        return type.equals("pescatarian");
+    }
 }

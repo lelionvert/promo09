@@ -57,10 +57,28 @@ public class CountDietTest {
     @Test
     public void one_pescatarian_in_one_meal_should_return_one() {
         CoverCounter coverCounter = new CoverCounter();
-
-        long pescatarianCoverCount = coverCounter.countPescatarian();
+        Cover pescatarian = new Cover("pescatarian");
+        List<Cover> covers = new ArrayList<>();
+        covers.add(pescatarian);
+        long pescatarianCoverCount = coverCounter.countPescatarian(covers);
 
         long pescatarianCoverCountExpected = 1;
+        assertThat(pescatarianCoverCount).isEqualTo(pescatarianCoverCountExpected);
+    }
+
+    @Test
+    public void two_pescatarian_and_one_vegetarian_in_one_meal_should_return_2() {
+        CoverCounter coverCounter = new CoverCounter();
+        Cover pescatarian = new Cover("pescatarian");
+        Cover pescatarian2 = new Cover("pescatarian");
+        Cover vegetarian = new Cover("vegetarian");
+        List<Cover> covers = new ArrayList<>();
+        covers.add(pescatarian);
+        covers.add(pescatarian2);
+        covers.add(vegetarian);
+
+        long pescatarianCoverCount = coverCounter.countPescatarian(covers);
+        long pescatarianCoverCountExpected = 2;
         assertThat(pescatarianCoverCount).isEqualTo(pescatarianCoverCountExpected);
     }
 }
