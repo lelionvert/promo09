@@ -20,10 +20,11 @@ public class DemoMeals {
         covers.add(new Cover(DietType.PESCATARIAN));
         covers.add(new Cover(DietType.OMNIVOROUS));
 
-        Meal meal = new Meal(covers);
+        Meal meal = new Meal(covers, MealTime.MEAL1);
         Meals meals = new Meals(meal);
 
         MealRepartitions repartitions = meals.computeMealsRepartitions();
+        System.out.println(repartitions);
         System.out.println(repartitions.getTotalCoverForDiet(DietType.VEGETARIAN));
         System.out.println(repartitions.getTotalCoverForDiet(DietType.OMNIVOROUS));
         System.out.println(repartitions.getTotalCoverForDiet(DietType.PESCATARIAN));

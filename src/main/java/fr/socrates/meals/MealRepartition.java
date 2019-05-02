@@ -3,24 +3,30 @@ package fr.socrates.meals;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MealRepartition {
+class MealRepartition {
+    private final Meal meal;
     private Map<DietType, Long> repartition;
 
-    private MealRepartition(Map<DietType, Long> repartition) {
+    private MealRepartition(Meal meal, Map<DietType, Long> repartition) {
+        this.meal = meal;
         this.repartition = repartition;
     }
 
-    public static MealRepartition computeRepartitionForMeal(Meal meal) {
+    static MealRepartition generateRepartitionForMeal(Meal meal) {
         Map<DietType, Long> repartition = new HashMap<>();
 
         for (DietType type : DietType.values()) {
             repartition.put(type, meal.countForDiet(type));
         }
 
-        return new MealRepartition(repartition);
+        return new MealRepartition(meal, repartition);
     }
 
-    public long getCoverCountForDiet(DietType dietType) {
+    long getCoverCountForDiet(DietType dietType) {
         return repartition.get(dietType);
+    }
+
+    boolean isForMeal(MealTime mealTime) {
+        return meal.isMeal(mealTime);
     }
 }

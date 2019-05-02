@@ -15,7 +15,7 @@ public class Meals {
         List<MealRepartition> repartitions = new ArrayList<>();
 
         for (Meal meal : meals) {
-            MealRepartition repartition = MealRepartition.computeRepartitionForMeal(meal);
+            MealRepartition repartition = MealRepartition.generateRepartitionForMeal(meal);
             repartitions.add(repartition);
         }
 

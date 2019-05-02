@@ -18,7 +18,7 @@ public class CountDietTest {
     public void one_vegetarian_in_one_meal_should_return_one_vegetarian() {
         List<Cover> covers = new ArrayList<>();
         covers.add(vegetarian);
-        Meal meal = new Meal(covers);
+        Meal meal = new Meal(covers, MealTime.MEAL1);
 
         long vegetarianCoverCount = meal.countForDiet(DietType.VEGETARIAN);
 
@@ -31,7 +31,7 @@ public class CountDietTest {
         List<Cover> covers = new ArrayList<>();
         covers.add(vegetarian);
         covers.add(pescatarian);
-        Meal meal = new Meal(covers);
+        Meal meal = new Meal(covers, MealTime.MEAL1);
 
         long vegetarianCoverCount = meal.countForDiet(DietType.VEGETARIAN);
 
@@ -45,7 +45,7 @@ public class CountDietTest {
         covers.add(vegetarian);
         covers.add(vegetarian);
         covers.add(pescatarian);
-        Meal meal = new Meal(covers);
+        Meal meal = new Meal(covers, MealTime.MEAL1);
 
         long vegetarianCoverCount = meal.countForDiet(DietType.VEGETARIAN);
 
@@ -57,7 +57,7 @@ public class CountDietTest {
     public void one_pescatarian_in_one_meal_should_return_one() {
         List<Cover> covers = new ArrayList<>();
         covers.add(pescatarian);
-        Meal meal = new Meal(covers);
+        Meal meal = new Meal(covers, MealTime.MEAL1);
 
         long pescatarianCoverCount = meal.countForDiet(DietType.PESCATARIAN);
 
@@ -71,7 +71,7 @@ public class CountDietTest {
         covers.add(pescatarian);
         covers.add(pescatarian);
         covers.add(vegetarian);
-        Meal meal = new Meal(covers);
+        Meal meal = new Meal(covers, MealTime.MEAL1);
 
         long pescatarianCoverCount = meal.countForDiet(DietType.PESCATARIAN);
 
@@ -83,7 +83,7 @@ public class CountDietTest {
     public void one_vegan_in_one_meal_should_return_one() {
         List<Cover> covers = new ArrayList<>();
         covers.add(vegan);
-        Meal meal = new Meal(covers);
+        Meal meal = new Meal(covers, MealTime.MEAL1);
 
         long veganCoverCount = meal.countForDiet(DietType.VEGAN);
 
@@ -98,7 +98,7 @@ public class CountDietTest {
         covers.add(vegan);
         covers.add(pescatarian);
         covers.add(pescatarian);
-        Meal meal = new Meal(covers);
+        Meal meal = new Meal(covers, MealTime.MEAL1);
 
         long veganCoverCount = meal.countForDiet(DietType.VEGAN);
 
@@ -110,7 +110,7 @@ public class CountDietTest {
     public void one_omnivorous_in_one_meal_should_return_1() {
         List<Cover> covers = new ArrayList<>();
         covers.add(omnivorous);
-        Meal meal = new Meal(covers);
+        Meal meal = new Meal(covers, MealTime.MEAL1);
 
         long omnivorousCoverCount = meal.countForDiet(DietType.OMNIVOROUS);
 
@@ -125,7 +125,7 @@ public class CountDietTest {
         covers.add(omnivorous);
         covers.add(omnivorous);
         covers.add(vegan);
-        Meal meal = new Meal(covers);
+        Meal meal = new Meal(covers, MealTime.MEAL1);
 
         long omnivorousCoverCount = meal.countForDiet(DietType.OMNIVOROUS);
 
@@ -137,8 +137,8 @@ public class CountDietTest {
     public void two_meals_with_one_vegetarian_in_each_should_return_two_vegetarian_meals_for_the_event() {
         List<Cover> covers = new ArrayList<>();
         covers.add(vegetarian);
-        Meal meal1 = new Meal(covers);
-        Meal meal2 = new Meal(covers);
+        Meal meal1 = new Meal(covers, MealTime.MEAL1);
+        Meal meal2 = new Meal(covers, MealTime.MEAL2);
         Meals meals = new Meals(meal1, meal2);
 
         MealRepartitions repartitions = meals.computeMealsRepartitions();
@@ -157,13 +157,30 @@ public class CountDietTest {
         covers2.add(vegan);
         covers2.add(pescatarian);
 
-        Meal meal1 = new Meal(covers1);
-        Meal meal2 = new Meal(covers2);
+        Meal meal1 = new Meal(covers1, MealTime.MEAL1);
+        Meal meal2 = new Meal(covers2, MealTime.MEAL2);
         Meals meals = new Meals(meal1, meal2);
         MealRepartitions repartitions = meals.computeMealsRepartitions();
         long vegetarianCoversCountInMeals = repartitions.getTotalCoverForDiet(DietType.VEGETARIAN);
 
         long vegetarianCoversCountInMealsExpected = 1;
         assertThat(vegetarianCoversCountInMeals).isEqualTo(vegetarianCoversCountInMealsExpected);
+    }
+
+    @Test
+    public void it_should_return_the_cover_count_for_a_chosen_diet_and_a_chosen_meal() {
+        List<Cover> covers1 = new ArrayList<>();
+        covers1.add(vegan);
+        covers1.add(vegan);
+        covers1.add(vegetarian);
+        covers1.add(omnivorous);
+        Meal meal1 = new Meal(covers1, MealTime.MEAL1);
+        Meals meals = new Meals(meal1);
+
+        MealRepartitions repartitions = meals.computeMealsRepartitions();
+
+        long vegetarianCoverCountForMealOne = repartitions.getTotalCoverForMealAndDiet(MealTime.MEAL1, DietType.VEGETARIAN);
+        long vegetarianCoverCountForMealOneExpected = 1;
+        assertThat(vegetarianCoverCountForMealOne).isEqualTo(vegetarianCoverCountForMealOneExpected);
     }
 }
