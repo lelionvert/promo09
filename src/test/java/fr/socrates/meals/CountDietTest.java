@@ -141,7 +141,7 @@ public class CountDietTest {
         Meal meal2 = new Meal(covers, MealTime.MEAL2);
         Meals meals = new Meals(meal1, meal2);
 
-        MealRepartitions repartitions = meals.computeMealsRepartitions();
+        MealRepartitions repartitions = meals.generateMealsRepartitions();
         long vegetarianCoverCountInMeal = repartitions.getTotalCoverForDiet(DietType.VEGETARIAN);
 
         long vegetarianMealCountExpected = 2;
@@ -160,7 +160,7 @@ public class CountDietTest {
         Meal meal1 = new Meal(covers1, MealTime.MEAL1);
         Meal meal2 = new Meal(covers2, MealTime.MEAL2);
         Meals meals = new Meals(meal1, meal2);
-        MealRepartitions repartitions = meals.computeMealsRepartitions();
+        MealRepartitions repartitions = meals.generateMealsRepartitions();
         long vegetarianCoversCountInMeals = repartitions.getTotalCoverForDiet(DietType.VEGETARIAN);
 
         long vegetarianCoversCountInMealsExpected = 1;
@@ -174,10 +174,11 @@ public class CountDietTest {
         covers1.add(vegan);
         covers1.add(vegetarian);
         covers1.add(omnivorous);
+
         Meal meal1 = new Meal(covers1, MealTime.MEAL1);
         Meals meals = new Meals(meal1);
 
-        MealRepartitions repartitions = meals.computeMealsRepartitions();
+        MealRepartitions repartitions = meals.generateMealsRepartitions();
 
         long vegetarianCoverCountForMealOne = repartitions.getTotalCoverForMealAndDiet(MealTime.MEAL1, DietType.VEGETARIAN);
         long vegetarianCoverCountForMealOneExpected = 1;

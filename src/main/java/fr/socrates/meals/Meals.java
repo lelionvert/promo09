@@ -11,7 +11,7 @@ public class Meals {
         this.meals = Arrays.asList(meals);
     }
 
-    public MealRepartitions computeMealsRepartitions() {
+    public MealRepartitions generateMealsRepartitions() {
         List<MealRepartition> repartitions = new ArrayList<>();
 
         for (Meal meal : meals) {

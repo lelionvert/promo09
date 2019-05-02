@@ -23,7 +23,7 @@ public class DemoMeals {
         Meal meal = new Meal(covers, MealTime.MEAL1);
         Meals meals = new Meals(meal);
 
-        MealRepartitions repartitions = meals.computeMealsRepartitions();
+        MealRepartitions repartitions = meals.generateMealsRepartitions();
         System.out.println(repartitions);
         System.out.println(repartitions.getTotalCoverForDiet(DietType.VEGETARIAN));
         System.out.println(repartitions.getTotalCoverForDiet(DietType.OMNIVOROUS));
