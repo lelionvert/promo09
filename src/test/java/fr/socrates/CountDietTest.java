@@ -148,4 +148,23 @@ public class CountDietTest {
         long vegetarianMealCountExpected = 2;
         assertThat(vegetarianCoverCountInMeal).isEqualTo(vegetarianMealCountExpected);
     }
+
+    @Test
+    public void one_meal_with_one_vegetarian_one_meal_with_non_vegetarian_cover_should_return_one_vegetarian() {
+
+        List<Cover> covers1 = new ArrayList<>();
+        List<Cover> covers2 = new ArrayList<>();
+        covers1.add(vegetarian);
+        covers1.add(omnivorous);
+        covers2.add(vegan);
+        covers2.add(pescatarian);
+
+        Meal meal1 = new Meal(covers1, DayOfWeek.FRIDAY, MealType.DINNER);
+        Meal meal2 = new Meal(covers2, DayOfWeek.FRIDAY, MealType.LUNCH);
+        Meals meals = new Meals(meal1, meal2);
+        MealRepartitions repartitions = meals.computeMealsRepartitions();
+        long vegetarianCoversCountInMeals = repartitions.getTotalCoverForDiet(DietType.VEGETARIAN);
+        long vegetarianCoversCountInMealsExpected = 1;
+        assertThat(vegetarianCoversCountInMeals).isEqualTo(vegetarianCoversCountInMealsExpected);
+    }
 }

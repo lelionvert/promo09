@@ -17,4 +17,24 @@ class Meal {
     long countForDiet(DietType dietType) {
         return this.covers.stream().filter(cover -> cover.hasDietType(dietType)).count();
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Meal meal = (Meal) o;
+
+        if (covers != null ? !covers.equals(meal.covers) : meal.covers != null) return false;
+        if (mealType != meal.mealType) return false;
+        return dayOfWeek == meal.dayOfWeek;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = covers != null ? covers.hashCode() : 0;
+        result = 31 * result + (mealType != null ? mealType.hashCode() : 0);
+        result = 31 * result + (dayOfWeek != null ? dayOfWeek.hashCode() : 0);
+        return result;
+    }
 }
