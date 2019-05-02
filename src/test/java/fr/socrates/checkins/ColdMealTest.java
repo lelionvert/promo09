@@ -1,4 +1,4 @@
-package fr.socrates;
+package fr.socrates.checkins;
 
 import org.junit.Test;
 

@@ -1,17 +1,17 @@
-package fr.socrates;
+package fr.socrates.checkins;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
 
-class CheckIn {
+public class CheckIn {
 
     private final Optional<LocalDateTime> checkInDateTime;
 
-    CheckIn(LocalDateTime checkInDate) {
+    public CheckIn(LocalDateTime checkInDate) {
         this.checkInDateTime = Optional.of(checkInDate);
     }
 
-    CheckIn() {
+    public CheckIn() {
         this.checkInDateTime = Optional.empty();
     }
 

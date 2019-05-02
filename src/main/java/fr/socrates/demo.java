@@ -1,5 +1,8 @@
 package fr.socrates;
 
+import fr.socrates.checkins.CheckIn;
+import fr.socrates.checkins.CheckIns;
+
 import java.time.LocalDateTime;
 import java.util.Arrays;
 
