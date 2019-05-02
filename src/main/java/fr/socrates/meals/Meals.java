@@ -1,4 +1,4 @@
-package fr.socrates;
+package fr.socrates.meals;
 
 import java.util.ArrayList;
 import java.util.Arrays;

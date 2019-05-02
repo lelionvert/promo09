@@ -1,9 +1,9 @@
-package fr.socrates;
+package fr.socrates.meals;
 
-class Cover {
+public class Cover {
     private DietType dietType;
 
-    Cover(DietType dietType) {
+    public Cover(DietType dietType) {
         this.dietType = dietType;
     }
 

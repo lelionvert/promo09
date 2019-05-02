@@ -1,11 +1,11 @@
-package fr.socrates;
+package fr.socrates.meals;
 
 import java.util.List;
 
 public class MealRepartitions {
-    List<MealRepartition> repartitions;
+    private List<MealRepartition> repartitions;
 
-    public MealRepartitions(List<MealRepartition> repartitions) {
+    MealRepartitions(List<MealRepartition> repartitions) {
         this.repartitions = repartitions;
     }
 
