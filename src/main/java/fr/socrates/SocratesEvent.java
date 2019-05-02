@@ -2,36 +2,36 @@ package fr.socrates;
 
 import java.time.LocalDateTime;
 
-class SocratesEvent {
+public class SocratesEvent {
     private LocalDateTime dateTimeLimitFirstMealService;
     private LocalDateTime dateTimeStartLastMealService;
     private int mealPrice;
     private int defaultMealsNumber;
 
-    SocratesEvent(LocalDateTime dateTimeLimitFirstMealService, LocalDateTime dateTimeStartLastMealService, int mealPrice, int defaultMealsNumber) {
+    public SocratesEvent(LocalDateTime dateTimeLimitFirstMealService, LocalDateTime dateTimeStartLastMealService, int mealPrice, int defaultMealsNumber) {
         this.dateTimeStartLastMealService = dateTimeStartLastMealService;
         this.dateTimeLimitFirstMealService = dateTimeLimitFirstMealService;
         this.mealPrice = mealPrice;
         this.defaultMealsNumber = defaultMealsNumber;
     }
 
-    LocalDateTime getDateTimeLimitFirstMealService() {
+    public LocalDateTime getDateTimeLimitFirstMealService() {
         return dateTimeLimitFirstMealService;
     }
 
-    int getMealNumber() {
+    public int getMealNumber() {
         return defaultMealsNumber;
     }
 
-    int getMealPrice() {
+    public int getMealPrice() {
         return mealPrice;
     }
 
-    int calculateTotalPrice(int mealsNumber) {
+    public int calculateTotalPrice(int mealsNumber) {
         return mealsNumber * mealPrice;
     }
 
-    LocalDateTime getDateTimeStartLastMealService() {
+    public LocalDateTime getDateTimeStartLastMealService() {
         return dateTimeStartLastMealService;
     }
 }

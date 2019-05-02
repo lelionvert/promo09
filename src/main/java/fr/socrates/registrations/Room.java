@@ -1,4 +1,4 @@
-package fr.socrates;
+package fr.socrates.registrations;
 
 public enum Room {
     SINGLE(610),

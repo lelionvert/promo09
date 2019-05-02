@@ -1,5 +1,6 @@
-package fr.socrates;
+package fr.socrates.registrations;
 
+import fr.socrates.SocratesEvent;
 import org.junit.Test;
 
 import java.time.LocalDateTime;
